@@ -1,0 +1,23 @@
+{% macro articleBoxSmall(full = false) %}
+    <!-- Article box - small -->
+    <article class="ArticleBoxSmall{% if full %} ArticleBoxSmall--full{% endif %}">
+        <div class="ArticleBoxSmall-imgContainerWrapper">
+            <picture class="ArticleBoxSmall-imgContainer">
+                <!-- 136 x 136, 204 x 204, 272 x 272 -->
+                <source srcset="./img/placeholder-136x136.jpg 1x, ./img/placeholder-204x204.jpg 1.5x, ./img/placeholder-272x272.jpg 2x"/>
+                <!-- 136 x 136 -->
+                <img class="ArticleBoxSmall-img" src="./img/placeholder-article-thumb.jpg" width="136" height="136" alt="" loading="lazy"/>
+            </picture>
+        </div>
+        <div class="ArticleBoxSmall-textContainer">
+            <div class="ArticleBoxSmall-info">
+                <time class="Date" datetime="2022-11-23">23. 11. 2022</time>
+                <a href="#todo" class="Tag Tag--text Tag--red">Zpravodajství</a>
+                <a href="#todo" class="Tag Tag--text Tag--pink">WTA</a>
+            </div>
+            <h3 class="ArticleBoxSmall-title">
+                <a class="Link--stretched Link--inverted" href="#todo">Reprezentace letos odehraje přípravné zápasy v&nbsp;Černé Hoře a&nbsp;Maďarsku</a>
+            </h3>
+        </div>
+    </article>
+{% endmacro %}

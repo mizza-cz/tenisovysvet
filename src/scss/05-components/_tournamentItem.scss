@@ -1,0 +1,89 @@
+.TournamentItem {
+  position: relative;
+  font-size: rem(14);
+  border-bottom: 1px solid $colorBorderPrimary;
+  padding-bottom: rem(12);
+
+  &:not(:last-child) {
+    margin-bottom: rem(12);
+  }
+
+  &-content {
+    display: flex;
+    justify-content: space-between;
+    column-gap: rem(16);
+  }
+
+  &-heading {
+    font-size: inherit;
+    font-weight: $fontWeightSemiBold;
+    margin-top: rem(2);
+    margin-bottom: 0;
+    max-width: rem(280);
+
+    a {
+      text-decoration: none;
+
+      &:focus,
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &-price {
+    font-weight: $fontWeightMedium;
+    white-space: nowrap;
+  }
+}
+
+.SearchResults {
+  max-width: 58.75rem;
+
+  .TournamentItem {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    &:first-child {
+      border-top: 1px solid $colorBorderPrimary;
+      padding-top: rem(12);
+    }
+
+    &-heading {
+      max-width: none;
+      margin-top: 0;
+    }
+
+    &-main {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      width: 70%;
+
+      .TagList {
+        width: 25%;
+      }
+    }
+
+    &-meta {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1.5rem;
+      flex: 1;
+
+      .Date {
+        width: 5rem;
+        color: var(--dark-60);
+        font-size: $fontSizeSmall;
+        font-weight: $fontWeightNormal;
+        line-height: 1.286;
+      }
+
+      .TournamentItem-price {
+        line-height: 1.286;
+      }
+    }
+  }
+}

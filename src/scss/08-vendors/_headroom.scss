@@ -1,0 +1,11 @@
+.headroom {
+  transition: transform 0.25s ease;
+
+  &--pinned {
+    transform: none;
+  }
+
+  &--unpinned {
+    transform: translateY(-100%);
+  }
+}

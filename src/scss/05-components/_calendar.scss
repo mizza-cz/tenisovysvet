@@ -1,0 +1,108 @@
+@use 'sass:math';
+
+.Calendar {
+  table {
+    border: 1px solid var(--color-border);
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th,
+  td {
+    padding: rem(12) rem(16);
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid var(--color-border);
+  }
+
+  th {
+    @include text(
+      $colorText,
+      $fontSizeSmall,
+      $fontWeightSemiBold,
+      math.div(18, 14)
+    );
+  }
+
+  td {
+    @include text(
+      $colorText,
+      $fontSizeExtraBig,
+      $fontWeightNormal,
+      math.div(18, 20)
+    );
+
+    a {
+      text-decoration: none;
+
+      &:focus,
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  thead tr:nth-child(2) th,
+  tbody td {
+    padding-top: rem(20);
+    padding-bottom: rem(20);
+  }
+
+  tbody td {
+    position: relative;
+  }
+
+  tbody td a {
+    text-decoration: none;
+  }
+
+  tbody td {
+    &:hover {
+      background-color: var(--blue-5);
+
+      @include inDarkMode {
+        background-color: var(--blue-160);
+      }
+    }
+  }
+
+  &-oldDay {
+    @at-root td#{&} {
+      color: #99a5b3;
+    }
+  }
+
+  &-newDay {
+    @at-root td#{&} {
+      color: #99a5b3;
+    }
+  }
+
+  &-hasEvent {
+    @at-root td#{&} {
+      color: $colorSecondary;
+      font-weight: $fontWeightSemiBold;
+    }
+  }
+
+  &-selected {
+    @at-root td#{&} {
+      background-color: #f6faeb;
+      position: relative;
+
+      @include inDarkMode {
+        background-color: var(--green-160);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: -1px;
+        top: -1px;
+        right: -1px;
+        bottom: -1px;
+        border: 1px solid #a5c938;
+      }
+    }
+  }
+}

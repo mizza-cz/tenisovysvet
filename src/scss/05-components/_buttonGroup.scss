@@ -1,0 +1,51 @@
+.ButtonGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: rem(16);
+
+  @include respondTo(xs) {
+    gap: 0.5rem;
+
+    .Button {
+      flex: 1;
+      min-width: 8rem;
+    }
+  }
+
+  /*
+   * Size
+   */
+  &--small {
+    gap: rem(8);
+  }
+
+  &--medium {
+    gap: rem(12);
+  }
+
+  /*
+   * Alignment
+   */
+  &--centered {
+    justify-content: center;
+  }
+
+  &--scrolling {
+    @include respondTo(md) {
+      @media (hover: none) {
+        flex-wrap: nowrap;
+        overflow: auto;
+        margin-left: rem(-$page-spacingMobile);
+        margin-right: rem(-$page-spacingMobile);
+        padding-left: rem($page-spacingMobile);
+
+        &::after {
+          content: '';
+          display: block;
+          width: rem($page-spacingMobile - 8); // 8 = spacing
+          flex: 0 0 auto;
+        }
+      }
+    }
+  }
+}

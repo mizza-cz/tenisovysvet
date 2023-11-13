@@ -1,0 +1,18 @@
+@use "sass:math";
+
+.TournamentTable {
+  &-name {
+    @include text(var(--color-text-dark), rem(14), $fontWeightSemiBold, math.div(18, 14));
+    text-decoration: none;
+
+    @media (hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &-date {
+    color: #67788D !important;
+  }
+}

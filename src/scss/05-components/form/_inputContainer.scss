@@ -1,0 +1,27 @@
+.InputContainer {
+  position: relative;
+
+  &-icon {
+    position: absolute;
+    left: rem(8);
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    color: var(--color-text);
+
+    &[type='submit'] {
+      appearance: none;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background: transparent;
+      user-select: none;
+      transition: transform 0.25s ease-in-out;
+
+      &:focus,
+      &:hover {
+        transform: translateY(-50%) scale(1.2);
+      }
+    }
+  }
+}

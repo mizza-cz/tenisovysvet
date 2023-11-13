@@ -1,0 +1,37 @@
+.Socials {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: rem(32);
+
+  @include respondTo(xs) {
+    gap: 1rem;
+  }
+
+  &-link {
+    display: flex;
+    align-items: center;
+    column-gap: rem(12);
+    color: #fff;
+    font-size: rem(12);
+    font-weight: $fontWeightSemiBold;
+    text-decoration: none;
+
+    @include respondTo(sm) {
+      flex-direction: column;
+      row-gap: rem(8);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &-icon {
+    transition: transform 0.1s ease;
+    will-change: transform;
+  }
+}

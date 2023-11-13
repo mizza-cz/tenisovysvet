@@ -1,0 +1,43 @@
+{% from "../../macros/accordionItem.njk" import accordionItem %}
+<!-- Právě se stalo -->
+<section id="sidebar-news">
+  <h2 class="H2 u-mt-16 u-sm-mt-0">Právě se stalo</h2>
+
+  <div class="Tabs js-tabs">
+    <!-- Tabs nav -->
+    <div class="ButtonGroup ButtonGroup--small ButtonGroup--scrolling u-mb-12" role="tablist">
+      <button class="ToggleButton is-active js-tabs-button" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-news-1" id="tab-news-1">
+        <span>Vše</span>
+      </button>
+      <button class="ToggleButton js-tabs-button" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-news-2" id="tab-news-2">
+        <span>Pouze Češi</span>
+      </button>
+      <button class="ToggleButton js-tabs-button" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-news-3" id="tab-news-3">
+        <span>Muži</span>
+      </button>
+      <button class="ToggleButton js-tabs-button" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-news-4" id="tab-news-4">
+        <span>Ženy</span>
+      </button>
+    </div>
+
+    <!-- Tabs content -->
+    <div class="Tabs-contentContainer">
+      <!-- Tabs content - "Vše" -->
+      <section class="Tabs-panel is-active js-tabs-panel" id="tabpanel-news-1" role="tabpanel" aria-labelledby="tab-news-1">
+        {% include "../sidebar/_accordionHotNews.njk" %}
+      </section>
+      <!-- Tabs content - "Pouze Češi" -->
+      <section class="Tabs-panel js-tabs-panel" id="tabpanel-news-2" role="tabpanel" aria-labelledby="tab-news-2">
+        <p>Tab "Pouze Češi" content</p>
+      </section>
+      <!-- Tabs content - "Muži" -->
+      <section class="Tabs-panel js-tabs-panel" id="tabpanel-news-3" role="tabpanel" aria-labelledby="tab-news-3">
+        <p>Tab "Muži" content</p>
+      </section>
+      <!-- Tabs content - "Ženy" -->
+      <section class="Tabs-panel js-tabs-panel" id="tabpanel-news-4" role="tabpanel" aria-labelledby="tab-news-4">
+        <p>Tab "Ženy" content</p>
+      </section>
+    </div>
+  </div>
+</section>

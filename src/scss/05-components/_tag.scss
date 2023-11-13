@@ -1,0 +1,129 @@
+.Tag {
+  @include text(var(--tag-color, #fff), rem(12), $fontWeightSemiBold, 1);
+  display: inline-flex;
+  align-items: center;
+  border-radius: $borderRadiusPrimary;
+  text-decoration: none;
+
+  &--text {
+    color: var(--tag-bg);
+  }
+
+  &--inheritSize {
+    font-size: inherit;
+  }
+
+  &:not(&--text) {
+    background-color: var(--tag-bg);
+    padding-left: rem(8);
+    padding-right: rem(8);
+    min-height: rem(24);
+  }
+
+  &--blue {
+    --tag-bg: #1b90d0;
+  }
+
+  &--red {
+    --tag-bg: #d21717;
+  }
+
+  &--orange {
+    --tag-bg: #d25817;
+  }
+
+  &--pink {
+    --tag-bg: #c98ec9;
+  }
+
+  &--green {
+    --tag-bg: #a5c938;
+
+    &.Tag--subtle {
+      --tag-bg: #{$colorTertiary};
+      --tag-color: #637922;
+    }
+  }
+
+  &--darkgreen {
+    --tag-bg: #02602d;
+  }
+
+  &--lightgreen {
+    color: var(--green-180);
+    --tag-bg: var(--color-green-soft);
+
+    @include inDarkMode {
+      color: var(--green-5);
+    }
+
+    &.Tag--text {
+      color: var(--color-green-soft);
+    }
+  }
+
+  &--gray,
+  &--grey {
+    --tag-bg: #99a5b3;
+  }
+
+  &--black {
+    --tag-bg: #{$colorBlack};
+
+    &.Tag--text {
+      @include inDarkMode {
+        color: var(--white);
+      }
+    }
+  }
+
+  &--brown {
+    --tag-bg: #{$colorBrown};
+  }
+
+  &--gold {
+    --tag-bg: #{$colorGold};
+  }
+
+  &--turquoise {
+    color: var(--green-180);
+    --tag-bg: #{$colorTurquoise};
+
+    &.Tag--text {
+      color: $colorTurquoise;
+    }
+  }
+
+  &--white {
+    color: var(--green-180);
+    --tag-bg: #{$colorWhite};
+
+    &.Tag--text {
+      color: #{$colorWhite};
+    }
+  }
+
+  &--yellow {
+    color: var(--green-180);
+    --tag-bg: #{$colorYellow};
+
+    &.Tag--text {
+      color: #{$colorYellow};
+    }
+  }
+
+  // linkable tags
+  @at-root a#{&}:hover {
+    text-decoration: underline;
+  }
+
+  &--text:focus-visible,
+  &--subtle:focus-visible {
+    outline: 1px solid currentColor;
+  }
+
+  &:not(&--text):focus-visible,
+  &:not(&--subtle):focus-visible {
+    box-shadow: 0 0 0 4px rgba($colorGrey, 25%);
+  }
+}

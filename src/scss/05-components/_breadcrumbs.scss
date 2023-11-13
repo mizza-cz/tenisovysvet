@@ -1,0 +1,27 @@
+.Breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: rem(8);
+  font-size: rem(12);
+  margin-bottom: rem(12);
+
+  @media (pointer: coarse) {
+    flex-wrap: nowrap;
+    overflow: auto;
+    white-space: nowrap;
+  }
+
+  @include respondFrom(md) {
+    margin-bottom: rem(24);
+  }
+
+  a {
+    color: inherit;
+  }
+
+  svg {
+    color: #B3BCC6;
+    flex-shrink: 0;
+  }
+}

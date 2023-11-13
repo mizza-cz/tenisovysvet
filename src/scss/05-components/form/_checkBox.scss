@@ -1,0 +1,46 @@
+.Checkbox {
+  position: relative;
+  padding-left: 1.5rem;
+
+  &-label {
+    @include text(var(--color-text-dark), $fontSizeExtraSmall, $fontWeightSemiBold, math.div(20, 12));
+    display: inline-block;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: rem(16);
+      height: rem(16);
+      position: absolute;
+      top: rem(6);
+      left: 0;
+      background-color: var(--color-form-input-background);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      border: $formInputBorder;
+      border-radius: $formInputRadius;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+  }
+
+  &-originalCheck {
+    @include srOnly();
+
+    &:focus-visible + .Checkbox-label {
+      &::before {
+        border-color: var(--color-form-input-border-active-color);
+        box-shadow: 0 0 0 4px rgba($colorGrey, 25%);
+      }
+    }
+
+    &:checked + .Checkbox-label {
+      &::before {
+        background-color: $colorSecondary;
+        border: $colorSecondary;
+        background-image: url(../img/icons/check.svg);
+      }
+    }
+  }
+}

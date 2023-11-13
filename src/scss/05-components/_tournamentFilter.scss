@@ -1,0 +1,20 @@
+.TournamentFilter {
+  display: flex;
+  align-items: center;
+  gap: rem(16);
+  flex-wrap: wrap;
+
+  .InputContainer {
+    @include respondTo(sm) {
+      flex: 1;
+    }
+  }
+
+  &-selectYear {
+    min-width: unset;
+  }
+
+  &-selectMonth {
+    min-width: rem(180);
+  }
+}

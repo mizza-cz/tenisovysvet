@@ -1,0 +1,105 @@
+{% extends "../templates/layout.njk" %}
+{% from "../templates/macros/breadcrumbs.njk" import breadcrumbs %}
+{% from "../templates/macros/icon.njk" import icon %}
+{% set pageTitle = 'Žebříčky | Tenisový svět' %}
+
+{% block main %}
+	<div class="Container Container--large">
+		{{ breadcrumbs(['Tenisovýsvět.cz', 'Žebříčky']) }}
+
+		<div class="PageHeader">
+			<h1 class="H1">Žebříčky</h1>
+
+			<form action="#todo" method="get" class="LeaderboardFilter">
+				<div class="Checkbox u-sm-my-16">
+					<input id="frm-only-czech" type="checkbox" class="Checkbox-originalCheck">
+					<label for="frm-only-czech" class="Checkbox-label">Pouze Češi</label>
+				</div>
+
+				<div class="u-display-flex u-gap-6 u-sm-width-100p">
+					<div class="InputContainer">
+						<div class="InputContainer-icon">
+							{{ icon("calendar", "", 32, 32) }}
+						</div>
+						<input type="text" name="" data-dateinput-type="date" class="TextInput TextInput--withIcon js-datePicker flatpickr-input" id="" placeholder="Zadejte datum" readonly="readonly">
+					</div>
+
+					<div class="InputContainer">
+						<div class="InputContainer-icon">
+							{{ icon("medal", "", 32, 32) }}
+						</div>
+						<select class="Select Select--withIcon">
+							<option>1 - 50</option>
+							<option>50 - 100</option>
+							<option>100 - 150</option>
+						</select>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="ButtonGroup ButtonGroup--small ButtonGroup--scrolling u-sm-mt-16 u-mt-24 u-mb-24">
+			<a href="#todo" class="ToggleButton is-active">ATP dvouhra</a>
+			<a href="#todo" class="ToggleButton">ATP čtyřhra</a>
+			<a href="#todo" class="ToggleButton">WTA dvouhra</a>
+			<a href="#todo" class="ToggleButton">WTA čtyřhra</a>
+		</div>
+
+		<table class="LeaderboardTable Table Table--highlightRows">
+			<thead>
+				<tr>
+					<th class="LeaderboardTable-number">#</th>
+					<th class="LeaderboardTable-shift">Posun</th>
+					<th class="LeaderboardTable-player LeaderboardTable-player--th">Hráč</th>
+					<th class="LeaderboardTable-age">Věk</th>
+					<th class="LeaderboardTable-tournament">Turnaje</th>
+					<th class="LeaderboardTable-score">Body</th>
+				</tr>
+			</thead>
+
+			{% for i in range(1, 31) %}
+				<tr>
+					<td class="LeaderboardTable-number">
+						<strong>{{ i }}.</strong>
+						<a href="#todo" class="Link Link--overlay" title="{extra extra long player name}" aria-label="{extra extra long player name}">
+							{extra extra long player name}
+						</a>
+					</td>
+
+					{% if i % 2 === 0 %}
+						<td class="LeaderboardTable-shift LeaderboardTable-shift--up">
+							{{ icon("chevron-up", "", 20, 20) }}
+						</td>
+					{% else %}
+						<td class="LeaderboardTable-shift LeaderboardTable-shift--down">
+							{{ icon("chevron-down", "", 20, 20) }}
+						</td>
+					{% endif %}
+
+					<td class="LeaderboardTable-player">
+						<div class="PlayerItem">
+							<span class="fi fi-cz"></span>
+							<a href="#todo" class="Link Link--inverted">
+								{extra extra long player name}
+							</a>
+						</div>
+					</td>
+					<td class="LeaderboardTable-age">28</td>
+					<td class="LeaderboardTable-tournament">
+						<strong>18</strong>
+					</td>
+					<td class="LeaderboardTable-score">
+						<strong>6 780</strong>
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+
+		<div class="ButtonGroup ButtonGroup--centered ButtonGroup--medium u-mt-16">
+			<a href="#todo" class="Button Button--primary Button--disabled">1 - 50</a>
+			<a href="#todo" class="Button Button--primary">51 - 100</a>
+			<a href="#todo" class="Button Button--primary">101 - 150</a>
+			<a href="#todo" class="Button Button--primary">151 - 200</a>
+		</div>
+	</div>
+{% endblock %}

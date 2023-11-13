@@ -1,0 +1,49 @@
+.ScoreboardTable {
+  th {
+    padding-top: rem(12);
+    padding-bottom: rem(8);
+  }
+
+  td {
+    padding-top: rem(12);
+    padding-bottom: rem(12);
+
+    &:last-child {
+      white-space: nowrap;
+    }
+  }
+
+  &-cleaner {
+    padding: 0 !important;
+  }
+
+  &-up,
+  &-down {
+    svg {
+      vertical-align: middle;
+    }
+  }
+
+  &-up {
+    // override td padding
+    padding: 0 !important;
+    color: #84a12d !important;
+  }
+
+  &-down {
+    // override td padding
+    padding: 0 !important;
+    color: #d21717 !important;
+  }
+
+  &-name {
+    text-align: left;
+    padding-left: rem(4) !important;
+
+    &--th {
+      padding-left: rem(
+        4 + 16 + 8
+      ) !important; // 16 = flag width, 8 spacing in PlayerItem
+    }
+  }
+}

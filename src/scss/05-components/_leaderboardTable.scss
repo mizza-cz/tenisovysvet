@@ -1,0 +1,88 @@
+.LeaderboardTable {
+  $_sideSpacingSmall: 0;
+  $_sideSpacing: 100;
+
+  td {
+    white-space: nowrap;
+    padding-top: rem(12);
+    padding-bottom: rem(12);
+  }
+
+  &-number {
+    padding-left: rem($_sideSpacingSmall);
+    padding-right: 0;
+    text-align: right;
+    width: rem(24);
+
+    @include respondFrom(md) {
+      padding-left: rem($_sideSpacing);
+    }
+  }
+
+  &-shift {
+    text-align: center;
+    width: rem(120);
+    padding-left: rem(8);
+    padding-right: rem(8);
+
+    svg {
+      position: relative;
+      top: 0.25rem;
+    }
+
+    &--up svg {
+      color: #84a12d;
+    }
+
+    &--down svg {
+      color: #d21717;
+    }
+  }
+
+  &-player {
+    text-align: left;
+    white-space: normal !important;
+    padding-right: rem(16);
+
+    @include respondFrom(md) {
+      padding-left: rem(64);
+    }
+
+    @include respondTo(md) {
+      width: 100%;
+    }
+
+    &--th {
+      @include respondFrom(md) {
+        padding-left: rem(64 + 16 + 8);
+      }
+    }
+  }
+
+  &-age {
+    text-align: left;
+    padding-right: rem(8);
+
+    @include respondTo(xs) {
+      display: none;
+    }
+  }
+
+  &-tournament {
+    text-align: right;
+    padding-right: rem(16);
+
+    @include respondTo(xs) {
+      display: none;
+    }
+  }
+
+  &-score {
+    text-align: right;
+    padding-right: rem($_sideSpacingSmall);
+
+    @include respondFrom(md) {
+      padding-right: rem($_sideSpacing);
+    }
+  }
+}

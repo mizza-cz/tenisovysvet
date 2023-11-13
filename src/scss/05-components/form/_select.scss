@@ -1,0 +1,22 @@
+@use "sass:math";
+
+@import "abstractInput";
+
+.Select {
+  @extend %AbstractInput;
+  background-image: url(../img/icons/chevron-down.svg);
+  background-repeat: no-repeat;
+  background-position: calc(100% - 8px) center;
+  background-size: 24px;
+  padding: rem(10) rem(44) rem(10) rem(12);
+  @include textOverflowEllipsis();
+  min-width: rem(172);
+
+  @include inDarkMode {
+    background-image: url(../img/icons/chevron-down-white.svg);
+  }
+
+  &--withIcon {
+    padding-left: rem(48);
+  }
+}

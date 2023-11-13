@@ -1,0 +1,14 @@
+.OnlineFilter {
+  display: flex;
+  align-items: center;
+  gap: rem(16);
+  flex-wrap: wrap;
+  overflow: auto;
+  padding: 0.25rem;
+  margin-left: -0.25rem;
+
+  @include respondTo(sm) {
+    padding: 0;
+    margin: 0;
+  }
+}

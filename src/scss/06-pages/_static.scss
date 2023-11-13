@@ -1,0 +1,226 @@
+.StaticContent {
+  h1 {
+    margin-bottom: 2.5rem;
+
+    @include respondTo(sm) {
+      margin-bottom: 2rem;
+    }
+
+    @include respondTo(xs) {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include text($colorText, $fontSizeHuge, $fontWeightBold, 1.4);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    clear: both;
+
+    @include respondTo(sm) {
+      font-size: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    @include respondTo(xs) {
+      font-size: 1.125rem;
+      margin-top: 1.5rem;
+    }
+  }
+
+  &-perex {
+    @include text($colorText, 1.125rem, $fontWeightSemiBold, 1.75);
+    margin-bottom: 1.5rem;
+  }
+
+  p:not(.Article-widget p) {
+    @include text($colorText, $fontSizeBig, $fontWeightNormal, 1.75);
+    margin-bottom: 2rem;
+
+    @include respondTo(xs) {
+      font-size: $fontSizeNormal;
+      margin-bottom: 1.25rem;
+    }
+  }
+
+  p + p:not(.Article-widget p + p) {
+    margin-top: 1.5rem;
+  }
+
+  a:not(.Article-widget a) {
+    color: $colorSecondary;
+  }
+
+  // blockquote,
+  // blockquote p {
+  //   @include text($colorText, $fontSizeBig, $fontWeightSemiBold, inherit);
+  // }
+
+  // blockquote {
+  //   position: relative;
+  //   padding-top: 1rem;
+
+  //   &::before {
+  //     content: "";
+  //     @extend .Separator;
+  //     width: rem(184px) !important;
+  //     max-width: 40%;
+  //     position: absolute;
+  //     top: 0;
+  //     left: 0;
+  //     @include text($colorText, 4.375rem, $fontWeightBold, 1);
+  //     font-style: italic;
+  //   }
+  // }
+
+  // hr {
+  //   display: block;
+  //   width: 100%;
+  //   height: 1px;
+  //   background-color: $colorGrey--light;
+  //   border: none;
+  //   border-radius: rem(30px);
+  //   margin: 2.5rem 0;
+
+  //   @include respondTo(xs) {
+  //     margin: 2rem 0;
+  //   }
+
+  //   @include respondTo(xs) {
+  //     margin: 1.5rem 0;
+  //   }
+  // }
+
+  img:not(.Article-widget img) {
+    @include imgResponsive();
+  }
+
+  figcaption {
+    @include text($colorText, $fontSizeSmall, $fontWeightMedium, 1.75);
+    margin-top: 0.5rem;
+  }
+
+  ul:not(.Article-widget ul) {
+    li {
+      position: relative;
+      @include text($colorText, $fontSizeBig, $fontWeightNormal, 1.75);
+      padding-left: 1.5rem;
+
+      // &:not(:last-child) {
+      //   margin-bottom: rem(10px);
+      // }
+
+      @include respondTo(xs) {
+        font-size: $fontSizeNormal;
+      }
+
+      &::before {
+        content: "";
+        width: 0.25rem;
+        height: 0.25rem;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        background-color: $colorBlack;
+        border-radius: 50%;
+        transform: translateY(-50%);
+      }
+    }
+  }
+
+  ol:not(.Article-widget ol) {
+    counter-reset: li-counter;
+
+    li {
+      position: relative;
+      counter-increment: li-counter;
+      @include text($colorText, $fontSizeBig, $fontWeightNormal, 1.75);
+      padding-left: 1.5rem;
+
+      @include respondTo(xs) {
+        font-size: $fontSizeNormal;
+      }
+
+      // &:not(:last-child) {
+      //   margin-bottom: rem(10px);
+      // }
+
+      &::before {
+        content: counter(li-counter) ".";
+        position: absolute;
+        top: 0;
+        left: 0;
+        color: $colorBlack;
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+
+    thead {
+      tr {
+        background-color: var(--color-surface);
+      }
+
+      th {
+        @include text($colorText, $fontSizeSmall, $fontWeightBold, 1.55);
+        text-transform: uppercase;
+        text-align: left;
+        padding: rem(12px) 1rem;
+
+        abbr {
+          text-decoration: none;
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        background-color: $colorWhite;
+        border-bottom: $borderPrimary;
+      }
+
+      td {
+        @include text($colorText, $fontSizeBig, $fontWeightNormal, normal);
+        text-align: left;
+        vertical-align: middle;
+        padding: rem(12px) 1rem;
+
+        a {
+          color: $colorSecondary;
+        }
+      }
+    }
+  }
+
+  form {
+    max-width: rem(600px);
+
+    div + div {
+      margin-top: 0.75rem;
+    }
+
+    label {
+      display: block;
+      @include text($colorText, 1rem, $fontWeightNormal, normal);
+      margin-bottom: 0.5rem;
+    }
+
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+      @include text($colorText, $fontSizeNormal, $fontWeightNormal, 1.75);
+      background-color: (--color-surface-2);
+      border: $borderPrimary;
+      border-radius: $borderRadiusPrimary;
+      padding: rem(10px) 1rem;
+      @include placeholder($colorPlaceholder);
+    }
+  }
+}

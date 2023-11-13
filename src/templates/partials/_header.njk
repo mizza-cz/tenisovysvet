@@ -1,0 +1,97 @@
+{% from "../macros/icon.njk" import icon %}
+
+<!-- Header -->
+<header class="Header">
+  <a href="/" class="Header-logo" aria-label="Tenisový svět - domovská stránka" title="Tenisový svět - domovská stránka">
+    {% include "./_logo.njk" %}
+  </a>
+
+  <!-- Menu button -->
+  <button type="button" class="MenuButton" id="js-nav-toggle" aria-controls="js-nav" aria-label="Zobrazit menu" aria-haspopup="true" aria-expanded="false">
+    Menu
+    {{ icon("menu", "MenuButton-openIcon") }}
+    {{ icon("x-close", "MenuButton-closeIcon") }}
+  </button>
+
+  <div class="Header-nav" id="js-nav">
+    <!-- Search -->
+    <form action="#todo" class="Header-search ThemeDark">
+      <div class="InputContainer">
+        <button class="InputContainer-icon" type="submit">
+          {{ icon("search", "", 32, 32) }}
+        </button>
+        <input class="TextInput TextInput--withIcon" type="text" placeholder="Vyhledávání"/>
+      </div>
+    </form>
+
+    <!-- Nav -->
+    <nav class="Nav" aria-label="Hlavní navigace">
+      <!-- Main menu -->
+      <ul class="Nav-menu">
+        <li class="Nav-item">
+          <a href="#todo" class="Nav-link is-active">
+            Denní menu
+            {{ icon('arrow-right', 'Nav-itemIcon', 32, 32) }}
+          </a>
+        </li>
+        <li class="Nav-item">
+          <a href="#todo" class="Nav-link">
+            Zprávy
+            {{ icon('arrow-right', 'Nav-itemIcon', 32, 32) }}
+          </a>
+        </li>
+        <li class="Nav-item">
+          <a href="#todo" class="Nav-link">
+            Žebříčky
+            {{ icon('arrow-right', 'Nav-itemIcon', 32, 32) }}
+          </a>
+        </li>
+        <li class="Nav-item">
+          <a href="#todo" class="Nav-link">
+            Turnaje
+            {{ icon('arrow-right', 'Nav-itemIcon', 32, 32) }}
+          </a>
+        </li>
+        <li class="Nav-item">
+          <a href="#todo" class="Nav-link">
+            Online přenosy
+            {{ icon('arrow-right', 'Nav-itemIcon', 32, 32) }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="Header-socialLinks">
+      {% include "./_socialLinks.njk" %}
+    </div>
+
+    <button class="Header-navThemeSwitcher js-themeSwitcher" data-text-light="Světlý režim" data-text-dark="Tmavý režim">
+      {{ icon("dark-mode", "", 32, 32) }}
+    </button>
+  </div>
+
+  <div class="Header-side">
+    <form action="#todo" method="get" class="SearchForm">
+      <div class="Form-item">
+        <div class="InputContainer">
+          <button type="submit" class="InputContainer-icon" title="Vyhledat">
+            {{ icon("search", "", 32, 32) }}
+          </button>
+          <input type="text" class="TextInput TextInput--withIcon">
+        </div>
+      </div>
+    </form>
+
+    <button class="IconButton IconButton--darkTheme js-themeSwitcher" aria-label="Změnit barevný mód" title="Změnit barevný mód">
+      {{ icon("dark-mode", "", 32, 32) }}
+    </button>
+
+    <button class="IconButton js-searchSwitcher Header-openSearch" aria-label="Zobrazit vyhledávání" aria-expanded="false" aria-haspopup="true" title="Zobrazit vyhledávání">
+      {{ icon("search", "", 32, 32) }}
+    </button>
+
+    <button class="IconButton js-searchSwitcher Header-closeSearch" aria-label="Skrýt vyhledávání" aria-expanded="false" title="Skrýt vyhledávání">
+      {{ icon("x-close", "", 32, 32) }}
+    </button>
+  </div>
+</header>

@@ -1,0 +1,85 @@
+.SearchResults {
+  max-width: 58.75rem;
+
+  .TournamentItem {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    &:first-child {
+      border-top: 1px solid $colorBorderPrimary;
+      padding-top: rem(12);
+    }
+
+    &-heading {
+      max-width: none;
+      margin-top: 0;
+    }
+
+    &-main {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      width: 70%;
+
+      @include respondTo(sm) {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.125rem;
+      }
+
+      .TagList {
+        width: 33%;
+
+        @include respondTo(sm) {
+          width: 100%;
+        }
+      }
+    }
+
+    &-meta {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1.5rem;
+      flex: 1;
+
+      @include respondTo(sm) {
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.125rem;
+      }
+
+      .Date {
+        width: calc(50% - 1.5rem);
+        color: var(--dark-60);
+        font-size: $fontSizeSmall;
+        font-weight: $fontWeightNormal;
+        line-height: 1.286;
+        text-align: right;
+
+        @include respondTo(sm) {
+          width: auto;
+        }
+      }
+
+      .TournamentItem-price {
+        width: 50%;
+        line-height: 1.286;
+        text-align: right;
+
+        @include respondTo(sm) {
+          width: auto;
+        }
+      }
+    }
+  }
+
+  .PlayerInfo {
+    @include respondTo(xs) {
+      flex-direction: column;
+      align-items: flex-start;
+      row-gap: 0.25rem;
+    }
+  }
+}

@@ -1,0 +1,175 @@
+.Page {
+  &:not(&--visibleBreadcrumbs) .Breadcrumbs {
+    @include respondTo(sm) {
+      display: none;
+    }
+  }
+
+  &--articleDetail {
+    .Main {
+      @include respondTo(xs) {
+        padding-top: 0;
+      }
+    }
+
+    .PlayerDetail-imgContainer {
+      @include respondFrom(md) {
+        display: none;
+      }
+    }
+
+    .PageImageHeader-photo {
+      @include respondFrom(md) {
+        order: 0;
+      }
+    }
+
+    .TagList {
+      @include respondFrom(md) {
+        position: static;
+      }
+    }
+
+    @include respondTo(xs) {
+      .SidebarContainer {
+        display: none;
+      }
+    }
+  }
+
+  &--tournamentDetail {
+    @include respondTo(xs) {
+      .Main {
+        padding-top: 0;
+      }
+
+      .Breadcrumbs {
+        margin-top: 12px;
+        margin-bottom: 12px;
+      }
+
+      .SidebarContainer {
+        display: none;
+      }
+    }
+
+    @include respondFrom(sm) {
+      .Breadcrumbs {
+        margin-bottom: 1rem;
+      }
+    }
+
+    .PageImageHeader {
+      @include respondFrom(md) {
+        margin-bottom: rem(64);
+      }
+    }
+
+    .H1 {
+      @include respondTo(sm) {
+        margin-top: rem(16);
+      }
+    }
+  }
+
+  &--tournamentDetailWithoutImage {
+    #sidebar-rankings {
+      display: none;
+    }
+
+    @include respondFrom(sm) {
+      .Breadcrumbs {
+        margin-bottom: 1rem;
+      }
+    }
+
+    @include respondTo(xs) {
+      .SidebarContainer {
+        display: none;
+      }
+    }
+
+    .PageImageHeader {
+      @include respondFrom(md) {
+        margin-bottom: rem(64);
+      }
+
+      .TagList {
+        @include respondFrom(md) {
+          order: 2;
+          margin-top: rem(-8);
+        }
+      }
+    }
+
+    .H1 {
+      @include respondTo(sm) {
+        margin-top: rem(16);
+      }
+    }
+  }
+
+  &--player {
+    @include respondTo(xs) {
+      .Main {
+        padding-top: 0;
+      }
+
+      .Breadcrumbs {
+        margin-top: 12px;
+        margin-bottom: 12px;
+      }
+
+      #sidebar-news,
+      #sidebar-tournaments-czechs,
+      #sidebar-banner,
+      #sidebar-rankings {
+        display: none;
+      }
+    }
+
+    .H1 {
+      @include respondTo(sm) {
+        margin-top: rem(16);
+        margin-bottom: rem(16);
+      }
+
+      @include respondFrom(md) {
+        margin-bottom: rem(8);
+      }
+    }
+
+    .PageImageHeader {
+      @include respondFrom(md) {
+        margin-bottom: rem(64);
+      }
+    }
+
+    .PhotoContainer {
+      @include respondFrom(md) {
+        margin-top: rem(24);
+      }
+    }
+
+    .PlayerSocials {
+      @include respondTo(sm) {
+        margin-top: rem(24);
+        margin-bottom: rem(32);
+      }
+    }
+  }
+
+  &--online {
+    .H2 .TagList {
+      @include respondTo(sm) {
+        font-size: rem(16);
+        margin-bottom: rem(12);
+      }
+    }
+  }
+}
+.Page--stream {
+  .OnlineHeader .OnlineHeader-dateSelector {
+    justify-content: start;
+  }
+}

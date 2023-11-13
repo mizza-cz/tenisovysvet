@@ -1,0 +1,12 @@
+.ArticleSmallColumns {
+  @include respondTo(sm) {
+    display: flex;
+    flex-direction: column;
+    row-gap: rem(36);
+  }
+
+  @include respondFrom(md) {
+    column-count: 2;
+    column-gap: rem(56);
+  }
+}

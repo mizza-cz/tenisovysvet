@@ -1,0 +1,12 @@
+{% from "./articleBoxSmall.njk" import articleBoxSmall %}
+
+{% macro articleList(count = 14) %}
+    <!-- Articles - small -->
+    <ul class="ArticleList">
+        {% for i in range(0, count) %}
+            <li>
+                {{ articleBoxSmall(true) }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}

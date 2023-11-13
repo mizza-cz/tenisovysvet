@@ -1,0 +1,255 @@
+{% extends "../templates/layout-sidebar.njk" %}
+{% from "../templates/macros/breadcrumbs.njk" import breadcrumbs %}
+{% from "../templates/macros/articleBoxSmall.njk" import articleBoxSmall %}
+{% set pageTitle = 'Článek | Tenisový svět' %}
+{% set bodyClass = 'Page--articleDetail' %}
+
+{% block mainContent %}
+  <article class="Article">
+    <div class="Container Container--slim">
+      <header class="PageImageHeader">
+        {{ breadcrumbs(['Tenisovýsvět.cz', 'Zprávy', 'Komu se splní sen o hlavní soutěži? Do kvalifikace Roland Garros naskočí sedm Čechů']) }}
+
+        <!-- Article main photo - mobile -->
+        <div class="PageImageHeader-photo">
+          <div class="PhotoContainer">
+            <picture class="PlayerDetail-imgContainer">
+              <!-- 1152 x 716 -->
+              <source media="(max-width: 800px)" srcset="./img/placeholder-player-detail-1152x716.jpg"/>
+              <!-- 776 x 482, 1164 x 724, 1552 x 965 -->
+              <source srcset="./img/placeholder-player-detail-776x482.jpg 1x, ./img/placeholder-player-detail-1164x724.jpg 1.5x, ./img/placeholder-player-detail-1552x965.jpg 2x"/>
+              <!-- 776 x 482 -->
+              <img class="PlayerDetail-img" src="./img/placeholder-player-detail-776x482.jpg" width="776" height="482" alt="" loading="lazy"/>
+            </picture>
+            <div class="TagList">
+              <a href="#todo" class="Tag Tag--blue">Zpravodajství</a>
+              <a href="#todo" class="Tag Tag--red">Češi v akci</a>
+            </div>
+          </div>
+        </div>
+
+        <h1 class="H1 u-mt-16">Komu se splní sen o hlavní soutěži? Do kvalifikace Roland Garros naskočí sedm Čechů</h1>
+
+        <div class="Date Date--large u-mt-24">
+          <time datetime="2023-05-21">Včera, 12:19</time>
+          - Marek Bartošík
+        </div>
+      </header>
+
+      <!-- Article perex -->
+      <div class="Article-perex">
+        <p>Na mužském antukovém turnaji
+          <a href="#todo">Genova Prague Open by Moneta Money Bank</a>
+          s
+          <strong>dotací 25 tisíc amerických dolarů</strong>
+          bude ve středu pokračovat úvodní kolo dvouhry i čtyřhry. Do akce se v singlu zapojí celkem devět domácích tenistů a v deblu pak dokonce deset.</p>
+      </div>
+
+      <!-- Article main photo - desktop -->
+      <picture>
+        <!-- 776 x 518 , 1164 x 776, 1552 x 1035 -->
+        <source srcset="./img/placeholder-article.jpg 1x, ./img/placeholder-article@1.5x.jpg 1.5x, ./img/placeholder-article@2x.jpg 2x"/>
+        <!-- 776 x 518 -->
+        <img class="Article-img u-sm-display-none" src="./img/placeholder-article.jpg" width="776" height="518" alt="" loading="lazy"/>
+      </picture>
+    </div>
+
+    <!-- Banner B2 / article - 936 x 280 -->
+    <div class="Banner u-mt-24">
+      <a href="#todo">
+        <img src="./img/placeholder-banner-article.jpg" width="936" height="280" loading="lazy"/>
+      </a>
+    </div>
+
+    <div class="Container Container--slim">
+      <!-- Article main content -->
+      <div class="Article-body">
+        <p>Sedm z celkových 256 účastníků a účastnic kvalifikace
+          <strong>Roland Garros</strong>
+          bude reprezentovat Českou republiku. Další Češi jsou vyšší desítky míst pod čarou, jejich start by tedy nebyl reálný ani při
+          <strong>nadprůměrném počtu odhlášek</strong>.</p>
+        <p>S pařížskou kvalifikací má bohaté zkušenosti šestadvacetiletý
+          <a href="#">Zdeněk Kolář (169.)</a>, který v ní v letech
+          <strong>2018-2022 zápolil už pětkrát</strong>. Loni se dočkal poprvé v kariéře vytouženého postupu do hlavní soutěže grandslamu. Že by mohl tenista z Bystřice nad Pernštejnem pomýšlet na podobnou metu, ukázal triumfem na challengeru v Ostravě.</p>
+
+        <blockquote>
+          „Nejsem na konci kariéry a chci se vrátit na nejvyšší úroveň. Je to pro mě restart a chci z něj vymáčknout co nejvíc.“
+        </blockquote>
+
+        <p>Dvaadvacetiletý
+          <a href="#">Tomáš Macháč</a>
+          (125.) bude hrát v kvalifikaci Roland Garros potřetí a rád by navázal na své úspěšné tažení z roku 2020. O dva roky mladší Dalibor Svrčina (229.) loni skončil při svém turnajovém debutu v prvním kole kvalifikace, do hlavní fáze grandslamu se mu už ale podařilo proklouznout letos na Australian Open.</p>
+
+        <!-- Article widget - right floated -->
+        <div class="Article-rightFloated">
+          <!-- Twitter -->
+          <blockquote class="twitter-tweet">
+            <p lang="en" dir="ltr">🏆 TWO-TIME CHAMPION 🏆<br><br>🇪🇸
+              <a href="https://twitter.com/carlosalcaraz?ref_src=twsrc%5Etfw">@carlosalcaraz</a>
+              retains the
+              <a href="https://twitter.com/hashtag/MMOPEN?src=hash&amp;ref_src=twsrc%5Etfw">#MMOPEN</a>
+              throne, defeating Jan-Lennard Struff 6-4, 3-6, 6-3 in a magnificent final.<br><br>Excellent climax at the Caja Mágica.
+              <a href="https://t.co/J4kn6GoChX">pic.twitter.com/J4kn6GoChX</a>
+            </p>&mdash; #MMOPEN (@MutuaMadridOpen)
+            <a href="https://twitter.com/MutuaMadridOpen/status/1655288217304702977?ref_src=twsrc%5Etfw">May 7, 2023</a>
+          </blockquote>
+          <script async="async" src="https://platform.twitter.com/widgets.js" charset="utf-8" type="text/plain" data-cookiecategory="social"></script>
+        </div>
+
+        <p>Dvaadvacetiletý Tomáš Macháč (125.) bude hrát v kvalifikaci Roland Garros potřetí a rád by navázal na své úspěšné tažení z roku 2020. O dva roky mladší Dalibor Svrčina (229.) loni skončil při svém turnajovém debutu v prvním kole kvalifikace, do hlavní fáze grandslamu se mu už ale podařilo proklouznout letos na Australian Open.</p>
+
+        <p>S pařížskou kvalifikací má bohaté zkušenosti šestadvacetiletý Zdeněk Kolář (169.), který v ní v letech 2018-2022 zápolil už pětkrát. Loni se dočkal poprvé v kariéře vytouženého postupu do hlavní soutěže grandslamu. Že by mohl tenista z Bystřice nad Pernštejnem pomýšlet na podobnou metu, ukázal triumfem na challengeru v Ostravě.</p>
+
+        <p>Sedm z celkových 256 účastníků a účastnic kvalifikace Roland Garros bude reprezentovat Českou republiku. Další Češi jsou vyšší desítky míst pod čarou, jejich start by tedy nebyl reálný ani při nadprůměrném počtu odhlášek.</p>
+
+        <p>S pařížskou kvalifikací má bohaté zkušenosti šestadvacetiletý Zdeněk Kolář (169.), který v ní v letech 2018-2022 zápolil už pětkrát. Loni se dočkal poprvé v kariéře vytouženého postupu do hlavní soutěže grandslamu. Že by mohl tenista z Bystřice nad Pernštejnem pomýšlet na podobnou metu, ukázal triumfem na challengeru v Ostravě.</p>
+
+        <h2>Soc. media</h2>
+
+        <h3>Facebook</h3>
+        <!-- Facebook -->
+        <iframe data-src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ftenisovysvet.cz%2Fposts%2Fpfbid02YHWp5WG9p5X7kFB3WnTJurNLnBND1FFHeqpuz9Jpicc7i2FLXuZPmUR2s9r1ks6bl&show_text=true&width=500" width="500" height="481" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" data-cookiecategory="social" data-placeholder="data-placeholder"></iframe>
+
+        <h3>YouTube</h3>
+        <!-- YouTube -->
+        <iframe width="560" height="315" data-src="https://www.youtube.com/embed/DGbiIdqvXJ0?si=LqmHsmSMKMk61ejC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="allowfullscreen" data-cookiecategory="social" data-placeholder="data-placeholder"></iframe>
+
+        <h3>Twitter</h3>
+        <!-- Twitter -->
+        <blockquote class="twitter-tweet">
+          <p lang="cs" dir="ltr">.<a href="https://twitter.com/jirilehecka?ref_src=twsrc%5Etfw">@jirilehecka</a>
+            si po dvou třísetových bitvách zahraje ve Winston-Salemu o semifinále.✊ Další Češi momentálně zápolí na domácích akcích v Praze a Přerově.⤵️<a href="https://t.co/f78LqiIYpG">https://t.co/f78LqiIYpG</a>
+          </p>&mdash; Tenisový svět (@tenisovysvetcz)
+          <a href="https://twitter.com/tenisovysvetcz/status/1694672033026560454?ref_src=twsrc%5Etfw">August 24, 2023</a>
+        </blockquote>
+        <script async="async" src="https://platform.twitter.com/widgets.js" charset="utf-8" type="text/plain" data-cookiecategory="social"></script>
+
+        <h3>Instagram</h3>
+        <!-- Instagram -->
+        <blockquote class="instagram-media" data-instgrm-captioned="data-instgrm-captioned" data-instgrm-permalink="https://www.instagram.com/p/Cvufm7vt5Ba/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
+          <div style="padding:16px;">
+            <a href="https://www.instagram.com/p/Cvufm7vt5Ba/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank">
+              <div style=" display: flex; flex-direction: row; align-items: center;">
+                <div style="background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;"></div>
+                <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center;">
+                  <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;"></div>
+                  <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;"></div>
+                </div>
+              </div>
+              <div style="padding: 19% 0;"></div>
+              <div style="display:block; height:50px; margin:0 auto 12px; width:50px;">
+                <svg width="50px" height="50px" viewbox="0 0 60 60" version="1.1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+                  <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g transform="translate(-511.000000, -20.000000)" fill="#000000">
+                      <g>
+                        <path d="M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631"></path>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <div style="padding-top: 8px;">
+                <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">Zobrazit příspěvek na Instagramu</div>
+              </div>
+              <div style="padding: 12.5% 0;"></div>
+              <div style="display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;">
+                <div>
+                  <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);"></div>
+                  <div style="background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;"></div>
+                  <div style="background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);"></div>
+                </div>
+                <div style="margin-left: 8px;">
+                  <div style=" background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;"></div>
+                  <div style=" width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)"></div>
+                </div>
+                <div style="margin-left: auto;">
+                  <div style=" width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);"></div>
+                  <div style=" background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);"></div>
+                  <div style=" width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);"></div>
+                </div>
+              </div>
+              <div style="display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;">
+                <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;"></div>
+                <div style=" background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;"></div>
+              </div>
+            </a>
+            <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">
+              <a href="https://www.instagram.com/p/Cvufm7vt5Ba/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">Příspěvek sdílený Tenisový svět (@tenisovysvetcz)</a>
+            </p>
+          </div>
+        </blockquote>
+        <script async="async" src="//www.instagram.com/embed.js" charset="utf-8" type="text/plain" data-cookiecategory="social"></script>
+
+      </div>
+    </div>
+
+    <hr class="Separator Separator--large">
+
+    <!-- Article - footer -->
+    <div class="Container Container--slim">
+      <footer>
+        <div class="Article-body">
+          <p class="Article-info">foto: Instagram: Jiří Lehečka</p>
+
+          <h2 class="H2 u-mt-32">Tagy</h2>
+          <div class="TagList u-mt-16">
+            <a href="#todo" class="Tag Tag--blue">Jiří Veselý</a>
+            <a href="#todo" class="Tag Tag--blue">Tomáš Berdych</a>
+            <a href="#todo" class="Tag Tag--pink">Rebeka Masarová</a>
+            <a href="#todo" class="Tag Tag--blue">ATP Estoria</a>
+            <a href="#todo" class="Tag Tag--pink">WTA Charlston</a>
+          </div>
+
+          <h2 class="H2 u-mt-32">Podělte se s přáteli</h2>
+          <div class="ButtonGroup u-mt-16">
+            <a href="#todo" class="Button Button--secondary Button--facebook Button--min-168">Sdílet na Facebook</a>
+            <a href="#todo" class="Button Button--secondary Button--twitter Button--min-168">Sdílet na Twitter</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </article>
+
+  <!-- Article - related content -->
+  <div class="ArticleSmallColumns u-mt-56 u-sm-mt-32 u-mr-32 u-sm-mr-0">
+    <div>
+      <h2 class="H2">Další články k
+        <small>Jiří Veselý</small>
+      </h2>
+      <ul class="ArticleList">
+        {% for i in range(0, 4) %}
+          <li>
+            {{ articleBoxSmall() }}
+          </li>
+        {% endfor %}
+      </ul>
+      <div class="u-display-none u-xs-display-block u-xs-mt-24 u-ta-center">
+        <a href="#todo" class="Button Button--primary Button--min-235 Button--xs-full">Všechny články k Jiří Veselý</a>
+      </div>
+    </div>
+
+    <div>
+      <h2 class="H2">Další články z webu</h2>
+      <ul class="ArticleList">
+        {% for i in range(0, 4) %}
+          <li>
+            {{ articleBoxSmall() }}
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+  <div class="u-mt-32 u-xs-mt-24 u-ta-center">
+    <a href="#todo" class="Button Button--primary Button--min-235 Button--xs-full">Archiv článků</a>
+  </div>
+{% endblock %}
+
+{% block mainSidebar %}
+  {% include "../templates/partials/sidebar/_praveSeStalo.njk" %}
+  {% include "../templates/partials/sidebar/_cesiNaTurnajich.njk" %}
+  {% include "../templates/partials/sidebar/_banner.njk" %}
+  {% include "../templates/partials/sidebar/_zebricky.njk" %}
+  {% include "../templates/partials/sidebar/_banner.njk" %}
+  {% include "../templates/partials/sidebar/_aktualniTurnaje.njk" %}
+{% endblock %}

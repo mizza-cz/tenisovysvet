@@ -1,0 +1,52 @@
+@use 'sass:math';
+
+.PlayerCard {
+  background-color: var(--color-surface-2);
+  position: relative; // for stretched link
+
+  &-imgContainer {
+    @include respondTo(sm) {
+      height: rem(134);
+
+      img {
+        max-width: 100%;
+        object-fit: contain;
+        object-position: center top;
+      }
+    }
+  }
+
+  &-photo {
+    border-top-left-radius: $borderRadiusSecondary;
+    border-top-right-radius: $borderRadiusSecondary;
+    overflow: hidden;
+  }
+
+  &-body {
+    padding: rem(16) rem(20);
+    border: 1px solid $colorBorderPrimary;
+    border-bottom-left-radius: $borderRadiusSecondary;
+    border-bottom-right-radius: $borderRadiusSecondary;
+    border-top: 0;
+  }
+
+  &-name {
+    @include text(
+      var(--color-text),
+      rem(20),
+      $fontWeightSemiBold,
+      math.div(24, 20)
+    );
+    margin-bottom: rem(16);
+
+    a {
+      text-decoration: none;
+
+      @media (hover: hover) {
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

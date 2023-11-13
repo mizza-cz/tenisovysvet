@@ -1,0 +1,444 @@
+{% extends "../templates/layout.njk" %}
+{% from "../templates/macros/articleList.njk" import articleList %}
+{% from "../templates/macros/breadcrumbs.njk" import breadcrumbs %}
+{% from "../templates/macros/icon.njk" import icon %}
+{% from "../templates/macros/playerCard.njk" import playerCard %}
+{% set pageTitle = 'Vyhledávání | Tenisový svět' %}
+{% block main %}
+	<div class="Container Container--large">
+		{{ breadcrumbs(['Tenisovýsvět.cz', 'Vyhledávání']) }}
+
+		<div class="SearchingHeader">
+			<h1 class="H1">Vyhledávání</h1>
+
+			<form action="#todo" class="SearchingHeader-form" role="search">
+				<div class="InputContainer SearchingHeader-query">
+					<button type="submit" class="InputContainer-icon" title="Vyhledat">
+						{{ icon('search', '', 32, 32) }}
+					</button>
+					<input class="TextInput TextInput--withIcon" placeholder="Vyhledávání"/>
+				</div>
+
+				<div class="ButtonGroup ButtonGroup--small SearchingHeader-categories">
+					<a href="#todo" class="ToggleButton ToggleButton--large is-active">Vše</a>
+					<a href="#todo" class="ToggleButton ToggleButton--large">Články</a>
+					<a href="#todo" class="ToggleButton ToggleButton--large">Hráči</a>
+					<a href="#todo" class="ToggleButton ToggleButton--large">Turnaje</a>
+				</div>
+			</form>
+		</div>
+
+		<h2 class="H2">Články</h2>
+		<div class="SearchResults">
+			{{ articleList(3) }}
+		</div>
+		<div class="u-ta-center u-mt-48 u-sm-mt-24">
+			<a href="#todo" class="Button Button--primary Button--min-168 Button--xs-full">Načíst další</a>
+		</div>
+
+		<h2 class="H2 u-mt-48 u-sm-mt-32">Profily hráčů</h2>
+
+		<div class="PlayerCardGrid SearchResults">
+			{{ playerCard('Novak Djokovic', 'Česko') }}
+			{{ playerCard('Alena Novakov', 'Česko') }}
+		</div>
+
+		<h2 class="H2">Turnaje</h2>
+		<ul class="SearchResults">
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text blue">CH Praha 3</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/2472">IBG Prague Open by Moneta Money Bank 2023</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">20.08.2023</p>
+					<div class="TournamentItem-price">€ 36 000</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text pink">WTA Praha</span>
+						<span class="Tag Tag--text Tag--gray">Tvrdý povrch – venku</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/2416">Livesport Prague Open 2023</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">31.07.2023</p>
+					<div class="TournamentItem-price">$ 259 303</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text blue">CH Praha</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/2439">TK Sparta Prague Open 2023</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">07.05.2023</p>
+					<div class="TournamentItem-price">€ 73 000</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text blue">CH Praha 2</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/2437">Advantage Cars Prague Open 2023 by Moneta</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">30.04.2023</p>
+					<div class="TournamentItem-price">€ 73 000</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text pink">ITF Praha</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/2438">ITF Advantage Cars Prague Open 2023 by Moneta</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">30.04.2023</p>
+					<div class="TournamentItem-price">$ 60 000</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text blue">CH Praha 3</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/2332">IBG Prague Open by Moneta Money Bank 2022</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">22.08.2022</p>
+					<div class="TournamentItem-price">€ 32 160</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text pink">WTA Praha</span>
+						<span class="Tag Tag--text Tag--gray">Tvrdý povrch – venku</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/2270">Livesport Prague Open 2022</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">25.07.2022</p>
+					<div class="TournamentItem-price">$ 251 750</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text blue">CH Praha 2</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/2312">I.ČLTK Prague Open by Moneta Money Bank 2022</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">02.05.2022</p>
+					<div class="TournamentItem-price">€ 45 730</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text blue">CH Praha</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/2310">TK Sparta Prague Open 2022</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">18.04.2022</p>
+					<div class="TournamentItem-price">€ 45 730</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text pink">ITF Praha</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/2177">Kuchyně Gorenje Prague Open 2021</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">30.08.2021</p>
+					<div class="TournamentItem-price">$ 60 000</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text blue">CH Praha 3</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/2173">IBG Prague Open by Moneta Money Bank 2021</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">23.08.2021</p>
+					<div class="TournamentItem-price">€ 31 440</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text blue">CH Praha</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/2172">TK Sparta Prague Open 2021</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">09.08.2021</p>
+					<div class="TournamentItem-price">€ 31 440</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text pink">WTA Praha</span>
+						<span class="Tag Tag--text Tag--gray">Tvrdý povrch – venku</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/2000">Livesport Prague Open 2021</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">12.07.2021</p>
+					<div class="TournamentItem-price">$ 235 238</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text blue">CH Praha 2</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/2151">I.ČLTK Prague Open 2021 by Moneta MoneyBank</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">01.05.2021</p>
+					<div class="TournamentItem-price">€ 44 820</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text pink">WTA Praha</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/2137">J&amp;T Banka Prague Open 2020</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">10.08.2020</p>
+					<div class="TournamentItem-price">$ 225 000</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text pink">WTA Praha</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/1847">J&amp;T Banka Prague Open 2019</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">29.04.2019</p>
+					<div class="TournamentItem-price">$ 250 000</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text pink">ITF Praha 2</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/1728">Kuchyne Gorenje Prague Open 2018</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">03.09.2018</p>
+					<div class="TournamentItem-price">$ 15 000</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text blue">CH Praha 1</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/1643">ADVANTAGE CARS PRAGUE OPEN 2018</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">23.07.2018</p>
+					<div class="TournamentItem-price">€ 43 000 + H</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text pink">WTA Praha</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/1545">J&amp;T Banka Prague Open 2018</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">30.04.2018</p>
+					<div class="TournamentItem-price">$ 226 750</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text pink">ITF Praha 2</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/1211">Vista Prague Open 2017</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">11.09.2017</p>
+					<div class="TournamentItem-price">$ 15 000</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text pink">ITF Praha</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/1210">Kuchyně Gorenje Prague Open 2017</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">04.09.2017</p>
+					<div class="TournamentItem-price">$ 15 000</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text blue">CH Praha 1</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/930">Advantage Cars Prague Open 2017</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">24.07.2017</p>
+					<div class="TournamentItem-price">$ 43 000</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text pink">WTA Praha</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/789">J&amp;T Banka Prague Open 2017</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">01.05.2017</p>
+					<div class="TournamentItem-price">$ 226 750</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text blue">CH Praha 2</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/217">Advantage Cars Prague Open 2016</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">25.07.2016</p>
+					<div class="TournamentItem-price">€ 42 500</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text blue">CH Praha</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/192">Sparta Prague Open 2016</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">06.06.2016</p>
+					<div class="TournamentItem-price">€ 42 500</div>
+				</div>
+			</li>
+			<li class="TournamentItem">
+				<div class="TournamentItem-main">
+					<div class="TagList">
+						<span class="Tag Tag--text pink">WTA Praha</span>
+						<span class="Tag Tag--text Tag--orange">Antuka</span>
+					</div>
+					<h3 class="TournamentItem-heading">
+						<a class="Link--stretched" href="/tournaments/detail/89">J&amp;T Banka Prague Open 2016</a>
+					</h3>
+				</div>
+				<div class="TournamentItem-meta">
+					<p class="Date">25.04.2016</p>
+					<div class="TournamentItem-price">$ 426 750</div>
+				</div>
+			</li>
+		</ul>
+
+		<div class="u-ta-center u-mt-48 u-sm-mt-24">
+			<a href="#todo" class="Button Button--primary Button--min-168 Button--xs-full">Načíst další</a>
+		</div>
+	</div>
+{% endblock %}

@@ -1,0 +1,10 @@
+.Ad {
+  a {
+    display: block;
+
+    img {
+      @include imgResponsive();
+      margin: auto;
+    }
+  }
+}

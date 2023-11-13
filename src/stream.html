@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+
+<html lang="cs-CZ" class="Preload" id="root" data-theme="light">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Stream událostí | Tenisový svět</title>
+
+  <!-- Self-hosted fonts -->
+
+  <link rel="preload" href="./fonts/GeneralSans-Regular.woff" as="font" type="font/woff2" crossorigin="anonymous" />
+  <link rel="preload" href="./fonts/GeneralSans-Regular.woff2" as="font" type="font/woff" crossorigin="anonymous" />
+
+  <link rel="preload" href="./fonts/GeneralSans-Medium.woff" as="font" type="font/woff2" crossorigin="anonymous" />
+  <link rel="preload" href="./fonts/GeneralSans-Medium.woff2" as="font" type="font/woff" crossorigin="anonymous" />
+
+  <link rel="preload" href="./fonts/GeneralSans-Semibold.woff" as="font" type="font/woff2" crossorigin="anonymous" />
+  <link rel="preload" href="./fonts/GeneralSans-Semibold.woff2" as="font" type="font/woff" crossorigin="anonymous" />
+
+  <link rel="preload" href="./fonts/GeneralSans-Bold.woff" as="font" type="font/woff2" crossorigin="anonymous" />
+  <link rel="preload" href="./fonts/GeneralSans-Bold.woff2" as="font" type="font/woff" crossorigin="anonymous" />
+
+
+  <style>
+    @font-face {
+      font-family: "General Sans";
+      src: url("./fonts/GeneralSans-Regular.woff2") format("woff2"), url("./fonts/GeneralSans-Regular.woff") format("woff");
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    @font-face {
+      font-family: "General Sans";
+      src: url("./fonts/GeneralSans-Medium.woff2") format("woff2"), url("./fonts/GeneralSans-Medium.woff") format("woff");
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    @font-face {
+      font-family: "General Sans";
+      src: url("./fonts/GeneralSans-Semibold.woff2") format("woff2"), url("./fonts/GeneralSans-Semibold.woff") format("woff");
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    @font-face {
+      font-family: "General Sans";
+      src: url("./fonts/GeneralSans-Bold.woff2") format("woff2"), url("./fonts/GeneralSans-Bold.woff") format("woff");
+      font-style: normal;
+      font-weight: 700;
+    }
+  </style>
+
+
+  <!-- CSS - vendors -->
+  <link rel="stylesheet" href="./css/flag-icons.min.css" />
+  <link rel="stylesheet" href="./css/flatpickr.min.css" />
+  <link rel="stylesheet" href="./css/cookie-consent-config.css">
+  <link rel="stylesheet" href="./css/cookie-consent.min.css">
+
+  <!-- CSS - custom -->
+
+  <!-- build:css -->
+  <link rel="stylesheet" href="./css/main.css" />
+  <!-- endbuild -->
+
+
+  <script>
+    const isLocalhost = window
+      .location
+      .hostname
+      .includes("localhost");
+  </script>
+
+  <!-- JS - vendors -->
+  <script src="./js/vendors/minilazyload.min.js" defer="defer"></script>
+  <script src="./js/vendors/flatpickr.min.js" defer="defer"></script>
+  <script src="./js/vendors/flatpickr-cs.js" defer="defer"></script>
+  <script src="./js/vendors/cookie-consent.min.js" defer="defer"></script>
+
+
+  <script src="./js/others/cookie-consent-config.js" defer="defer"></script>
+  <script src="./js/others/cookie-consent-social-media.js" defer="defer" type="text/plain" data-cookiecategory="social"></script>
+
+  <!-- JS - custom -->
+
+  <!-- build:js -->
+  <script src="./js/components/accordion.js" defer="defer"></script>
+  <script src="./js/components/nav.js" defer="defer"></script>
+  <script src="./js/components/searchSwitcher.js" defer="defer"></script>
+  <script src="./js/components/tabs.js" defer="defer"></script>
+  <script src="./js/components/themeSwitcher.js" defer="defer"></script>
+  <script src="./js/main.js" defer="defer"></script>
+  <!-- endbuild -->
+
+
+  <meta name="author" content="eSports.cz, s.r.o. - www.esportsmedia.cz" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="./img/favicons/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./img/favicons/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./img/favicons/favicon-16x16.png" />
+  <link rel="shortcut icon" href="./img/favicons/favicon.ico">
+
+
+  <meta property="og:title" content="" />
+  <meta property="og:site_name" content="" />
+  <meta property="og:description" content="" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="./img/og_image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="" />
+  <meta property="og:locale" content="cs_CZ" />
+
+
+  <meta name="twitter:title" content="Stream událostí | Tenisový svět" />
+  <meta name="twitter:site" content="" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="" />
+  <meta name="twitter:url" content="" />
+  <meta name="twitter:image" content="./img/og_image.jpg" />
+</head>
+
+<body class="Page Page--stream">
+  <div class="PageContainer">
+    <!-- Branding top banner / Leaderboard -->
+    <div class="Branding Branding--top">
+      <a href="https://www.tenisdetem.cz/" target="_blank" rel="noopener">
+        <img src="./img/placeholder-banner-top.jpg" width="1320" height="200">
+      </a>
+    </div>
+
+
+
+    <!-- Header -->
+    <header class="Header">
+      <a href="/" class="Header-logo" aria-label="Tenisový svět - domovská stránka" title="Tenisový svět - domovská stránka">
+        <!-- Logo -->
+        <svg width="189" height="27" viewBox="0 0 189 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M134.701 5.5822L136.963 2.53345H133.28L131.41 5.5822H134.701ZM134.645 14.6344L139.375 6.20324H135.823L132.999 11.3786L130.232 6.20324H126.418L131.111 14.6344V19.7156H134.645V14.6344ZM105.457 19.9979C109.346 19.9979 112.394 17.0433 112.394 12.9406C112.394 8.83797 109.346 5.92095 105.457 5.92095C101.587 5.92095 98.5388 8.83797 98.5388 12.9406C98.5388 17.0433 101.587 19.9979 105.457 19.9979ZM105.457 16.8174C103.344 16.8174 102.166 15.0672 102.166 12.9406C102.166 10.814 103.344 9.10144 105.457 9.10144C107.57 9.10144 108.748 10.814 108.748 12.9406C108.748 15.0672 107.57 16.8174 105.457 16.8174ZM97.5104 15.293C97.5104 13.3358 96.2389 12.1502 93.8456 11.6797L91.2465 11.1716C90.536 11.0398 89.9377 10.6823 89.9377 10.0801C89.9377 9.34609 90.5734 8.78151 91.6205 8.78151C92.7985 8.78151 93.6212 9.57193 93.7147 10.7952H97.286C97.0803 7.87818 94.7805 6.03387 91.5831 6.03387C88.5727 6.03387 86.3663 7.8029 86.3663 10.3247C86.3663 12.5078 87.7874 13.7687 89.9377 14.1827L92.3871 14.6532C93.1724 14.8037 93.7521 15.2366 93.7521 15.82C93.7521 16.6669 92.9481 17.1374 91.7327 17.1374C90.2742 17.1374 89.4328 16.3281 89.3954 15.0484H85.8241C86.0672 18.0407 88.3109 19.9038 91.8075 19.9038C95.304 19.9038 97.5104 18.0783 97.5104 15.293ZM48.7832 9.42137V19.7156H45.2493V9.42137H41.1357V6.20324H52.8968V9.42137H48.7832ZM58.0201 16.6292H63.9848V19.7156H54.4862V6.20324H63.8539V9.28964H58.0201V11.228H63.3116V14.3144H58.0201V16.6292ZM74.5866 19.7156H77.9896V6.20324H74.7549V14.0133L69.7999 6.20324H66.0042V19.7156H69.2389V11.2845L74.5866 19.7156ZM84.1413 6.20324V19.7156H80.6073V6.20324H84.1413ZM126.324 6.20324H122.771L119.724 15.5565L116.769 6.20324H112.936L117.686 19.7156H121.537L126.324 6.20324Z" fill="currentColor" />
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M176.136 2.53345L173.518 5.5822H169.461L166.824 2.53345H170.339L171.48 3.92609L172.639 2.53345H176.136ZM170.283 16.6292H176.248V19.7156H166.749V6.20324H176.117V9.28964H170.283V11.228H175.575V14.3144H170.283V16.6292ZM147.846 11.6797C150.239 12.1502 151.51 13.3358 151.51 15.293C151.51 18.0783 149.304 19.9038 145.807 19.9038C142.311 19.9038 140.067 18.0407 139.824 15.0484H143.395C143.433 16.3281 144.274 17.1374 145.733 17.1374C146.948 17.1374 147.752 16.6669 147.752 15.82C147.752 15.2366 147.172 14.8037 146.387 14.6532L143.938 14.1827C141.787 13.7687 140.366 12.5078 140.366 10.3247C140.366 7.8029 142.573 6.03387 145.583 6.03387C148.78 6.03387 151.08 7.87818 151.286 10.7952H147.715C147.621 9.57193 146.798 8.78151 145.62 8.78151C144.573 8.78151 143.938 9.34609 143.938 10.0801C143.938 10.6823 144.536 11.0398 145.247 11.1716L147.846 11.6797ZM161.869 6.20324H165.422L160.635 19.7156H156.783L152.034 6.20324H155.867L158.821 15.5565L161.869 6.20324ZM184.886 9.42137V19.7156H181.352V9.42137H177.239V6.20324H189V9.42137H184.886Z" fill="#84A12D" />
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5691 27C11.3546 27 7.92442 26.381 5.69846 24.6782C4.27384 23.6028 4.1848 22.9755 5.60942 21.7209C10.8627 17.1505 9.88326 10.4292 7.12307 7.11341C6.81144 6.75494 6.47754 6.41888 6.14365 6.08282C5.80975 5.74676 5.47586 5.41069 5.16423 5.05223C4.36288 4.15606 4.36288 3.70798 5.25326 2.90143C10.1504 -0.952076 16.7392 -0.952076 21.6363 2.81182C22.7048 3.61837 22.6158 4.3353 21.4583 5.32108C17.7186 8.54727 16.4721 13.4762 18.52 17.7778C19.2323 19.2116 20.3898 20.5559 21.4583 21.7209C21.6656 21.947 21.8629 22.1258 22.0319 22.279C22.7338 22.9153 22.9479 23.1093 21.3692 24.4094C19.4104 26.0225 15.7836 27 13.5691 27ZM0 13.6235C0 11.4727 0.53423 9.53305 1.42461 7.65111C1.95884 6.48609 2.67115 6.30686 3.82865 7.02379C8.10249 9.89152 8.01345 17.5089 3.65057 20.287C2.67115 20.9144 2.04788 20.7351 1.51365 19.6597C0.53423 17.7778 0 15.7743 0 13.6235ZM25.465 7.65111C26.3554 9.53305 26.8896 11.4727 26.8896 13.6235C26.8896 15.7743 26.3554 17.7778 25.3759 19.6597C24.8417 20.7351 24.2184 20.9144 23.239 20.287C18.8761 17.5089 18.7871 9.89152 23.0609 7.02379C24.2184 6.30686 24.9307 6.48609 25.465 7.65111Z" fill="url(#paint0_linear_0_4403)" />
+          <defs>
+            <linearGradient id="paint0_linear_0_4403" x1="7.4114" y1="-7.69276" x2="-8.00619" y2="19.2529" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#CCEF64" />
+              <stop offset="1" stop-color="#A5C938" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+      </a>
+
+      <!-- Menu button -->
+      <button type="button" class="MenuButton" id="js-nav-toggle" aria-controls="js-nav" aria-label="Zobrazit menu" aria-haspopup="true" aria-expanded="false">
+        Menu
+
+        <svg class="MenuButton-openIcon" width="24" height="24" focusable="false" aria-hidden="true">
+          <use xlink:href="#menu"></use>
+        </svg>
+
+
+        <svg class="MenuButton-closeIcon" width="24" height="24" focusable="false" aria-hidden="true">
+          <use xlink:href="#x-close"></use>
+        </svg>
+
+      </button>
+
+      <div class="Header-nav" id="js-nav">
+        <!-- Search -->
+        <form action="#todo" class="Header-search ThemeDark">
+          <div class="InputContainer">
+            <button class="InputContainer-icon" type="submit">
+
+              <svg class="" width="32" height="32" focusable="false" aria-hidden="true">
+                <use xlink:href="#search"></use>
+              </svg>
+
+            </button>
+            <input class="TextInput TextInput--withIcon" type="text" placeholder="Vyhledávání" />
+          </div>
+        </form>
+
+        <!-- Nav -->
+        <nav class="Nav" aria-label="Hlavní navigace">
+          <!-- Main menu -->
+          <ul class="Nav-menu">
+            <li class="Nav-item">
+              <a href="#todo" class="Nav-link is-active">
+                Denní menu
+
+                <svg class="Nav-itemIcon" width="32" height="32" focusable="false" aria-hidden="true">
+                  <use xlink:href="#arrow-right"></use>
+                </svg>
+
+              </a>
+            </li>
+            <li class="Nav-item">
+              <a href="#todo" class="Nav-link">
+                Zprávy
+
+                <svg class="Nav-itemIcon" width="32" height="32" focusable="false" aria-hidden="true">
+                  <use xlink:href="#arrow-right"></use>
+                </svg>
+
+              </a>
+            </li>
+            <li class="Nav-item">
+              <a href="#todo" class="Nav-link">
+                Žebříčky
+
+                <svg class="Nav-itemIcon" width="32" height="32" focusable="false" aria-hidden="true">
+                  <use xlink:href="#arrow-right"></use>
+                </svg>
+
+              </a>
+            </li>
+            <li class="Nav-item">
+              <a href="#todo" class="Nav-link">
+                Turnaje
+
+                <svg class="Nav-itemIcon" width="32" height="32" focusable="false" aria-hidden="true">
+                  <use xlink:href="#arrow-right"></use>
+                </svg>
+
+              </a>
+            </li>
+            <li class="Nav-item">
+              <a href="#todo" class="Nav-link">
+                Online přenosy
+
+                <svg class="Nav-itemIcon" width="32" height="32" focusable="false" aria-hidden="true">
+                  <use xlink:href="#arrow-right"></use>
+                </svg>
+
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="Header-socialLinks">
+          <!-- Socials -->
+          <ul class="Socials" aria-label="Odkazy na sociální sítě">
+            <li class="Socials-item">
+              <a class="Socials-link" href="https://www.facebook.com/Tenis-845744408841464" target="_blank" rel="noopener noreferrer" aria-label="Facebook - Tenisový svět" title="Facebook - Tenisový svět">
+
+                <svg class="Socials-icon" width="32" height="32" focusable="false" aria-hidden="true">
+                  <use xlink:href="#circleFacebook"></use>
+                </svg>
+
+                Facebook
+              </a>
+            </li>
+            <li class="Socials-item">
+              <a class="Socials-link" href="https://twitter.com/tenisovysvetcz" target="_blank" rel="noopener noreferrer" aria-label="Instagram - Tenisový svět" title="Instagram - Tenisový svět">
+
+                <svg class="Socials-icon" width="32" height="32" focusable="false" aria-hidden="true">
+                  <use xlink:href="#circleTwitter"></use>
+                </svg>
+
+                Twitter
+              </a>
+            </li>
+            <li class="Socials-item">
+              <a class="Socials-link" href="https://www.youtube.com/channel/UCo4HL4At2J4r6V3svpvs5-Q" target="_blank" rel="noopener noreferrer" aria-label="Instagram - Tenisový svět" title="Instagram - Tenisový svět">
+
+                <svg class="Socials-icon" width="32" height="32" focusable="false" aria-hidden="true">
+                  <use xlink:href="#circleYoutube"></use>
+                </svg>
+
+                YouTube
+              </a>
+            </li>
+            <li class="Socials-item">
+              <a class="Socials-link" href="https://www.instagram.com/tenisovysvetcz/" target="_blank" rel="noopener noreferrer" aria-label="Instagram - Tenisový svět" title="Instagram - Tenisový svět">
+
+                <svg class="Socials-icon" width="32" height="32" focusable="false" aria-hidden="true">
+                  <use xlink:href="#circleInstagram"></use>
+                </svg>
+
+                Instagram
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+        <button class="Header-navThemeSwitcher js-themeSwitcher" data-text-light="Světlý režim" data-text-dark="Tmavý režim">
+
+          <svg class="" width="32" height="32" focusable="false" aria-hidden="true">
+            <use xlink:href="#dark-mode"></use>
+          </svg>
+
+        </button>
+      </div>
+
+      <div class="Header-side">
+        <form action="#todo" method="get" class="SearchForm">
+          <div class="Form-item">
+            <div class="InputContainer">
+              <button type="submit" class="InputContainer-icon" title="Vyhledat">
+
+                <svg class="" width="32" height="32" focusable="false" aria-hidden="true">
+                  <use xlink:href="#search"></use>
+                </svg>
+
+              </button>
+              <input type="text" class="TextInput TextInput--withIcon">
+            </div>
+          </div>
+        </form>
+
+        <button class="IconButton IconButton--darkTheme js-themeSwitcher" aria-label="Změnit barevný mód" title="Změnit barevný mód">
+
+          <svg class="" width="32" height="32" focusable="false" aria-hidden="true">
+            <use xlink:href="#dark-mode"></use>
+          </svg>
+
+        </button>
+
+        <button class="IconButton js-searchSwitcher Header-openSearch" aria-label="Zobrazit vyhledávání" aria-expanded="false" aria-haspopup="true" title="Zobrazit vyhledávání">
+
+          <svg class="" width="32" height="32" focusable="false" aria-hidden="true">
+            <use xlink:href="#search"></use>
+          </svg>
+
+        </button>
+
+        <button class="IconButton js-searchSwitcher Header-closeSearch" aria-label="Skrýt vyhledávání" aria-expanded="false" title="Skrýt vyhledávání">
+
+          <svg class="" width="32" height="32" focusable="false" aria-hidden="true">
+            <use xlink:href="#x-close"></use>
+          </svg>
+
+        </button>
+      </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="Main">
+      <div class="Container">
+
+        <div class="Grid">
+          <div class="Grid-col Grid-col--9 Grid-col--md-8 Grid-col--sm-12">
+
+            <article class="Article">
+              <div class="Container Container--slim">
+                <header class="PageImageHeader">
+
+                  <nav>
+                    <ul class="Breadcrumbs u-mb-24">
+
+                      <li>
+
+                        <a href="#todo">Tenisovýsvět.cz</a>
+
+                      </li>
+
+
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 8H11.5H4.5ZM11.5 8L8 4.5L11.5 8ZM11.5 8L8 11.5L11.5 8Z" fill="#B3BCC6" />
+                        <path d="M4.5 7C3.94772 7 3.5 7.44772 3.5 8C3.5 8.55228 3.94772 9 4.5 9V7ZM11.5 9C12.0523 9 12.5 8.55228 12.5 8C12.5 7.44772 12.0523 7 11.5 7V9ZM10.7929 8.70711C11.1834 9.09763 11.8166 9.09763 12.2071 8.70711C12.5976 8.31658 12.5976 7.68342 12.2071 7.29289L10.7929 8.70711ZM8.70711 3.79289C8.31658 3.40237 7.68342 3.40237 7.29289 3.79289C6.90237 4.18342 6.90237 4.81658 7.29289 5.20711L8.70711 3.79289ZM12.2071 8.70711C12.5976 8.31658 12.5976 7.68342 12.2071 7.29289C11.8166 6.90237 11.1834 6.90237 10.7929 7.29289L12.2071 8.70711ZM7.29289 10.7929C6.90237 11.1834 6.90237 11.8166 7.29289 12.2071C7.68342 12.5976 8.31658 12.5976 8.70711 12.2071L7.29289 10.7929ZM4.5 9H11.5V7H4.5V9ZM12.2071 7.29289L8.70711 3.79289L7.29289 5.20711L10.7929 8.70711L12.2071 7.29289ZM10.7929 7.29289L7.29289 10.7929L8.70711 12.2071L12.2071 8.70711L10.7929 7.29289Z" fill="currentColor" />
+                      </svg>
+
+
+                      <li>
+
+                        Stream událostí
+
+                      </li>
+
+
+
+                    </ul>
+                  </nav>
+
+
+
+
+                  <h1 class="H1">Stream událostí</h1>
+                  <div class="OnlineHeader u-mt-24 u-mb-32">
+
+                    <div class="OnlineHeader-dateSelector OnlineHeader-dateSelector--scrolling">
+                      <a href="#todo" class="IconButton IconButton--48">
+
+                        <svg class="u-flip-horizontal" width="32" height="32" focusable="false" aria-hidden="true">
+                          <use xlink:href="#arrow-right"></use>
+                        </svg>
+
+                      </a>
+
+                      <a href="#todo" class="OnlineHeader-date">Po<br>10.07.</a>
+                      <a href="#todo" class="OnlineHeader-date">Út<br>11.07.</a>
+                      <a href="#todo" class="OnlineHeader-date is-today">Dnes<br>12.07.</a>
+                      <a href="#todo" class="OnlineHeader-date">Čt<br>13.07.</a>
+                      <a href="#todo" class="OnlineHeader-date">Pá<br>14.07.</a>
+
+                      <a href="#todo" class="IconButton IconButton--48">
+
+                        <svg class="" width="32" height="32" focusable="false" aria-hidden="true">
+                          <use xlink:href="#arrow-right"></use>
+                        </svg>
+
+                      </a>
+                    </div>
+
+                    <form action="#todo" method="get" class="OnlineFilter u-xs-display-block u-xs-width-100p">
+                      <div class="InputContainer OnlineHeader-dateInput">
+                        <div class="InputContainer-icon">
+
+                          <svg class="" width="32" height="32" focusable="false" aria-hidden="true">
+                            <use xlink:href="#calendar"></use>
+                          </svg>
+
+                        </div>
+                        <input type="text" name="" data-dateinput-type="date" class="TextInput TextInput--withIcon js-datePicker flatpickr-input" id="" placeholder="Zadejte datum" readonly="readonly">
+                      </div>
+                    </form>
+                  </div>
+
+                </header>
+
+              </div>
+              <div class="Container Container--slim">
+                <div class="streamItem">
+                  <div class="streamItem__date">
+                    15:57
+                  </div>
+                  <div class="streamItem__info">
+                    <div class="streamItem__title">
+                      Hraju pod svou úroveň, přiznal otevřeně Djokovič a vynechá nadcházející Masters
+                    </div>
+                    <p>
+                      Na mužském antukovém turnaji <a href="#" target="_blank"> Genova Prague Open by Moneta Money Bank</a> s <strong>dotací 25 tisíc amerických dolarů</strong> bude ve středu pokračovat úvodní kolo dvouhry i čtyřhry. Do akce se v singlu zapojí celkem devět domácích tenistů a v deblu pak dokonce deset.
+                    </p>
+                  </div>
+                </div>
+                <div class="streamItem">
+                  <div class="streamItem__date">
+                    15:57
+                  </div>
+                  <div class="streamItem__info">
+                    <div class="streamItem__title">
+                      Hraju pod svou úroveň, přiznal otevřeně Djokovič a vynechá nadcházející Masters
+                    </div>
+                    <p>
+                      Na mužském antukovém turnaji <a href="#" target="_blank"> Genova Prague Open by Moneta Money Bank</a> s <strong>dotací 25 tisíc amerických dolarů</strong> bude ve středu pokračovat úvodní kolo dvouhry i čtyřhry. Do akce se v singlu zapojí celkem devět domácích tenistů a v deblu pak dokonce deset.
+                    </p>
+                  </div>
+                </div>
+                <div class="streamItem">
+                  <div class="streamItem__date">
+                    15:57
+                  </div>
+                  <div class="streamItem__info">
+                    <div class="streamItem__title">
+                      Hraju pod svou úroveň, přiznal otevřeně Djokovič a vynechá nadcházející Masters
+                    </div>
+                    <p>
+                      Na mužském antukovém turnaji <a href="#" target="_blank"> Genova Prague Open by Moneta Money Bank</a> s <strong>dotací 25 tisíc amerických dolarů</strong> bude ve středu pokračovat úvodní kolo dvouhry i čtyřhry. Do akce se v singlu zapojí celkem devět domácích tenistů a v deblu pak dokonce deset.
+                    </p>
+                  </div>
+                </div>
+                <div class="streamItem">
+                  <div class="streamItem__date">
+                    15:57
+                  </div>
+                  <div class="streamItem__info">
+                    <div class="streamItem__title">
+                      Hraju pod svou úroveň, přiznal otevřeně Djokovič a vynechá nadcházející Masters
+                    </div>
+                    <p>
+                      Na mužském antukovém turnaji <a href="#" target="_blank"> Genova Prague Open by Moneta Money Bank</a> s <strong>dotací 25 tisíc amerických dolarů</strong> bude ve středu pokračovat úvodní kolo dvouhry i čtyřhry. Do akce se v singlu zapojí celkem devět domácích tenistů a v deblu pak dokonce deset.
+                    </p>
+                  </div>
+                </div>
+
+
+              </div>
+              <!-- Banner B2 / article - 936 x 280 -->
+              <div class="Banner u-mt-24 u-mb-32">
+                <a href="#todo">
+                  <img src="./img/placeholder-banner-article.jpg" width="936" height="280" loading="lazy" />
+                </a>
+              </div>
+
+              <div class="Container Container--slim">
+                <div class="streamItem">
+                  <div class="streamItem__date">
+                    15:57
+                  </div>
+                  <div class="streamItem__info">
+                    <div class="streamItem__title">
+                      Hraju pod svou úroveň, přiznal otevřeně Djokovič a vynechá nadcházející Masters
+                    </div>
+                    <p>
+                      Na mužském antukovém turnaji <a href="#" target="_blank"> Genova Prague Open by Moneta Money Bank</a> s <strong>dotací 25 tisíc amerických dolarů</strong> bude ve středu pokračovat úvodní kolo dvouhry i čtyřhry. Do akce se v singlu zapojí celkem devět domácích tenistů a v deblu pak dokonce deset.
+                    </p>
+                  </div>
+                </div>
+                <div class="streamItem">
+                  <div class="streamItem__date">
+                    15:57
+                  </div>
+                  <div class="streamItem__info">
+                    <div class="streamItem__title">
+                      Hraju pod svou úroveň, přiznal otevřeně Djokovič a vynechá nadcházející Masters
+                    </div>
+                    <p>
+                      Na mužském antukovém turnaji <a href="#" target="_blank"> Genova Prague Open by Moneta Money Bank</a> s <strong>dotací 25 tisíc amerických dolarů</strong> bude ve středu pokračovat úvodní kolo dvouhry i čtyřhry. Do akce se v singlu zapojí celkem devět domácích tenistů a v deblu pak dokonce deset.
+                    </p>
+                  </div>
+                </div>
+                <div class="streamItem">
+                  <div class="streamItem__date">
+                    15:57
+                  </div>
+                  <div class="streamItem__info">
+                    <div class="streamItem__title">
+                      Hraju pod svou úroveň, přiznal otevřeně Djokovič a vynechá nadcházející Masters
+                    </div>
+                    <p>
+                      Na mužském antukovém turnaji <a href="#" target="_blank"> Genova Prague Open by Moneta Money Bank</a> s <strong>dotací 25 tisíc amerických dolarů</strong> bude ve středu pokračovat úvodní kolo dvouhry i čtyřhry. Do akce se v singlu zapojí celkem devět domácích tenistů a v deblu pak dokonce deset.
+                    </p>
+                  </div>
+                </div>
+                <div class="streamItem">
+                  <div class="streamItem__date">
+                    15:57
+                  </div>
+                  <div class="streamItem__info">
+                    <div class="streamItem__title">
+                      Hraju pod svou úroveň, přiznal otevřeně Djokovič a vynechá nadcházející Masters
+                    </div>
+                    <p>
+                      Na mužském antukovém turnaji <a href="#" target="_blank"> Genova Prague Open by Moneta Money Bank</a> s <strong>dotací 25 tisíc amerických dolarů</strong> bude ve středu pokračovat úvodní kolo dvouhry i čtyřhry. Do akce se v singlu zapojí celkem devět domácích tenistů a v deblu pak dokonce deset.
+                    </p>
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="streamBottom">
+                <div class="OnlineHeader-dateSelector OnlineHeader-dateSelector--scrolling">
+                  <a href="#todo" class="IconButton IconButton--48">
+
+                    <svg class="u-flip-horizontal" width="32" height="32" focusable="false" aria-hidden="true">
+                      <use xlink:href="#arrow-right"></use>
+                    </svg>
+
+                  </a>
+                  <a href="#todo" class="OnlineHeader-date">Po<br>10.07.</a>
+                  <a href="#todo" class="OnlineHeader-date">Út<br>11.07.</a>
+                  <a href="#todo" class="OnlineHeader-date is-today">Dnes<br>12.07.</a>
+                  <a href="#todo" class="OnlineHeader-date">Čt<br>13.07.</a>
+                  <a href="#todo" class="OnlineHeader-date">Pá<br>14.07.</a>
+                  <a href="#todo" class="IconButton IconButton--48">
+
+                    <svg class="" width="32" height="32" focusable="false" aria-hidden="true">
+                      <use xlink:href="#arrow-right"></use>
+                    </svg>
+
+                  </a>
+                </div>
+              </div>
+
+
+            </article>
+
+
+
+
+          </div>
+          <div class="Grid-col Grid-col--3 Grid-col--md-4 Grid-col--sm-12 u-sm-mt-40 u-xs-mt-24 SidebarContainer">
+            <aside class="Sidebar">
+
+              <!-- Češi na turnajích -->
+              <section id="sidebar-tournaments-czechs">
+                <h2 class="H2">Češi na turnajích</h2>
+
+                <div class="Tabs js-tabs">
+                  <!-- Tabs nav -->
+                  <div class="ButtonGroup ButtonGroup--small ButtonGroup--scrolling u-mb-12" role="tablist">
+                    <button class="ToggleButton is-active js-tabs-button" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-tournaments-1" id="tab-tournaments-1">
+                      <span>Vše</span>
+                    </button>
+                    <button class="ToggleButton js-tabs-button" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-tournaments-2" id="tab-tournaments-2">
+                      <span>WTA Charleston</span>
+                    </button>
+                    <button class="ToggleButton js-tabs-button" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-tournaments-3" id="tab-tournaments-3">
+                      <span>ATP Houston</span>
+                    </button>
+                    <button class="ToggleButton js-tabs-button" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-tournaments-4" id="tab-tournaments-4">
+                      <span>ATP Marrákeš</span>
+                    </button>
+                  </div>
+
+                  <!-- Tabs content -->
+                  <div class="Tabs-contentContainer">
+                    <!-- Tabs content - "Vše" -->
+                    <section class="Tabs-panel is-active js-tabs-panel" id="tabpanel-tournaments-1" role="tabpanel" aria-labelledby="tab-tournaments-1">
+                      <h3 class="H3 u-mt-24">Odehrané / hraje se</h3>
+
+                      <div class="MatchBoxList">
+                        <a href="#todo" class="MatchBox">
+                          <div class="TagList">
+                            <span class="Tag Tag--text Tag--blue">ATP Marrakéš</span>
+                            <span class="Tag Tag--text Tag--gray">2. kolo dvouhry</span>
+                          </div>
+
+                          <div class="MatchBox-body">
+                            <div class="MatchBox-col">
+                              <div class="MatchBox-players">
+                                <div class="PlayerItem">
+                                  <span class="fi fi-cz"></span>
+                                  <strong>Linda Fruhvirtová</strong>
+                                </div>
+                              </div>
+                              <div class="MatchBox-players">
+                                <div class="PlayerItem">
+                                  <span class="fi fi-gr"></span>
+                                  Caroline Dolehideová
+                                </div>
+                              </div>
+                            </div>
+                            <div class="MatchBox-colGameCols">
+                              <div class="MatchBox-col">
+                                <div class="u-ta-right">
+                                  <strong>2</strong>
+                                </div>
+                                <div class="u-ta-right">
+                                  <strong>1</strong>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+
+                        <a href="#todo" class="MatchBox is-live">
+                          <div class="TagList">
+                            <span class="Tag Tag--text Tag--blue">ATP Marrakéš</span>
+                            <span class="Tag Tag--text Tag--gray">3. kolo dvouhry</span>
+                            <span class="Tag Tag--text Tag--red MatchBox-liveInfo">Živě</span>
+                          </div>
+
+                          <div class="MatchBox-body">
+                            <div class="MatchBox-col">
+                              <div class="MatchBox-players">
+                                <div class="PlayerItem">
+                                  <span class="fi fi-cz"></span>
+                                  Tomáš Macháč
+                                </div>
+                              </div>
+                              <div class="MatchBox-players">
+                                <div class="PlayerItem">
+                                  <span class="fi fi-gr"></span>
+                                  G. Alberto Olivieri
+                                </div>
+                              </div>
+                            </div>
+                            <div class="MatchBox-colGameCols">
+                              <div class="MatchBox-col MatchBox-currentGame">
+                                <div class="u-ta-right">
+                                  <span class="u-mr-4">
+											<svg width="10" height="10" viewbox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd" clip-rule="evenodd" d="M5.04621 9.99999C4.22266 9.99998 2.94702 9.77072 2.11921 9.14009C1.5894 8.74179 1.55629 8.50945 2.08609 8.04478C4.03973 6.35202 3.6755 3.86267 2.64901 2.6346C2.53311 2.50183 2.40894 2.37736 2.28477 2.2529C2.1606 2.12843 2.03642 2.00396 1.92053 1.8712C1.62252 1.53928 1.62252 1.37333 1.95364 1.0746C3.77483 -0.352621 6.22517 -0.352621 8.04636 1.04141C8.44371 1.34014 8.4106 1.60567 7.98013 1.97077C6.5894 3.16566 6.12583 4.99118 6.88742 6.58436C7.15232 7.11542 7.58278 7.61329 7.98013 8.04478C8.05725 8.12852 8.13062 8.19475 8.19347 8.25149C8.45449 8.48713 8.53412 8.55902 7.94702 9.04052C7.21854 9.63796 5.86976 10 5.04621 9.99999ZM0 5.04575C0 4.24916 0.198675 3.53076 0.529801 2.83374C0.728477 2.40226 0.993378 2.33587 1.42384 2.6014C3.01325 3.66353 2.98013 6.48479 1.35762 7.51372C0.993378 7.74606 0.761589 7.67967 0.562914 7.28138C0.198675 6.58436 0 5.84234 0 5.04575ZM9.4702 2.83374C9.80132 3.53076 10 4.24916 10 5.04575C10 5.84234 9.80132 6.58436 9.43709 7.28138C9.23841 7.67967 9.00662 7.74606 8.64238 7.51372C7.01987 6.48479 6.98675 3.66353 8.57616 2.6014C9.00662 2.33587 9.27152 2.40226 9.4702 2.83374Z" fill="#A5C938"/>
+											</svg>
+										</span>
+
+                                  30
+                                </div>
+                                <div class="u-ta-right">15</div>
+                              </div>
+                              <div class="MatchBox-col">
+                                <div class="u-ta-right">3</div>
+                                <div class="u-ta-right">1</div>
+                              </div>
+                              <div class="MatchBox-col">
+                                <div class="u-ta-right">6</div>
+                                <div class="u-ta-right">2</div>
+                              </div>
+                              <div class="MatchBox-col">
+                                <div class="u-ta-right MatchBox-liveInfo">1</div>
+                                <div class="u-ta-right MatchBox-liveInfo">0</div>
+                              </div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                      <h3 class="H3 u-mt-24">Bude se hrát</h3>
+
+                      <div class="MatchBoxList">
+                        <a href="#todo" class="MatchBox">
+                          <div class="TagList">
+                            <span class="Tag Tag--text Tag--blue">ATP Marrakéš</span>
+                            <span class="Tag Tag--text Tag--gray">1. kolo kvalifikace</span>
+                          </div>
+
+                          <div class="MatchBox-body">
+                            <div class="MatchBox-col">
+                              <div class="MatchBox-players">
+                                <div class="PlayerItem">
+                                  <span class="fi fi-cz"></span>
+                                  Tomáš Berdych
+                                </div>
+                              </div>
+                              <div class="MatchBox-players">
+                                <div class="PlayerItem">
+                                  <span class="fi fi-gr"></span>
+                                  Rafael Nadal
+                                </div>
+                              </div>
+                            </div>
+                            <div class="MatchBox-col MatchBox-col--date u-ml-auto">
+                              <div class="u-ta-right u-fw-semiBold">Dnes</div>
+                              <div class="u-ta-right u-fw-semiBold">18:30</div>
+                            </div>
+                          </div>
+                        </a>
+
+                        <a href="#todo" class="MatchBox">
+                          <div class="TagList">
+                            <span class="Tag Tag--text Tag--pink">WTA Charleston</span>
+                            <span class="Tag Tag--text Tag--gray">1. kolo čtyřhry</span>
+                          </div>
+
+                          <div class="MatchBox-body">
+                            <div class="MatchBox-col">
+                              <div class="MatchBox-players">
+                                <div class="PlayerItem">
+                                  <span class="fi fi-cz"></span>
+                                  Kolodziejová, Eikeriová
+                                </div>
+                              </div>
+                              <div class="MatchBox-players">
+                                <div class="PlayerItem">
+                                  <span class="fi fi-gr"></span>
+                                  Bouzková
+                                </div>
+                                <div class="PlayerItem">
+                                  <span class="fi fi-pl"></span>
+                                  Katová
+                                </div>
+                              </div>
+                            </div>
+                            <div class="MatchBox-col MatchBox-col--date u-ml-auto">
+                              <div class="u-ta-right u-fw-semiBold">7. 4.</div>
+                              <div class="u-ta-right u-fw-semiBold">19:30</div>
+                            </div>
+                          </div>
+                        </a>
+                      </div>
+
+                      <a href="#todo" class="Button Button--primary Button--full Button--xs-full u-mt-16">Načíst další</a>
+                    </section>
+                    <!-- Tabs content - "Turnaj #1" -->
+                    <section class="Tabs-panel js-tabs-panel" id="tabpanel-tournaments-2" role="tabpanel" aria-labelledby="tab-tournaments-2">
+                      <p>Tab "Turnaj #1" content</p>
+                    </section>
+                    <!-- Tabs content - "Turnaj #2" -->
+                    <section class="Tabs-panel js-tabs-panel" id="tabpanel-tournaments-3" role="tabpanel" aria-labelledby="tab-tournaments-3">
+                      <p>Tab "Turnaj #2" content</p>
+                    </section>
+                    <!-- Tabs content - "Turnaj #3" -->
+                    <section class="Tabs-panel js-tabs-panel" id="tabpanel-tournaments-4" role="tabpanel" aria-labelledby="tab-tournaments-4">
+                      <p>Tab "Turnaj #3" content</p>
+                    </section>
+                  </div>
+                </div>
+              </section>
+
+
+              <!-- Žebříčky -->
+              <section id="sidebar-rankings">
+                <div class="u-display-flex u-align-items-center u-column-gap-24 u-mb-16">
+                  <h2 class="H2 u-mb-0">Žebříčky</h2>
+                  <div class="Checkbox">
+                    <input id="js-rankings-czechs-only" type="checkbox" class="Checkbox-originalCheck" />
+                    <label for="js-rankings-czechs-only" class="Checkbox-label">
+                      Pouze Češi
+                    </label>
+                  </div>
+                </div>
+
+                <div class="Tabs js-tabs">
+                  <!-- Tabs nav -->
+                  <div class="ButtonGroup ButtonGroup--small ButtonGroup--scrolling u-mb-12" role="tablist">
+                    <button class="ToggleButton is-active js-tabs-button" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-rankings-1" id="tab-rankings-1">
+                      <span>ATP dvouhra</span>
+                    </button>
+                    <button class="ToggleButton js-tabs-button" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-rankings-2" id="tab-rankings-2">
+                      <span>ATP čtyřhra</span>
+                    </button>
+                    <button class="ToggleButton js-tabs-button" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-rankings-3" id="tab-rankings-3">
+                      <span>WTA dvouhra</span>
+                    </button>
+                    <button class="ToggleButton js-tabs-button" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-rankings-4" id="tab-rankings-4">
+                      <span>WTA čtyřhra</span>
+                    </button>
+                  </div>
+
+                  <!-- Tabs content -->
+                  <div class="Tabs-contentContainer">
+                    <!-- Tabs content - "Turnaj #1" -->
+                    <section class="Tabs-panel is-active js-tabs-panel" id="tabpanel-rankings-1" role="tabpanel" aria-labelledby="tab-rankings-1">
+                      <table class="Table ScoreboardTable u-mt-8 js-rankings-table">
+                        <thead>
+                          <tr>
+                            <th class="u-ta-left">#</th>
+                            <th class="ScoreboardTable-cleaner"></th>
+                            <th class="ScoreboardTable-name ScoreboardTable-name--th">Hráč (věk)</th>
+                            <th class="u-ta-right">Body</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+
+                          <tr>
+                            <td class="u-ta-left">
+                              <strong>1.</strong>
+                              <a href="#todo" class="Link Link--overlay" title="{player name}" aria-label="{player name}">
+                                {player name}
+                              </a>
+                            </td>
+
+                            <td class="ScoreboardTable-down">
+
+                              <svg class="" width="20" height="20" focusable="false" aria-hidden="true">
+                                <use xlink:href="#chevron-down"></use>
+                              </svg>
+
+                            </td>
+
+                            <td class="ScoreboardTable-name">
+                              <div class="PlayerItem">
+                                <span class="fi fi-gr"></span>
+                                <a href="#todo" class="Link Link--inverted">{player name}</a>
+                              </div>
+                            </td>
+                            <td class="u-ta-right">
+                              <strong>7 160</strong>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td class="u-ta-left">
+                              <strong>2.</strong>
+                              <a href="#todo" class="Link Link--overlay" title="{player name}" aria-label="{player name}">
+                                {player name}
+                              </a>
+                            </td>
+
+                            <td class="ScoreboardTable-up">
+
+                              <svg class="" width="20" height="20" focusable="false" aria-hidden="true">
+                                <use xlink:href="#chevron-up"></use>
+                              </svg>
+
+                            </td>
+
+                            <td class="ScoreboardTable-name">
+                              <div class="PlayerItem">
+                                <span class="fi fi-gr"></span>
+                                <a href="#todo" class="Link Link--inverted">{player name}</a>
+                              </div>
+                            </td>
+                            <td class="u-ta-right">
+                              <strong>7 160</strong>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td class="u-ta-left">
+                              <strong>3.</strong>
+                              <a href="#todo" class="Link Link--overlay" title="{player name}" aria-label="{player name}">
+                                {player name}
+                              </a>
+                            </td>
+
+                            <td class="ScoreboardTable-down">
+
+                              <svg class="" width="20" height="20" focusable="false" aria-hidden="true">
+                                <use xlink:href="#chevron-down"></use>
+                              </svg>
+
+                            </td>
+
+                            <td class="ScoreboardTable-name">
+                              <div class="PlayerItem">
+                                <span class="fi fi-gr"></span>
+                                <a href="#todo" class="Link Link--inverted">{player name}</a>
+                              </div>
+                            </td>
+                            <td class="u-ta-right">
+                              <strong>7 160</strong>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td class="u-ta-left">
+                              <strong>4.</strong>
+                              <a href="#todo" class="Link Link--overlay" title="{player name}" aria-label="{player name}">
+                                {player name}
+                              </a>
+                            </td>
+
+                            <td class="ScoreboardTable-up">
+
+                              <svg class="" width="20" height="20" focusable="false" aria-hidden="true">
+                                <use xlink:href="#chevron-up"></use>
+                              </svg>
+
+                            </td>
+
+                            <td class="ScoreboardTable-name">
+                              <div class="PlayerItem">
+                                <span class="fi fi-gr"></span>
+                                <a href="#todo" class="Link Link--inverted">{player name}</a>
+                              </div>
+                            </td>
+                            <td class="u-ta-right">
+                              <strong>7 160</strong>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td class="u-ta-left">
+                              <strong>5.</strong>
+                              <a href="#todo" class="Link Link--overlay" title="{player name}" aria-label="{player name}">
+                                {player name}
+                              </a>
+                            </td>
+
+                            <td class="ScoreboardTable-down">
+
+                              <svg class="" width="20" height="20" focusable="false" aria-hidden="true">
+                                <use xlink:href="#chevron-down"></use>
+                              </svg>
+
+                            </td>
+
+                            <td class="ScoreboardTable-name">
+                              <div class="PlayerItem">
+                                <span class="fi fi-gr"></span>
+                                <a href="#todo" class="Link Link--inverted">{player name}</a>
+                              </div>
+                            </td>
+                            <td class="u-ta-right">
+                              <strong>7 160</strong>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td class="u-ta-left">
+                              <strong>6.</strong>
+                              <a href="#todo" class="Link Link--overlay" title="{player name}" aria-label="{player name}">
+                                {player name}
+                              </a>
+                            </td>
+
+                            <td class="ScoreboardTable-up">
+
+                              <svg class="" width="20" height="20" focusable="false" aria-hidden="true">
+                                <use xlink:href="#chevron-up"></use>
+                              </svg>
+
+                            </td>
+
+                            <td class="ScoreboardTable-name">
+                              <div class="PlayerItem">
+                                <span class="fi fi-gr"></span>
+                                <a href="#todo" class="Link Link--inverted">{player name}</a>
+                              </div>
+                            </td>
+                            <td class="u-ta-right">
+                              <strong>7 160</strong>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td class="u-ta-left">
+                              <strong>7.</strong>
+                              <a href="#todo" class="Link Link--overlay" title="{player name}" aria-label="{player name}">
+                                {player name}
+                              </a>
+                            </td>
+
+                            <td class="ScoreboardTable-down">
+
+                              <svg class="" width="20" height="20" focusable="false" aria-hidden="true">
+                                <use xlink:href="#chevron-down"></use>
+                              </svg>
+
+                            </td>
+
+                            <td class="ScoreboardTable-name">
+                              <div class="PlayerItem">
+                                <span class="fi fi-gr"></span>
+                                <a href="#todo" class="Link Link--inverted">{player name}</a>
+                              </div>
+                            </td>
+                            <td class="u-ta-right">
+                              <strong>7 160</strong>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td class="u-ta-left">
+                              <strong>8.</strong>
+                              <a href="#todo" class="Link Link--overlay" title="{player name}" aria-label="{player name}">
+                                {player name}
+                              </a>
+                            </td>
+
+                            <td class="ScoreboardTable-up">
+
+                              <svg class="" width="20" height="20" focusable="false" aria-hidden="true">
+                                <use xlink:href="#chevron-up"></use>
+                              </svg>
+
+                            </td>
+
+                            <td class="ScoreboardTable-name">
+                              <div class="PlayerItem">
+                                <span class="fi fi-gr"></span>
+                                <a href="#todo" class="Link Link--inverted">{player name}</a>
+                              </div>
+                            </td>
+                            <td class="u-ta-right">
+                              <strong>7 160</strong>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td class="u-ta-left">
+                              <strong>9.</strong>
+                              <a href="#todo" class="Link Link--overlay" title="{player name}" aria-label="{player name}">
+                                {player name}
+                              </a>
+                            </td>
+
+                            <td class="ScoreboardTable-down">
+
+                              <svg class="" width="20" height="20" focusable="false" aria-hidden="true">
+                                <use xlink:href="#chevron-down"></use>
+                              </svg>
+
+                            </td>
+
+                            <td class="ScoreboardTable-name">
+                              <div class="PlayerItem">
+                                <span class="fi fi-gr"></span>
+                                <a href="#todo" class="Link Link--inverted">{player name}</a>
+                              </div>
+                            </td>
+                            <td class="u-ta-right">
+                              <strong>7 160</strong>
+                            </td>
+                          </tr>
+
+                          <tr>
+                            <td class="u-ta-left">
+                              <strong>10.</strong>
+                              <a href="#todo" class="Link Link--overlay" title="{player name}" aria-label="{player name}">
+                                {player name}
+                              </a>
+                            </td>
+
+                            <td class="ScoreboardTable-up">
+
+                              <svg class="" width="20" height="20" focusable="false" aria-hidden="true">
+                                <use xlink:href="#chevron-up"></use>
+                              </svg>
+
+                            </td>
+
+                            <td class="ScoreboardTable-name">
+                              <div class="PlayerItem">
+                                <span class="fi fi-gr"></span>
+                                <a href="#todo" class="Link Link--inverted">{player name}</a>
+                              </div>
+                            </td>
+                            <td class="u-ta-right">
+                              <strong>7 160</strong>
+                            </td>
+                          </tr>
+
+                          <tr data-czech>
+                            <td class="u-ta-left">
+                              <strong>11.</strong>
+                              <a href="#todo" class="Link Link--overlay" title="{czech player name}" aria-label="{czech player name}">
+                                {czech player name}
+                              </a>
+                            </td>
+                            <td class="ScoreboardTable-down">
+                              <svg class="" width="20" height="20" focusable="false" aria-hidden="true">
+                                <use xlink:href="#chevron-down"></use>
+                              </svg>
+                            </td>
+                            <td class="ScoreboardTable-name">
+                              <div class="PlayerItem">
+                                <span class="fi fi-cz"></span>
+                                <a href="#todo" class="Link Link--inverted">{czech player name}</a>
+                              </div>
+                            </td>
+                            <td class="u-ta-right">
+                              <strong>5 000</strong>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <a href="#todo" class="Button Button--primary Button--full u-mt-24">Kompletní žebříčky</a>
+                    </section>
+                    <!-- Tabs content - "Turnaj #2" -->
+                    <section class="Tabs-panel js-tabs-panel" id="tabpanel-rankings-2" role="tabpanel" aria-labelledby="tab-rankings-2">
+                      <p>Tab "Turnaj #2 žebříček" content</p>
+                    </section>
+                    <!-- Tabs content - "Turnaj #3" -->
+                    <section class="Tabs-panel js-tabs-panel" id="tabpanel-rankings-3" role="tabpanel" aria-labelledby="tab-rankings-3">
+                      <p>Tab "Turnaj #3 žebříček" content</p>
+                    </section>
+                    <!-- Tabs content - "Turnaj #4" -->
+                    <section class="Tabs-panel js-tabs-panel" id="tabpanel-rankings-4" role="tabpanel" aria-labelledby="tab-rankings-4">
+                      <p>Tab "Turnaj #4 žebříček" content</p>
+                    </section>
+                  </div>
+                </div>
+              </section>
+
+
+
+
+            </aside>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <div class="u-px-20 u-pb-32 u-display-none u-xs-display-block">
+      <!-- Banner B1 - 350 x 270 -->
+      <div class="Banner">
+        <a href="#todo">
+          <img src="./img/placeholder-banner-B1-350x270@3x.jpg" width="350" height="270" loading="lazy" />
+        </a>
+      </div>
+
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer class="Footer">
+      <div class="Footer-content">
+        <!-- Logo -->
+        <a href="/" class="Footer-logo" aria-label="Tenisový svět - domovská stránka" title="Tenisový svět - domovská stránka">
+          <!-- Logo -->
+          <svg width="189" height="27" viewBox="0 0 189 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M134.701 5.5822L136.963 2.53345H133.28L131.41 5.5822H134.701ZM134.645 14.6344L139.375 6.20324H135.823L132.999 11.3786L130.232 6.20324H126.418L131.111 14.6344V19.7156H134.645V14.6344ZM105.457 19.9979C109.346 19.9979 112.394 17.0433 112.394 12.9406C112.394 8.83797 109.346 5.92095 105.457 5.92095C101.587 5.92095 98.5388 8.83797 98.5388 12.9406C98.5388 17.0433 101.587 19.9979 105.457 19.9979ZM105.457 16.8174C103.344 16.8174 102.166 15.0672 102.166 12.9406C102.166 10.814 103.344 9.10144 105.457 9.10144C107.57 9.10144 108.748 10.814 108.748 12.9406C108.748 15.0672 107.57 16.8174 105.457 16.8174ZM97.5104 15.293C97.5104 13.3358 96.2389 12.1502 93.8456 11.6797L91.2465 11.1716C90.536 11.0398 89.9377 10.6823 89.9377 10.0801C89.9377 9.34609 90.5734 8.78151 91.6205 8.78151C92.7985 8.78151 93.6212 9.57193 93.7147 10.7952H97.286C97.0803 7.87818 94.7805 6.03387 91.5831 6.03387C88.5727 6.03387 86.3663 7.8029 86.3663 10.3247C86.3663 12.5078 87.7874 13.7687 89.9377 14.1827L92.3871 14.6532C93.1724 14.8037 93.7521 15.2366 93.7521 15.82C93.7521 16.6669 92.9481 17.1374 91.7327 17.1374C90.2742 17.1374 89.4328 16.3281 89.3954 15.0484H85.8241C86.0672 18.0407 88.3109 19.9038 91.8075 19.9038C95.304 19.9038 97.5104 18.0783 97.5104 15.293ZM48.7832 9.42137V19.7156H45.2493V9.42137H41.1357V6.20324H52.8968V9.42137H48.7832ZM58.0201 16.6292H63.9848V19.7156H54.4862V6.20324H63.8539V9.28964H58.0201V11.228H63.3116V14.3144H58.0201V16.6292ZM74.5866 19.7156H77.9896V6.20324H74.7549V14.0133L69.7999 6.20324H66.0042V19.7156H69.2389V11.2845L74.5866 19.7156ZM84.1413 6.20324V19.7156H80.6073V6.20324H84.1413ZM126.324 6.20324H122.771L119.724 15.5565L116.769 6.20324H112.936L117.686 19.7156H121.537L126.324 6.20324Z" fill="currentColor" />
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M176.136 2.53345L173.518 5.5822H169.461L166.824 2.53345H170.339L171.48 3.92609L172.639 2.53345H176.136ZM170.283 16.6292H176.248V19.7156H166.749V6.20324H176.117V9.28964H170.283V11.228H175.575V14.3144H170.283V16.6292ZM147.846 11.6797C150.239 12.1502 151.51 13.3358 151.51 15.293C151.51 18.0783 149.304 19.9038 145.807 19.9038C142.311 19.9038 140.067 18.0407 139.824 15.0484H143.395C143.433 16.3281 144.274 17.1374 145.733 17.1374C146.948 17.1374 147.752 16.6669 147.752 15.82C147.752 15.2366 147.172 14.8037 146.387 14.6532L143.938 14.1827C141.787 13.7687 140.366 12.5078 140.366 10.3247C140.366 7.8029 142.573 6.03387 145.583 6.03387C148.78 6.03387 151.08 7.87818 151.286 10.7952H147.715C147.621 9.57193 146.798 8.78151 145.62 8.78151C144.573 8.78151 143.938 9.34609 143.938 10.0801C143.938 10.6823 144.536 11.0398 145.247 11.1716L147.846 11.6797ZM161.869 6.20324H165.422L160.635 19.7156H156.783L152.034 6.20324H155.867L158.821 15.5565L161.869 6.20324ZM184.886 9.42137V19.7156H181.352V9.42137H177.239V6.20324H189V9.42137H184.886Z" fill="#84A12D" />
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5691 27C11.3546 27 7.92442 26.381 5.69846 24.6782C4.27384 23.6028 4.1848 22.9755 5.60942 21.7209C10.8627 17.1505 9.88326 10.4292 7.12307 7.11341C6.81144 6.75494 6.47754 6.41888 6.14365 6.08282C5.80975 5.74676 5.47586 5.41069 5.16423 5.05223C4.36288 4.15606 4.36288 3.70798 5.25326 2.90143C10.1504 -0.952076 16.7392 -0.952076 21.6363 2.81182C22.7048 3.61837 22.6158 4.3353 21.4583 5.32108C17.7186 8.54727 16.4721 13.4762 18.52 17.7778C19.2323 19.2116 20.3898 20.5559 21.4583 21.7209C21.6656 21.947 21.8629 22.1258 22.0319 22.279C22.7338 22.9153 22.9479 23.1093 21.3692 24.4094C19.4104 26.0225 15.7836 27 13.5691 27ZM0 13.6235C0 11.4727 0.53423 9.53305 1.42461 7.65111C1.95884 6.48609 2.67115 6.30686 3.82865 7.02379C8.10249 9.89152 8.01345 17.5089 3.65057 20.287C2.67115 20.9144 2.04788 20.7351 1.51365 19.6597C0.53423 17.7778 0 15.7743 0 13.6235ZM25.465 7.65111C26.3554 9.53305 26.8896 11.4727 26.8896 13.6235C26.8896 15.7743 26.3554 17.7778 25.3759 19.6597C24.8417 20.7351 24.2184 20.9144 23.239 20.287C18.8761 17.5089 18.7871 9.89152 23.0609 7.02379C24.2184 6.30686 24.9307 6.48609 25.465 7.65111Z" fill="url(#paint0_linear_0_4403)" />
+            <defs>
+              <linearGradient id="paint0_linear_0_4403" x1="7.4114" y1="-7.69276" x2="-8.00619" y2="19.2529" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#CCEF64" />
+                <stop offset="1" stop-color="#A5C938" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+        </a>
+
+        <nav aria-label="Spodní sekundární navigace">
+          <ul class="Footer-menu">
+            <li>
+              <a href="#todo">Denní menu</a>
+            </li>
+            <li>
+              <a href="#todo">Zprávy</a>
+            </li>
+            <li>
+              <a href="#todo">Žebříčky</a>
+            </li>
+            <li>
+              <a href="#todo">Turnaje</a>
+            </li>
+            <li>
+              <a href="#todo">Online přenosy</a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="Footer-side">
+          <button class="IconButton IconButton--darkTheme js-themeSwitcher" aria-label="Změnit barevný mód" title="Změnit barevný mód">
+
+            <svg class="" width="32" height="32" focusable="false" aria-hidden="true">
+              <use xlink:href="#dark-mode"></use>
+            </svg>
+
+          </button>
+
+          <a href="./vyhledavani.html" class="IconButton" aria-label="Přejít na stránku vyhledávání" title="Přejít na stránku vyhledávání">
+
+            <svg class="" width="32" height="32" focusable="false" aria-hidden="true">
+              <use xlink:href="#search"></use>
+            </svg>
+
+          </a>
+        </div>
+      </div>
+
+      <hr class="Footer-separator" />
+
+      <!-- Socials -->
+      <ul class="Socials" aria-label="Odkazy na sociální sítě">
+        <li class="Socials-item">
+          <a class="Socials-link" href="https://www.facebook.com/Tenis-845744408841464" target="_blank" rel="noopener noreferrer" aria-label="Facebook - Tenisový svět" title="Facebook - Tenisový svět">
+
+            <svg class="Socials-icon" width="32" height="32" focusable="false" aria-hidden="true">
+              <use xlink:href="#circleFacebook"></use>
+            </svg>
+
+            Facebook
+          </a>
+        </li>
+        <li class="Socials-item">
+          <a class="Socials-link" href="https://twitter.com/tenisovysvetcz" target="_blank" rel="noopener noreferrer" aria-label="Instagram - Tenisový svět" title="Instagram - Tenisový svět">
+
+            <svg class="Socials-icon" width="32" height="32" focusable="false" aria-hidden="true">
+              <use xlink:href="#circleTwitter"></use>
+            </svg>
+
+            Twitter
+          </a>
+        </li>
+        <li class="Socials-item">
+          <a class="Socials-link" href="https://www.youtube.com/channel/UCo4HL4At2J4r6V3svpvs5-Q" target="_blank" rel="noopener noreferrer" aria-label="Instagram - Tenisový svět" title="Instagram - Tenisový svět">
+
+            <svg class="Socials-icon" width="32" height="32" focusable="false" aria-hidden="true">
+              <use xlink:href="#circleYoutube"></use>
+            </svg>
+
+            YouTube
+          </a>
+        </li>
+        <li class="Socials-item">
+          <a class="Socials-link" href="https://www.instagram.com/tenisovysvetcz/" target="_blank" rel="noopener noreferrer" aria-label="Instagram - Tenisový svět" title="Instagram - Tenisový svět">
+
+            <svg class="Socials-icon" width="32" height="32" focusable="false" aria-hidden="true">
+              <use xlink:href="#circleInstagram"></use>
+            </svg>
+
+            Instagram
+          </a>
+        </li>
+      </ul>
+
+
+      <div class="Footer-copyright">
+        © Český tenisový svaz & 2016-2023 |
+        <a href="https://esportsmedia.cz/" target="_blank" rel="noopener noreferrer">eSportsmedia.cz</a>
+        <a href="mailto:redakce@tenisovysvet.cz">redakce@tenisovysvet.cz</a>&nbsp;|&nbsp;<a href="javascript:void(0);" data-cc="c-settings" aria-haspopup="dialog">Nastavení cookies</a>
+      </div>
+    </footer>
+
+    <!-- Branding left banner -->
+    <div class="Branding Branding--left">
+      <a href="https://www.tenisdetem.cz/" target="_blank" rel="noopener">
+        <img src="./img/placeholder-banner-left.jpg" width="340" height="2826">
+      </a>
+    </div>
+    <!-- Branding right banner -->
+    <div class="Branding Branding--right">
+      <a href="https://www.tenisdetem.cz/" target="_blank" rel="noopener">
+        <img src="./img/placeholder-banner-right.jpg" width="340" height="2826">
+      </a>
+    </div>
+
+  </div>
+
+  <div style="visibility:hidden; width: 0; height: 0; position: absolute; overflow: hidden;">
+    <svg>
+      <defs>
+        <linearGradient id="social-gradient" x1="8.81995" y1="-9.11734" x2="-9.41473" y2="22.8827" gradientUnits="userSpaceOnUse">
+          <stop stop-color="#CCEF64" />
+          <stop offset="1" stop-color="#A5C938" />
+        </linearGradient>
+      </defs>
+
+      <symbol id="circleFacebook" viewBox="0 0 32 32" fill="url(#social-gradient)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0 16.0007C0 7.16504 7.16345 0 16 0C24.8359 0 32 7.16504 32 16.0007C32 24.8376 24.8365 32 16 32C7.16345 32 0 24.8376 0 16.0007ZM17.4639 15.9337H20.2344L20.595 12.4457H17.4645V10.3905C17.4645 9.62118 17.9746 9.4412 18.3352 9.4412H20.543V6.05263L17.5022 6.04094C14.1255 6.04094 13.3575 8.5666 13.3575 10.1845V12.4451H11.4043V15.9337H13.3575V25.8148H17.4639V15.9337Z" />
+      </symbol>
+
+      <symbol id="circleTwitter" viewBox="0 0 32 32" fill="url(#social-gradient)">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M32 16.0007C32 7.16504 24.8359 0 16 0C7.16345 0 0 7.16504 0 16.0007C0 24.8376 7.16345 32 16 32C24.8365 32 32 24.8376 32 16.0007ZM15.8463 12.384C15.8463 10.2097 17.6088 8.44704 19.7827 8.44704C20.915 8.44704 21.9383 8.92539 22.6562 9.69043C23.5532 9.51358 24.3954 9.18599 25.1561 8.73452C24.862 9.65459 24.2384 10.4259 23.4251 10.9128C24.2216 10.8181 24.9808 10.6066 25.6862 10.293C25.1588 11.0826 24.4912 11.7764 23.7223 12.3303C23.7297 12.4993 23.7332 12.6696 23.7332 12.8402C23.7332 18.0428 19.7737 24.0416 12.5322 24.0416C10.3093 24.0416 8.24016 23.3903 6.49746 22.2727C6.80557 22.3093 7.11913 22.328 7.43659 22.328C9.28134 22.328 10.9785 21.6985 12.3258 20.6425C10.6034 20.611 9.14968 19.4724 8.64837 17.9084C8.8887 17.9548 9.13527 17.9793 9.38923 17.9793C9.74837 17.9793 10.0962 17.931 10.4265 17.8414C8.62539 17.4791 7.26832 15.8883 7.26832 13.9811L7.2687 13.9313C7.79962 14.2261 8.40687 14.4034 9.05191 14.424C7.99554 13.7182 7.30064 12.513 7.30064 11.1473C7.30064 10.4251 7.49462 9.74886 7.8335 9.16768C9.77524 11.5497 12.6764 13.1168 15.9483 13.2811C15.8809 12.9925 15.8463 12.6922 15.8463 12.384Z" />
+      </symbol>
+
+      <symbol id="circleYoutube" width="33" height="32" viewBox="0 0 33 32" fill="none">
+        <path d="M9.66858 17.347H10.8271V23.1018H11.9466V17.347H13.1038V16.3672H9.66858V17.347Z" fill="#A5C938" />
+        <path d="M16.5429 12.5647C16.6949 12.5647 16.8158 12.5245 16.9048 12.4419C16.9938 12.3568 17.0393 12.2412 17.0393 12.0956V9.1133C17.0393 8.99374 16.9938 8.89628 16.9022 8.82416C16.8106 8.74944 16.6917 8.7124 16.5429 8.7124C16.4071 8.7124 16.2966 8.74944 16.2102 8.82416C16.1251 8.89628 16.0835 8.99439 16.0835 9.1133V12.0956C16.0835 12.2451 16.1231 12.3607 16.203 12.4419C16.2817 12.5245 16.396 12.5647 16.5429 12.5647Z" fill="#A5C938" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M18.5532 18.191C18.7039 18.1124 18.8566 18.0728 19.0113 18.0728C19.3257 18.0728 19.5655 18.1793 19.7305 18.3911C19.8982 18.6017 19.9807 18.9116 19.9807 19.319V22.0765C19.9807 22.428 19.9021 22.697 19.7461 22.8861C19.5928 23.0739 19.3654 23.1668 19.0723 23.1668C18.8768 23.1668 18.7026 23.131 18.5519 23.0589C18.3998 22.9862 18.2575 22.8744 18.1282 22.7211V23.1018H17.1244V16.3672H18.1282V18.5373C18.2614 18.3866 18.4044 18.2696 18.5532 18.191ZM18.8703 22.2818C18.9274 22.2123 18.9567 22.0992 18.9567 21.9394V19.3729C18.9567 19.204 18.9222 19.0773 18.8527 18.9896C18.7799 18.9044 18.676 18.8616 18.5428 18.8616C18.472 18.8616 18.4005 18.8765 18.3323 18.9109C18.264 18.9421 18.1958 18.9935 18.1282 19.063V22.1584C18.2069 22.2389 18.2868 22.2994 18.3628 22.3338C18.4401 22.3682 18.5187 22.3871 18.6026 22.3871C18.7241 22.3871 18.8131 22.3526 18.8703 22.2818Z" fill="#A5C938" />
+        <path d="M15.3831 21.9087C15.2902 22.0153 15.1875 22.103 15.0758 22.1738C14.964 22.2434 14.8704 22.2778 14.799 22.2778C14.7048 22.2778 14.6378 22.2524 14.5949 22.1992C14.5547 22.1472 14.5326 22.0621 14.5326 21.9451V18.1331H13.5404V22.2882C13.5404 22.5851 13.5989 22.8034 13.7145 22.9542C13.8328 23.1017 14.0037 23.1751 14.2337 23.1751C14.4202 23.1751 14.6131 23.1244 14.8113 23.0178C15.0095 22.91 15.1999 22.7579 15.3837 22.5572V23.1017H16.3772V18.1337H15.3837V21.9087H15.3831Z" fill="#A5C938" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 0C7.66345 0 0.5 7.16345 0.5 16C0.5 24.8378 7.66345 32 16.5 32C25.3365 32 32.5 24.8378 32.5 16C32.5 7.16345 25.3359 0 16.5 0ZM19.0847 7.90221H20.2016V12.0989C20.2016 12.2295 20.2269 12.3224 20.2737 12.3796C20.3192 12.4381 20.3959 12.4686 20.5011 12.4686C20.5824 12.4686 20.6863 12.429 20.813 12.353C20.9371 12.2744 21.0528 12.1769 21.1567 12.056V7.90221H22.2762V13.3757H21.1567V12.7714C20.9527 12.9936 20.7376 13.1645 20.5135 13.2802C20.2913 13.3958 20.0756 13.4556 19.865 13.4556C19.6064 13.4556 19.4122 13.3731 19.2803 13.2093C19.151 13.0482 19.0847 12.8045 19.0847 12.4758V7.90221ZM15.3831 8.13937C15.0823 8.39342 14.9328 8.73129 14.9328 9.15362H14.9322V11.9904C14.9322 12.455 15.0797 12.8253 15.3727 13.1021C15.6664 13.375 16.0582 13.5121 16.5468 13.5121C17.0549 13.5121 17.4532 13.3789 17.7449 13.1138C18.0328 12.8487 18.1776 12.4823 18.1776 12.0125V9.18611C18.1776 8.76768 18.0302 8.42461 17.7358 8.16081C17.4389 7.89702 17.0607 7.76382 16.5975 7.76382C16.09 7.76382 15.6852 7.89052 15.3831 8.13937ZM11.8868 5.95687L12.7042 8.92101H12.7841L13.5618 5.95687H14.8412L13.3767 10.2985V13.3763H12.1175V10.4356L10.6185 5.95687H11.8868ZM22.9461 25.1588C24.9259 25.1588 26.5314 23.552 26.5314 21.5722V18.6887C26.5314 16.7076 24.9259 15.1021 22.9461 15.1021H10.4866C8.50552 15.1021 6.9 16.7076 6.9 18.6887V21.5722C6.9 23.552 8.50552 25.1588 10.4866 25.1588H22.9461Z" fill="url(#social-gradient)" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M20.9222 18.4176C21.2041 18.1448 21.5641 18.0103 22.0098 18.0103C22.464 18.0103 22.8142 18.1357 23.0592 18.3865C23.3035 18.6392 23.4243 18.9992 23.4243 19.4689V20.7379H21.5258V21.6729C21.5258 21.9354 21.557 22.116 21.6219 22.2187C21.6882 22.3187 21.8 22.3681 21.9585 22.3681C22.1235 22.3681 22.2392 22.3252 22.3035 22.2401C22.3678 22.155 22.4023 21.9659 22.4023 21.6729V21.4468H23.4237V21.7021C23.4237 22.2122 23.3009 22.5955 23.0494 22.8541C22.8019 23.1108 22.4302 23.2388 21.9351 23.2388C21.49 23.2388 21.1398 23.1017 20.8845 22.8288C20.6291 22.5572 20.4998 22.1816 20.4998 21.7021V19.4683C20.4998 19.0408 20.6415 18.6879 20.9222 18.4176ZM21.5251 19.9647H22.4016V19.4624C22.4016 19.2539 22.3659 19.1031 22.2977 19.0167C22.2301 18.9238 22.117 18.8796 21.9676 18.8796C21.8091 18.8796 21.696 18.9238 21.6265 19.0167C21.557 19.1031 21.5251 19.2545 21.5251 19.4624V19.9647Z" fill="#A5C938" />
+      </symbol>
+
+      <symbol id="circleInstagram" width="33" height="32" viewBox="0 0 33 32" fill="none">
+        <ellipse cx="16.3697" cy="16.1301" rx="2.86175" ry="2.86179" fill="#A5C938" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M19.9469 9.10571H12.7925C11.7519 9.10571 10.8413 9.43092 10.256 10.0163C9.6706 10.6016 9.3454 11.5122 9.3454 12.5529V19.7073C9.3454 20.748 9.6706 21.6586 10.321 22.309C10.9714 22.8943 11.8169 23.2195 12.8575 23.2195H19.9469C20.9875 23.2195 21.8981 22.8943 22.4834 22.309C23.1338 21.7236 23.459 20.813 23.459 19.7724V12.6179C23.459 11.5773 23.1338 10.7317 22.5485 10.0813C21.8981 9.43092 21.0526 9.10571 19.9469 9.10571ZM16.3697 20.5529C13.8982 20.5529 11.947 18.5366 11.947 16.1301C11.947 13.6586 13.9632 11.7073 16.3697 11.7073C18.7762 11.7073 20.8574 13.6586 20.8574 16.1301C20.8574 18.6016 18.8412 20.5529 16.3697 20.5529ZM19.9469 11.5122C19.9469 12.0976 20.4022 12.5529 20.9875 12.5529C21.5729 12.5529 22.0282 12.0976 22.0282 11.5122C22.0282 10.9269 21.5729 10.4716 20.9875 10.4716C20.4022 10.4716 19.9469 10.9269 19.9469 11.5122Z" fill="#A5C938" />
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 16C0.5 7.15447 7.65437 0 16.4998 0C25.3452 0 32.5646 7.15447 32.4996 16C32.4996 24.8455 25.3452 32 16.4998 32C7.65437 32 0.5 24.8455 0.5 16ZM23.5891 23.4797C24.4997 22.5691 25.02 21.2683 25.02 19.7724V12.6179C25.02 11.122 24.5647 9.88618 23.6542 8.97561C22.7436 8.06504 21.5078 7.54472 20.0119 7.54472H12.8576C9.80069 7.54472 7.78445 9.62602 7.78445 12.6179V19.7724C7.78445 21.2683 8.23973 22.5691 9.21533 23.4797C10.1259 24.3902 11.4267 24.8455 12.8576 24.8455H19.9469C21.3778 24.8455 22.6786 24.3902 23.5891 23.4797Z" fill="url(#social-gradient)" />
+      </symbol>
+
+      <symbol id="menu" width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M5.25 10.625C4.69772 10.625 4.25 11.0727 4.25 11.625C4.25 12.1773 4.69772 12.625 5.25 12.625V10.625ZM14.25 12.625C14.8023 12.625 15.25 12.1773 15.25 11.625C15.25 11.0727 14.8023 10.625 14.25 10.625V12.625ZM5.25 6.125C4.69772 6.125 4.25 6.57272 4.25 7.125C4.25 7.67728 4.69772 8.125 5.25 8.125V6.125ZM18.75 8.125C19.3023 8.125 19.75 7.67728 19.75 7.125C19.75 6.57272 19.3023 6.125 18.75 6.125V8.125ZM5.25 15.125C4.69772 15.125 4.25 15.5727 4.25 16.125C4.25 16.6773 4.69772 17.125 5.25 17.125V15.125ZM18.75 17.125C19.3023 17.125 19.75 16.6773 19.75 16.125C19.75 15.5727 19.3023 15.125 18.75 15.125V17.125ZM5.25 12.625H14.25V10.625H5.25V12.625ZM5.25 8.125H18.75V6.125H5.25V8.125ZM5.25 17.125H18.75V15.125H5.25V17.125Z" fill="currentColor" />
+      </symbol>
+
+      <symbol id="x-close" viewBox="0 0 24 24" fill="none">
+        <path d="M17.2071 8.20711C17.5976 7.81658 17.5976 7.18342 17.2071 6.79289C16.8166 6.40237 16.1834 6.40237 15.7929 6.79289L17.2071 8.20711ZM6.79289 15.7929C6.40237 16.1834 6.40237 16.8166 6.79289 17.2071C7.18342 17.5976 7.81658 17.5976 8.20711 17.2071L6.79289 15.7929ZM8.20711 6.79289C7.81658 6.40237 7.18342 6.40237 6.79289 6.79289C6.40237 7.18342 6.40237 7.81658 6.79289 8.20711L8.20711 6.79289ZM15.7929 17.2071C16.1834 17.5976 16.8166 17.5976 17.2071 17.2071C17.5976 16.8166 17.5976 16.1834 17.2071 15.7929L15.7929 17.2071ZM15.7929 6.79289L6.79289 15.7929L8.20711 17.2071L17.2071 8.20711L15.7929 6.79289ZM6.79289 8.20711L15.7929 17.2071L17.2071 15.7929L8.20711 6.79289L6.79289 8.20711Z" fill="currentColor" />
+      </symbol>
+
+      <symbol id="dark-mode" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M15.9978 5.69848C16.1399 6.14783 15.9489 6.63541 15.5395 6.86879C13.4232 8.075 12 10.3495 12 12.9552C12 16.8212 15.134 19.9552 19 19.9552C21.6054 19.9552 23.8798 18.5322 25.0861 16.4162C25.3195 16.0068 25.8071 15.8159 26.2564 15.958C26.7057 16.1002 26.9949 16.5368 26.9503 17.0059C26.4206 22.5885 21.7208 26.9549 16 26.9549C9.92487 26.9549 5 22.0301 5 15.9549C5 10.2338 9.36685 5.53383 14.9499 5.00446C15.4191 4.95998 15.8557 5.24912 15.9978 5.69848ZM11.3151 8.26873C8.72743 9.84952 7 12.7008 7 15.9549C7 20.9255 11.0294 24.9549 16 24.9549C19.2539 24.9549 22.1049 23.2278 23.6858 20.6405C22.3212 21.4743 20.7169 21.9552 19 21.9552C14.0294 21.9552 10 17.9258 10 12.9552C10 11.238 10.481 9.63345 11.3151 8.26873Z" fill="currentColor" />
+      </symbol>
+
+      <symbol id="search" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5 8C11.3579 8 8 11.3579 8 15.5C8 19.6421 11.3579 23 15.5 23C17.5131 23 19.341 22.2068 20.6882 20.916C20.7193 20.8729 20.7542 20.8317 20.793 20.7929C20.8318 20.7541 20.873 20.7192 20.9161 20.6881C22.2069 19.3409 23 17.5131 23 15.5C23 11.3579 19.6421 8 15.5 8ZM22.8876 21.4733C24.2086 19.8414 25 17.7631 25 15.5C25 10.2533 20.7467 6 15.5 6C10.2533 6 6 10.2533 6 15.5C6 20.7467 10.2533 25 15.5 25C17.7632 25 19.8415 24.2086 21.4734 22.8875L24.2929 25.7071C24.6834 26.0976 25.3166 26.0976 25.7071 25.7071C26.0976 25.3166 26.0976 24.6834 25.7071 24.2929L22.8876 21.4733Z" fill="currentColor" />
+      </symbol>
+
+      <symbol id="chevron-up" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M10 14.375V5.625V14.375ZM10 5.625L5.625 10L10 5.625ZM10 5.625L14.375 10L10 5.625Z" fill="currentColor" />
+        <path d="M9 14.375C9 14.9273 9.44772 15.375 10 15.375C10.5523 15.375 11 14.9273 11 14.375H9ZM11 5.625C11 5.07272 10.5523 4.625 10 4.625C9.44772 4.625 9 5.07272 9 5.625H11ZM10.7071 6.33211C11.0976 5.94158 11.0976 5.30842 10.7071 4.91789C10.3166 4.52737 9.68342 4.52737 9.29289 4.91789L10.7071 6.33211ZM4.91789 9.29289C4.52737 9.68342 4.52737 10.3166 4.91789 10.7071C5.30842 11.0976 5.94158 11.0976 6.33211 10.7071L4.91789 9.29289ZM10.7071 4.91789C10.3166 4.52737 9.68342 4.52737 9.29289 4.91789C8.90237 5.30842 8.90237 5.94158 9.29289 6.33211L10.7071 4.91789ZM13.6679 10.7071C14.0584 11.0976 14.6916 11.0976 15.0821 10.7071C15.4726 10.3166 15.4726 9.68342 15.0821 9.29289L13.6679 10.7071ZM11 14.375V5.625H9V14.375H11ZM9.29289 4.91789L4.91789 9.29289L6.33211 10.7071L10.7071 6.33211L9.29289 4.91789ZM9.29289 6.33211L13.6679 10.7071L15.0821 9.29289L10.7071 4.91789L9.29289 6.33211Z" fill="currentColor" />
+      </symbol>
+
+      <symbol id="chevron-down" width="20" height="20" viewBox="0 0 20 20" fill="none">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M10 5.625V14.375ZM10 14.375L5.625 10ZM10 14.375L14.375 10Z" fill="currentColor" />
+        <path d="M9 5.625C9 5.07272 9.44772 4.625 10 4.625C10.5523 4.625 11 5.07272 11 5.625H9ZM11 14.375C11 14.9273 10.5523 15.375 10 15.375C9.44772 15.375 9 14.9273 9 14.375H11ZM10.7071 13.6679C11.0976 14.0584 11.0976 14.6916 10.7071 15.0821C10.3166 15.4726 9.68342 15.4726 9.29289 15.0821L10.7071 13.6679ZM4.91789 10.7071C4.52737 10.3166 4.52737 9.68342 4.91789 9.29289C5.30842 8.90237 5.94158 8.90237 6.33211 9.29289L4.91789 10.7071ZM10.7071 15.0821C10.3166 15.4726 9.68342 15.4726 9.29289 15.0821C8.90237 14.6916 8.90237 14.0584 9.29289 13.6679L10.7071 15.0821ZM13.6679 9.29289C14.0584 8.90237 14.6916 8.90237 15.0821 9.29289C15.4726 9.68342 15.4726 10.3166 15.0821 10.7071L13.6679 9.29289ZM11 5.625V14.375H9V5.625H11ZM9.29289 15.0821L4.91789 10.7071L6.33211 9.29289L10.7071 13.6679L9.29289 15.0821ZM9.29289 13.6679L13.6679 9.29289L15.0821 10.7071L10.7071 15.0821L9.29289 13.6679Z" fill="currentColor" />
+      </symbol>
+
+      <symbol id="calendar" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M25 15C25.5523 15 26 14.5523 26 14C26 13.4477 25.5523 13 25 13V15ZM7 13C6.44772 13 6 13.4477 6 14C6 14.5523 6.44772 15 7 15V13ZM21 6C21 5.44772 20.5523 5 20 5C19.4477 5 19 5.44772 19 6H21ZM19 10C19 10.5523 19.4477 11 20 11C20.5523 11 21 10.5523 21 10H19ZM13 6C13 5.44772 12.5523 5 12 5C11.4477 5 11 5.44772 11 6H13ZM11 10C11 10.5523 11.4477 11 12 11C12.5523 11 13 10.5523 13 10H11ZM23.362 25.673L22.908 24.782L22.908 24.782L23.362 25.673ZM24.673 24.362L23.782 23.908L23.782 23.908L24.673 24.362ZM24.673 9.63803L23.782 10.092L23.782 10.092L24.673 9.63803ZM23.362 8.32698L23.816 7.43597L23.816 7.43595L23.362 8.32698ZM8.63803 8.32698L9.09202 9.21799L9.09202 9.21799L8.63803 8.32698ZM7.32698 9.63803L8.21799 10.092L8.21799 10.092L7.32698 9.63803ZM7.32698 24.362L6.43595 24.816L6.43597 24.816L7.32698 24.362ZM8.63803 25.673L9.09205 24.782L9.09199 24.782L8.63803 25.673ZM25 13H7V15H25V13ZM19 6V10H21V6H19ZM11 6V10H13V6H11ZM11.8 27H20.2V25H11.8V27ZM20.2 27C21.0236 27 21.7014 27.0008 22.2518 26.9558C22.8139 26.9099 23.3306 26.8113 23.816 26.564L22.908 24.782C22.7516 24.8617 22.5274 24.9266 22.089 24.9624C21.6389 24.9992 21.0566 25 20.2 25V27ZM23.816 26.564C24.5686 26.1805 25.1805 25.5686 25.564 24.816L23.782 23.908C23.5903 24.2844 23.2844 24.5903 22.908 24.782L23.816 26.564ZM25.564 24.816C25.8113 24.3306 25.9099 23.8139 25.9558 23.2518C26.0008 22.7014 26 22.0236 26 21.2H24C24 22.0566 23.9992 22.6389 23.9624 23.089C23.9266 23.5274 23.8617 23.7516 23.782 23.908L25.564 24.816ZM26 21.2V12.8H24V21.2H26ZM26 12.8C26 11.9764 26.0008 11.2986 25.9558 10.7482C25.9099 10.1861 25.8113 9.66936 25.564 9.18402L23.782 10.092C23.8617 10.2484 23.9266 10.4726 23.9624 10.911C23.9992 11.3611 24 11.9434 24 12.8H26ZM25.564 9.18407C25.1806 8.43142 24.5687 7.81948 23.816 7.43597L22.908 9.21799C23.2843 9.40972 23.5902 9.71566 23.782 10.092L25.564 9.18407ZM23.816 7.43595C23.3306 7.18869 22.8139 7.09012 22.2518 7.04419C21.7014 6.99922 21.0236 7 20.2 7V9C21.0566 9 21.6389 9.00078 22.089 9.03755C22.5274 9.07337 22.7516 9.13829 22.908 9.21801L23.816 7.43595ZM20.2 7H11.8V9H20.2V7ZM11.8 7C10.9764 7 10.2986 6.99922 9.74817 7.04419C9.18608 7.09012 8.66937 7.18868 8.18404 7.43597L9.09202 9.21799C9.24842 9.1383 9.47262 9.07337 9.91104 9.03755C10.3611 9.00078 10.9434 9 11.8 9V7ZM8.18404 7.43597C7.43139 7.81947 6.81947 8.43139 6.43597 9.18404L8.21799 10.092C8.40973 9.71569 8.71569 9.40973 9.09202 9.21799L8.18404 7.43597ZM6.43597 9.18404C6.18868 9.66937 6.09012 10.1861 6.04419 10.7482C5.99922 11.2986 6 11.9764 6 12.8H8C8 11.9434 8.00078 11.3611 8.03755 10.911C8.07337 10.4726 8.1383 10.2484 8.21799 10.092L6.43597 9.18404ZM6 12.8V21.2H8V12.8H6ZM6 21.2C6 22.0236 5.99922 22.7014 6.04419 23.2518C6.09012 23.8139 6.18869 24.3306 6.43595 24.816L8.21801 23.908C8.13829 23.7516 8.07337 23.5274 8.03755 23.089C8.00078 22.6389 8 22.0566 8 21.2H6ZM6.43597 24.816C6.81948 25.5687 7.43142 26.1806 8.18407 26.564L9.09199 24.782C8.71566 24.5902 8.40972 24.2843 8.21799 23.908L6.43597 24.816ZM8.18402 26.564C8.66936 26.8113 9.18607 26.9099 9.74817 26.9558C10.2986 27.0008 10.9764 27 11.8 27V25C10.9434 25 10.3611 24.9992 9.91104 24.9624C9.47263 24.9266 9.24844 24.8617 9.09205 24.782L8.18402 26.564Z" fill="currentColor" />
+      </symbol>
+
+      <symbol id="medal" width="32" height="32" viewBox="0 0 32 32" fill="none">
+        <path d="M12.0954 17.72C12.4404 18.1513 13.0697 18.2212 13.5009 17.8762C13.9322 17.5312 14.0021 16.9019 13.6571 16.4706L12.0954 17.72ZM8.70122 11.8765L9.48209 11.2518L9.48208 11.2518L8.70122 11.8765ZM8.21897 11.2083L9.10948 10.7534L9.10947 10.7534L8.21897 11.2083ZM8.04084 10.7005L9.02043 10.4995L9.02042 10.4995L8.04084 10.7005ZM8.21799 7.09202L9.10899 7.54602L9.10901 7.54599L8.21799 7.09202ZM9.09202 6.21799L9.54599 7.10901L9.54602 7.10899L9.09202 6.21799ZM22.908 6.21799L22.454 7.10898L22.454 7.10899L22.908 6.21799ZM23.782 7.09202L22.8909 7.54592L22.891 7.54604L23.782 7.09202ZM23.9592 10.7005L24.9387 10.9019L24.9388 10.9014L23.9592 10.7005ZM23.781 11.2083L22.8905 10.7533L22.8905 10.7534L23.781 11.2083ZM23.2988 11.8765L22.5179 11.2518L22.5179 11.2518L23.2988 11.8765ZM18.3429 16.4706C17.9979 16.9019 18.0678 17.5312 18.4991 17.8762C18.9304 18.2212 19.5597 18.1513 19.9047 17.72L18.3429 16.4706ZM9.7894 6.38606C9.45033 5.95011 8.82205 5.87158 8.38611 6.21065C7.95016 6.54972 7.87163 7.178 8.2107 7.61394L9.7894 6.38606ZM16.0001 16L15.2108 16.6139C15.4002 16.8575 15.6915 17 16.0001 17C16.3087 17 16.6 16.8575 16.7895 16.6139L16.0001 16ZM23.7894 7.61394C24.1284 7.17799 24.0499 6.54971 23.6139 6.21064C23.178 5.87158 22.5497 5.95012 22.2106 6.38606L23.7894 7.61394ZM19.5355 17.4645L18.8284 18.1716L18.8284 18.1716L19.5355 17.4645ZM19.5355 24.5355L18.8284 23.8284L18.8284 23.8284L19.5355 24.5355ZM12.4645 24.5355L13.1716 23.8284L13.1716 23.8284L12.4645 24.5355ZM12.4645 17.4645L13.1716 18.1716L13.1716 18.1716L12.4645 17.4645ZM13.6571 16.4706L9.48209 11.2518L7.92035 12.5012L12.0954 17.72L13.6571 16.4706ZM9.48208 11.2518C9.19719 10.8957 9.14502 10.8229 9.10948 10.7534L7.32846 11.6633C7.47774 11.9555 7.68545 12.2076 7.92036 12.5012L9.48208 11.2518ZM9.10947 10.7534C9.06849 10.6731 9.03854 10.5878 9.02043 10.4995L7.06125 10.9015C7.11558 11.1663 7.20547 11.4226 7.32847 11.6633L9.10947 10.7534ZM9.02042 10.4995C9.00472 10.423 9 10.3336 9 9.8775H7C7 10.2535 6.99528 10.5801 7.06126 10.9016L9.02042 10.4995ZM9 9.8775V9.2H7V9.8775H9ZM9 9.2C9 8.62345 9.00078 8.25118 9.02393 7.96784C9.04612 7.69617 9.0838 7.59546 9.10899 7.54602L7.32699 6.63802C7.13419 7.0164 7.06287 7.40963 7.03057 7.80497C6.99922 8.18864 7 8.65645 7 9.2H9ZM9.10901 7.54599C9.20487 7.35784 9.35784 7.20487 9.54599 7.10901L8.63805 5.32697C8.07354 5.61459 7.61459 6.07354 7.32697 6.63805L9.10901 7.54599ZM9.54602 7.10899C9.59546 7.0838 9.69617 7.04612 9.96784 7.02393C10.2512 7.00078 10.6234 7 11.2 7V5C10.6565 5 10.1886 4.99922 9.80497 5.03057C9.40963 5.06287 9.0164 5.13419 8.63802 5.32699L9.54602 7.10899ZM11.2 7H20.8V5H11.2V7ZM20.8 7C21.3766 7 21.7488 7.00078 22.0322 7.02393C22.3039 7.04612 22.4046 7.0838 22.454 7.10898L23.362 5.327C22.9836 5.13419 22.5904 5.06287 22.195 5.03057C21.8114 4.99922 21.3435 5 20.8 5V7ZM22.454 7.10899C22.6422 7.20488 22.7952 7.35787 22.8909 7.54592L24.6731 6.63812C24.3854 6.07351 23.9264 5.61458 23.362 5.32699L22.454 7.10899ZM22.891 7.54604C22.9162 7.59547 22.9539 7.69618 22.9761 7.96784C22.9992 8.25118 23 8.62345 23 9.2H25C25 8.65645 25.0008 8.18864 24.9694 7.80497C24.9371 7.40962 24.8658 7.01639 24.673 6.63801L22.891 7.54604ZM23 9.2V9.8775H25V9.2H23ZM23 9.8775C23 10.3336 22.9953 10.423 22.9796 10.4996L24.9388 10.9014C25.0047 10.5801 25 10.2535 25 9.8775H23ZM22.9797 10.4991C22.9615 10.5877 22.9315 10.6732 22.8905 10.7533L24.6715 11.6634C24.7945 11.4225 24.8843 11.1664 24.9387 10.9019L22.9797 10.4991ZM22.8905 10.7534C22.8549 10.823 22.8028 10.8958 22.5179 11.2518L24.0797 12.5012C24.3146 12.2075 24.5223 11.9555 24.6715 11.6633L22.8905 10.7534ZM22.5179 11.2518L18.3429 16.4706L19.9047 17.72L24.0797 12.5012L22.5179 11.2518ZM8.2107 7.61394L15.2108 16.6139L16.7894 15.3861L9.7894 6.38606L8.2107 7.61394ZM16.7895 16.6139L23.7894 7.61394L22.2106 6.38606L15.2107 15.3861L16.7895 16.6139ZM18.8284 18.1716C20.3906 19.7337 20.3906 22.2663 18.8284 23.8284L20.2426 25.2426C22.5858 22.8995 22.5858 19.1005 20.2426 16.7574L18.8284 18.1716ZM18.8284 23.8284C17.2663 25.3906 14.7337 25.3906 13.1716 23.8284L11.7573 25.2426C14.1005 27.5858 17.8995 27.5858 20.2426 25.2426L18.8284 23.8284ZM13.1716 23.8284C11.6095 22.2663 11.6095 19.7337 13.1716 18.1716L11.7574 16.7574C9.41422 19.1005 9.41422 22.8995 11.7574 25.2426L13.1716 23.8284ZM13.1716 18.1716C14.7337 16.6094 17.2663 16.6094 18.8284 18.1716L20.2426 16.7574C17.8995 14.4142 14.1005 14.4142 11.7573 16.7574L13.1716 18.1716Z" fill="currentColor" />
+      </symbol>
+
+      <symbol id="arrow-right" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 16H23M23 16L16 9M23 16L16 23" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+
+      <symbol id="globe" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M6 16H26M6 16C6 21.5228 10.4771 26 16 26M6 16C6 10.4771 10.4771 6 16 6M26 16C26 21.5228 21.5228 26 16 26M26 16C26 10.4771 21.5228 6 16 6M16 26C18.5013 23.2616 19.9228 19.708 20 16C19.9228 12.292 18.5013 8.73835 16 6M16 26C13.4987 23.2616 12.0772 19.708 12 16C12.0772 12.292 13.4987 8.73835 16 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </symbol>
+
+      <svg id="instagram" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21.9999 4.00006H9.99998C6.68628 4.00006 4 6.68634 4 10V22C4 25.3137 6.68628 28 9.99998 28H21.9999C25.3136 28 27.9999 25.3137 27.9999 22V10C27.9999 6.68634 25.3136 4.00006 21.9999 4.00006Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M20.8 15.244C20.9481 16.2427 20.7775 17.2626 20.3125 18.1588C19.8475 19.0549 19.1118 19.7817 18.21 20.2356C17.3081 20.6895 16.2862 20.8475 15.2894 20.6871C14.2926 20.5267 13.3717 20.0561 12.6578 19.3422C11.9439 18.6283 11.4733 17.7074 11.3129 16.7106C11.1525 15.7138 11.3105 14.6919 11.7644 13.79C12.2183 12.8882 12.9451 12.1525 13.8412 11.6875C14.7374 11.2225 15.7573 11.0519 16.756 11.2C17.7747 11.3511 18.7178 11.8257 19.446 12.554C20.1743 13.2822 20.6489 14.2253 20.8 15.244Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M22.5996 9.40002H22.6116" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+
+      <svg id="facebook" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M23.9997 2.66669H19.9997C18.2316 2.66669 16.5359 3.36907 15.2856 4.61931C14.0354 5.86955 13.333 7.56524 13.333 9.33335V13.3334H9.33301V18.6667H13.333V29.3334H18.6663V18.6667H22.6663L23.9997 13.3334H18.6663V9.33335C18.6663 8.97973 18.8068 8.64059 19.0569 8.39055C19.3069 8.1405 19.6461 8.00002 19.9997 8.00002H23.9997V2.66669Z" fill="currentColor" />
+      </svg>
+
+      <svg id="twitter" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M28.9997 5.35759C27.8679 6.1559 26.6148 6.76648 25.2887 7.16581C24.5769 6.3474 23.6309 5.76732 22.5787 5.50405C21.5265 5.24077 20.4189 5.307 19.4055 5.69377C18.3922 6.08054 17.5221 6.76919 16.9129 7.66658C16.3037 8.56398 15.9848 9.62682 15.9993 10.7114V11.8932C13.9224 11.9471 11.8644 11.4864 10.0086 10.5523C8.15276 9.61824 6.55676 8.23968 5.36272 6.53944C5.36272 6.53944 0.635328 17.1761 11.272 21.9035C8.83797 23.5556 5.93846 24.3841 2.99902 24.2672C13.6357 30.1764 26.636 24.2672 26.636 10.6759C26.6349 10.3467 26.6032 10.0183 26.5414 9.69497C27.7476 8.50543 28.5988 7.00356 28.9997 5.35759Z" fill="currentColor" />
+      </svg>
+    </svg>
+  </div>
+</body>
+
+</html>

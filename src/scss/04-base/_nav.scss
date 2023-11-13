@@ -1,0 +1,86 @@
+@use 'sass:math';
+
+@mixin onMobile() {
+  @include respondTo(sm) {
+    @content;
+  }
+}
+
+@mixin onDesktop() {
+  @include respondFrom(md) {
+    @content;
+  }
+}
+
+.Nav {
+  @include onDesktop() {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &-menu {
+    @include respondFrom(md) {
+      display: flex;
+      align-items: center;
+      column-gap: rem(16);
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    @include respondFrom(lg) {
+      column-gap: rem(24);
+    }
+  }
+
+  &-item {
+    @include onDesktop() {
+      text-align: center;
+    }
+  }
+
+  &-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+
+    @media (hover: hover) {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &:focus-visible {
+      text-decoration: underline;
+    }
+
+    &.is-active {
+      color: var(--green-120);
+    }
+
+    @include onMobile() {
+      @include text(#ffffff, rem(16), $fontWeightMedium, math.div(56, 16));
+      border-top: 1px solid rgba(#fff, 20%);
+    }
+
+    @include onDesktop() {
+      @include text(
+        var(--color-text),
+        rem(14),
+        $fontWeightSemiBold,
+        math.div(20, 14)
+      );
+      padding: rem(8) 0;
+    }
+  }
+
+  &-itemIcon {
+    color: inherit;
+
+    @include respondFrom(md) {
+      display: none;
+    }
+  }
+}

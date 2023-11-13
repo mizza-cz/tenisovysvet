@@ -1,0 +1,11 @@
+.PlayerItem {
+  display: inline-flex;
+  align-items: center;
+  column-gap: rem(8);
+
+  .fi {
+    flex-shrink: 0;
+    width: rem(16);
+    height: rem(12);
+  }
+}

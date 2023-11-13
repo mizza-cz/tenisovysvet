@@ -1,0 +1,20 @@
+{% macro accordionItem(title, description, time, isOpen, index) %}
+    <li class="Accordion-item">
+        <h4 class="Accordion-heading" id="accordion-item-heading-{{ index }}">
+            <button
+                type="button"
+                class="Accordion-button {% if isOpen %}is-active{% endif %} js-accordion-button"
+                aria-expanded="{% if isOpen %}true{% else %}false{% endif %}"
+                aria-controls="accordion-collapsible-{{ index }}"
+            >
+                <time class="Date" datetime="2022-10-23">{{ time }}</time>
+                {{ title }}
+            </button>
+        </h4>
+        <div class="Accordion-collapsible {% if isOpen %}is-active{% endif %} js-accordion-collapsible" id="accordion-collapsible-{{ index }}" aria-hidden="false">
+            <div class="Accordion-body" aria-labelledby="accordion-item-heading-{{ index }}">
+                {{ description }}
+            </div>
+        </div>
+    </li>
+{% endmacro %}

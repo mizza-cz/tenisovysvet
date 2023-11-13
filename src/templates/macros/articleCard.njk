@@ -1,0 +1,30 @@
+{% macro articleCard(large = false, hideOnMobile = false) %}
+    <!-- Article card / Top story -->
+    <article class="ArticleCard{% if large %} ArticleCard--large{% endif %} {% if hideOnMobile %} u-xs-display-none{% endif %}">
+        {% if large %}
+            <picture class="ArticleCard-imgContainer">
+                <!-- 1152 x 768 -->
+                <source media="(max-width: 800px)" srcset="./img/placeholder-1152x768.jpg"/>
+                <!-- 616 x 392, 924 x 588, 1232 x 784 -->
+                <source srcset="./img/placeholder-616x392.jpg 1x, ./img/placeholder-924x588.jpg 1.5x, ./img/placeholder-1232x784.jpg 2x"/>
+                <!-- 616 x 392 -->
+                <img class="ArticleCard-img" src="./img/placeholder-616x392.jpg" width="604" height="411" alt="" loading="lazy"/>
+            </picture>
+        {% else %}
+            <picture class="ArticleCard-imgContainer">
+                <!-- 1152 x 768 -->
+                <source media="(max-width: 800px)" srcset="./img/placeholder-1152x768.jpg"/>
+                <!-- 296 x 184, 444 x 276, 592 x 368 -->
+                <source srcset="./img/placeholder-296x184.jpg 1x, ./img/placeholder-444x276.jpg 1.5x, ./img/placeholder-592x368.jpg 2x"/>
+                <!-- 296 x 184 -->
+                <img class="ArticleCard-img" src="./img/placeholder-296x184.jpg" width="296" height="184" alt="" loading="lazy"/>
+            </picture>
+        {% endif %}
+        <div class="ArticleCard-textContainer">
+            <time class="Date" datetime="2022-11-23">23. 11. 2022</time>
+            <h3 class="ArticleCard-title">
+                <a class="ArticleCard-title Link--stretched" href="#todo">Poslední zápas i&nbsp;výzva kalendářního roku. Češi vyzvou Turecko</a>
+            </h3>
+        </div>
+    </article>
+{% endmacro %}

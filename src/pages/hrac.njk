@@ -1,0 +1,84 @@
+{% extends "../templates/layout-sidebar.njk" %}
+{% from "../templates/macros/articleList.njk" import articleList %}
+{% from "../templates/macros/breadcrumbs.njk" import breadcrumbs %}
+{% from "../templates/macros/icon.njk" import icon %}
+
+{% set pageTitle = 'Hráč | Tenisový svět' %}
+{% set bodyClass = 'Page--player Page--visibleBreadcrumbs' %}
+
+{% block mainContent %}
+	<div class="Container Container--slim">
+		<div class="PageImageHeader">
+			{{ breadcrumbs(['Tenisovýsvět.cz', 'Žebříčky', 'Novak Djokovic']) }}
+
+			<div class="PhotoContainer TournamentDetail-imgContainerWrapper">
+				<picture
+					class="PlayerDetail-imgContainer">
+					<!-- 1552 x 965 -->
+					<source
+					media="(max-width: 800px)" srcset="./img/placeholder-player-detail-1552x965.jpg"/>
+					<!-- 776 x 482, 1164 x 724, 1552 x 965 -->
+					<source
+					srcset="./img/placeholder-player-detail-776x482.jpg 1x, ./img/placeholder-player-detail-1164x724.jpg 1.5x, ./img/placeholder-player-detail-1552x965.jpg 2x"/>
+					<!-- 776 x 482 -->
+					<img class="PlayerDetail-img" src="./img/placeholder-player-detail-776x482.jpg" width="776" height="482" alt="" loading="lazy"/>
+				</picture>
+				<div class="TagList">
+					<div class="Tag Tag--gray Tag--subtle">188 cm</div>
+					<div class="Tag Tag--gray Tag--subtle">77 kg</div>
+					<div class="Tag Tag--gray Tag--subtle">Pravá</div>
+				</div>
+			</div>
+
+			<h1 class="H1">Novak Djokovic</h1>
+
+			<div class="u-display-flex u-flex-wrap u-gap-16 u-justify-space-between">
+				<div class="PlayerInfo PlayerInfo--airier">
+					<div class="PlayerInfo-country">
+						<span class="fi fi-cz"></span>
+						Srbsko
+					</div>
+					<p class="PlayerInfo-item">22.05.1987 (35 let)</p>
+					<div class="PlayerInfo-rankings">
+						<p class="PlayerInfo-item">1. místo dvouhra</p>
+						<span>|</span>
+						<p class="PlayerInfo-item">20. místo dvouhra</p>
+						<span>|</span>
+						<p class="PlayerInfo-item">300. místo dvouhra</p>
+					</div>
+				</div>
+
+				<div class="PlayerSocials">
+					<a href="#todo" class="PlayerSocials-item">
+						{{ icon("globe", "", 32, 32) }}
+					</a>
+
+					<a href="#todo" class="PlayerSocials-item">
+						{{ icon("facebook", "", 24, 24) }}
+					</a>
+
+					<a href="#todo" class="PlayerSocials-item">
+						{{ icon("twitter", "", 24, 24) }}
+					</a>
+
+					<a href="#todo" class="PlayerSocials-item">
+						{{ icon("instagram", "", 24, 24) }}
+					</a>
+				</div>
+			</div>
+		</div>
+
+		<h2 class="H2">Doporučené články a videa</h2>
+		{{ articleList(5) }}
+		<div class="ButtonGroup u-mt-32">
+			<a href="#todo" class="Button Button--primary Button--min-168 Button--disabled">Novější</a>
+			<a href="#todo" class="Button Button--primary Button--min-168">Starší</a>
+		</div>
+	</div>
+{% endblock %}
+
+{% block mainSidebar %}
+	{% include "../templates/partials/sidebar/_praveSeStalo.njk" %}
+	{% include "../templates/partials/sidebar/_cesiNaTurnajich.njk" %}
+	{% include "../templates/partials/sidebar/_banner.njk" %}
+{% endblock %}

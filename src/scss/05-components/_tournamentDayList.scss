@@ -1,0 +1,8 @@
+.TournamentDayList {
+  &-info {
+    @include respondFrom(md) {
+      padding-top: rem(56);
+      padding-left: rem(80);
+    }
+  }
+}

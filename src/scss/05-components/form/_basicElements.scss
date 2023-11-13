@@ -1,0 +1,45 @@
+.Form {
+  &-item {
+    &--loginEmail {
+      position: relative;
+
+      &::after {
+        content: '';
+        width: rem(14px);
+        height: rem(18px);
+        position: absolute;
+        top: rem(36px);
+        left: 1rem;
+        background-image: url(../img/icons/user-grey.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: rem(14px) rem(18px);
+      }
+    }
+  }
+
+  &-item + &-item {
+    margin-top: 0.75rem;
+  }
+
+  &-label {
+    display: block;
+    @include text($colorText, 1rem, $fontWeightNormal, normal);
+    margin-bottom: 0.5rem;
+
+    &--required {
+      &::after {
+        content: '*';
+        @include text($colorRed, inherit, inherit, inherit);
+      }
+    }
+  }
+
+  &-error {
+    display: block;
+    @include text($colorWhite, rem(14px), $fontWeightBold, normal);
+    background-color: $colorRed;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+  }
+}

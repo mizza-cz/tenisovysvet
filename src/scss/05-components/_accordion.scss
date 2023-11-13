@@ -1,0 +1,80 @@
+@use "sass:math";
+
+.Accordion {
+  &-item {
+    border-bottom: 1px solid $colorBorderPrimary;
+    border-radius: $borderRadiusPrimary;
+    @include transition(border-color);
+
+    &:hover {
+      border-color: $colorBorderSecondary;
+    }
+  }
+
+  &-heading {
+    @include text(var(--color-text-dark), rem(14), $fontWeightMedium, math.div(18, 14));
+  }
+
+  &-button {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: left;
+    line-height: math.div(18, 14);
+    padding: rem(10) 3rem rem(14) 0;
+    text-decoration: none;
+    @include transition(color);
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: rem(32);
+      height: rem(32);
+      position: absolute;
+      top: calc(50% - rem(16));
+      right: 0;
+      background-color: transparent;
+      background-image: url(../img/icons/chevron-down-gray.svg);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      @include transition(transform);
+    }
+
+    &:focus {
+      color: var(--color-text-dark);
+      outline: none;
+    }
+
+    &:hover {
+      color: var(--green-100);
+      outline: none;
+    }
+
+    &.is-active {
+      color: var(--color-text-dark);
+
+      &::before {
+        transform: rotateX(180deg);
+      }
+    }
+
+    .Date {
+      margin-bottom: rem(4);
+    }
+  }
+
+  &-collapsible {
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    @include transition(all);
+  }
+
+  &-body {
+    @include text($colorText, $fontSizeExtraSmall, $fontWeightNormal, math.div(20, 12));
+    padding: 0;
+    margin-bottom: rem(14);
+  }
+}

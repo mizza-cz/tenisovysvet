@@ -1,0 +1,290 @@
+{% extends "../templates/layout.njk" %}
+{% from "../templates/macros/breadcrumbs.njk" import breadcrumbs %}
+{% from "../templates/macros/icon.njk" import icon %}
+
+{% set pageTitle = 'Kalendář turnajů | Tenisový svět' %}
+
+{% block main %}
+	<div class="Container Container--large">
+		{{ breadcrumbs(['Tenisovýsvět.cz', 'Turnaje']) }}
+
+		<div class="PageHeader u-mb-24 u-xs-mb-0">
+			<h1 class="H1">Turnaje</h1>
+
+			<!-- Filter - desktop -->
+			<form action="#todo" method="get" class="TournamentFilter u-xs-display-none">
+				<div class="InputContainer">
+					<div class="InputContainer-icon">
+						{{ icon("calendar", "", 32, 32) }}
+					</div>
+					<select class="Select Select--withIcon Tournament-selectYear">
+						<option>2023</option>
+						<option>2022</option>
+						<option>2021</option>
+					</select>
+				</div>
+
+				<div class="InputContainer">
+					<div class="InputContainer-icon">
+						{{ icon("calendar", "", 32, 32) }}
+					</div>
+					<select class="Select Select--withIcon TournamentFilter-selectMonth">
+						<option>Červenec</option>
+						<option>Srpen</option>
+						<option>Září</option>
+					</select>
+				</div>
+			</form>
+
+			<!-- Filter - mobile -->
+			<form action="#todo" method="get" class="u-display-none u-xs-display-block u-xs-mt-16">
+				<div class="InputContainer">
+					<div class="InputContainer-icon">
+						{{ icon("calendar", "", 32, 32) }}
+					</div>
+					<input type="text" name="" data-dateinput-type="date" class="TextInput TextInput--withIcon js-datePicker flatpickr-input" id="" placeholder="Zadejte datum" readonly="readonly">
+				</div>
+			</form>
+		</div>
+
+		<div class="Grid TournamentDayList">
+			<div class="Grid-col Grid-col--6 Grid-col--sm-12 u-xs-display-none">
+				<div class="Calendar">
+					<table>
+						<thead>
+							<tr>
+								<td>
+									<a href="#todo" class="IconButton">
+										{{ icon("arrow-right", "u-flip-horizontal", 32, 32) }}
+									</a>
+								</td>
+								<th colspan="5">Červenec 2023</th>
+								<td>
+									<a href="#todo" class="IconButton">
+										{{ icon("arrow-right", "", 32, 32) }}
+									</a>
+								</td>
+							</tr>
+
+							<tr>
+								<th>Po</th>
+								<th>Út</th>
+								<th>St</th>
+								<th>Čt</th>
+								<th>Pá</th>
+								<th>So</th>
+								<th>Ne</th>
+							</tr>
+						</thead>
+
+						<tr>
+							<td class="Calendar-oldDay">
+								<a href="#todo" class="Link--stretched">26</a>
+							</td>
+							<td class="Calendar-oldDay">
+								<a href="#todo" class="Link--stretched">27</a>
+							</td>
+							<td class="Calendar-oldDay">
+								<a href="#todo" class="Link--stretched">28</a>
+							</td>
+							<td class="Calendar-oldDay">
+								<a href="#todo" class="Link--stretched">29</a>
+							</td>
+							<td class="Calendar-oldDay">
+								<a href="#todo" class="Link--stretched">30</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">1</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">2</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<a href="#todo" class="Link--stretched">3</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">4</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">5</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">6</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">7</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">8</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">9</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<a href="#todo" class="Link--stretched">10</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">11</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">12</a>
+							</td>
+							<td class="Calendar-hasEvent">
+								<a href="#todo" class="Link--stretched">13</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">14</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">15</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">16</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<a href="#todo" class="Link--stretched">17</a>
+							</td>
+							<td class="Calendar-hasEvent">
+								<a href="#todo" class="Link--stretched">18</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">19</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">20</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">21</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">22</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">23</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<a href="#todo" class="Link--stretched">24</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">25</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">26</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">27</a>
+							</td>
+							<td class="Calendar-selected Calendar-hasEvent">
+								<a href="#todo" class="Link--stretched">28</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">29</a>
+							</td>
+							<td>
+								<a href="#todo" class="Link--stretched">30</a>
+							</td>
+						</tr>
+
+						<tr>
+							<td>
+								<a href="#todo" class="Link--stretched">31</a>
+							</td>
+							<td class="Calendar-newDay">
+								<a href="#todo" class="Link--stretched">1</a>
+							</td>
+							<td class="Calendar-newDay">
+								<a href="#todo" class="Link--stretched">2</a>
+							</td>
+							<td class="Calendar-newDay">
+								<a href="#todo" class="Link--stretched">3</a>
+							</td>
+							<td class="Calendar-newDay">
+								<a href="#todo" class="Link--stretched">4</a>
+							</td>
+							<td class="Calendar-newDay">
+								<a href="#todo" class="Link--stretched">5</a>
+							</td>
+							<td class="Calendar-newDay">
+								<a href="#todo" class="Link--stretched">6</a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="Grid-col Grid-col--6 Grid-col--sm-12 u-sm-mt-24">
+				<div class="TournamentDayList-info">
+					<h2 class="H1 u-mb-24 u-xs-display-none">28. července 2023</h2>
+
+					<div class="Separator Separator--medium u-xs-display-none"></div>
+
+					<!-- Results by day -->
+					<ul>
+						<li class="TournamentItem">
+							<div class="TagList">
+								<span class="Tag Tag--text Tag--pink">WTA Charlston</span>
+								<span class="Tag Tag--text Tag--gray">Tvrdý povrch venku</span>
+							</div>
+							<div class="TournamentItem-content">
+								<h3 class="TournamentItem-heading">
+									<a href="#todo" class="Link--stretched">Credit One Charleston Open 2023</a>
+								</h3>
+								<div class="TournamentItem-price">$ 780 637</div>
+							</div>
+						</li>
+
+						<li class="TournamentItem">
+							<div class="TagList">
+								<span class="Tag Tag--text Tag--pink">WTA Bogota</span>
+								<span class="Tag Tag--text Tag--orange">Antuka</span>
+							</div>
+							<div class="TournamentItem-content">
+								<h3 class="TournamentItem-heading">
+									<a href="#todo" class="Link--stretched">Credit One Charleston Open 2023</a>
+								</h3>
+								<div class="TournamentItem-price">$ 259 303</div>
+							</div>
+						</li>
+
+						<li class="TournamentItem">
+							<div class="TagList">
+								<span class="Tag Tag--text Tag--blue">ATP Houston</span>
+								<span class="Tag Tag--text Tag--orange">Antuka</span>
+							</div>
+							<div class="TournamentItem-content">
+								<h3 class="TournamentItem-heading">
+									<a href="#todo" class="Link--stretched">U.S. Men’s Clay Court Championship 2023</a>
+								</h3>
+								<div class="TournamentItem-price">$ 718 245</div>
+							</div>
+						</li>
+
+						<li class="TournamentItem">
+							<div class="TagList">
+								<span class="Tag Tag--text Tag--blue">ATP Estoril</span>
+								<span class="Tag Tag--text Tag--orange">Antuka</span>
+							</div>
+							<div class="TournamentItem-content">
+								<h3 class="TournamentItem-heading">
+									<a href="#todo" class="Link--stretched">Millennium Estoril Open 2023</a>
+								</h3>
+								<div class="TournamentItem-price">$ 613 705</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}

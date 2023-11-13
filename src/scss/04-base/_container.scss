@@ -1,0 +1,13 @@
+.Container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: rem($page-width);
+
+  &--large {
+    max-width: rem(1096);
+  }
+
+  &--slim {
+    max-width: rem(776);
+  }
+}

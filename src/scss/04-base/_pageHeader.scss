@@ -1,0 +1,13 @@
+.PageHeader {
+  display: flex;
+
+  @include respondTo(sm) {
+    flex-direction: column;
+    row-gap: rem(8);
+  }
+
+  @include respondFrom(md) {
+    column-gap: rem(32);
+    justify-content: space-between;
+  }
+}

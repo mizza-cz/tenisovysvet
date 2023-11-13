@@ -1,0 +1,87 @@
+{% extends "../templates/layout-sidebar.njk" %}
+{% from "../templates/macros/articleCard.njk" import articleCard %}
+{% from "../templates/macros/articleBoxSmall.njk" import articleBoxSmall %}
+{% set pageTitle = 'Tenisový svět' %}
+{% set bodyClass = 'Page--homepage' %}
+{% block mainOuter %}
+  <div class="HomepageGridContainer">
+    <div class="HomepageGridContainer-main">
+      <!-- Top stories -->
+      <div class="ArticleGrid">
+        {{ articleCard(true) }}
+
+        <!-- Banner B1 - 350 x 100 -->
+        <div class="Banner u-display-none u-xs-display-block">
+          <a href="#todo">
+            <img src="./img/placeholder-banner-B1-350x100@3x.jpg" width="350" height="100" loading="lazy"/>
+          </a>
+        </div>
+
+        {{ articleCard(false) }}
+        {{ articleCard(false) }}
+        {{ articleCard(false) }}
+        {{ articleCard(false) }}
+        {{ articleCard(false) }}
+      </div>
+
+      <!-- Banner B3 - 760 x 100 -->
+      {% include "../templates/partials/_bannerB3.njk" %}
+
+      <!-- Právě se stalo - mobile -->
+      <section class="u-display-none u-sm-display-block u-sm-my-32" id="js-hot-news-mobile">
+        {% include "../templates/partials/sidebar/_praveSeStalo.njk" %}
+      </section>
+
+      <!-- Denní menu -->
+      <section>
+        <h2 class="H2">Denní menu</h2>
+        <div class="ArticleGrid ArticleGrid--scrollable">
+          {% include "../templates/partials/_articleBox.njk" %}
+          {% include "../templates/partials/_articleBox.njk" %}
+          {% include "../templates/partials/_articleBox.njk" %}
+        </div>
+      </section>
+
+      <!-- Češi na turnajích - mobile -->
+      <div class="u-display-none u-sm-display-block u-sm-my-32" id="js-tournaments-czechs-mobile">
+        {% include "../templates/partials/sidebar/_cesiNaTurnajich.njk" %}
+      </div>
+
+      <!-- Banner B3 - 760 x 100 -->
+      {% include "../templates/partials/_bannerB3.njk" %}
+
+      <!-- Banner B1 - 350 x 100 -->
+      <div class="Banner u-display-none u-xs-display-block u-mt-32 u-mb-32">
+        <a href="#todo">
+          <img src="./img/placeholder-banner-B1-350x100@3x.jpg" width="350" height="100" loading="lazy"/>
+        </a>
+      </div>
+
+      <!-- Articles -->
+      <div class="u-mr-32 u-md-mr-0 u-xs-mb-32">
+        <div class="ArticleSmallGrid">
+          {% for i in range(0, 14) %}
+            {{ articleBoxSmall() }}
+          {% endfor %}
+        </div>
+
+        <div class="u-mt-32 u-ta-center">
+          <a href="#todo" class="Button Button--primary Button--min-235 Button--xs-full">Archiv článků</a >
+        </div>
+      </div>
+    </div>
+
+    <div class="HomepageGridContainer-sidebar">
+      <aside class="Sidebar">
+        <div class="u-sm-display-none" id="js-hot-news-desktop">
+          {# Populated with JS #}
+        </div>
+        <div class="u-sm-display-none" id="js-tournaments-czechs-desktop">
+          {# Populated with JS #}
+        </div>
+        {% include "../templates/partials/sidebar/_zebricky.njk" %}
+        {% include "../templates/partials/sidebar/_aktualniTurnaje.njk" %}
+      </aside>
+    </div>
+  </div>
+{% endblock %}

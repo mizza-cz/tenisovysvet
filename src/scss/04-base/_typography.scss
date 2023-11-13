@@ -1,0 +1,93 @@
+@use 'sass:math';
+
+html {
+  font-family: $fontFamilyPrimary;
+  @include text($colorText, 100%, $fontWeightNormal, 1.5);
+}
+
+.H1 {
+  @include text($colorHeading, rem(36), $fontWeightSemiBold, 1.278);
+
+  @include respondTo(sm) {
+    @include text(
+      var(--color-text-dark),
+      rem(24),
+      $fontWeightBold,
+      math.div(28, 24)
+    );
+  }
+}
+
+.H2 {
+  @include text($colorHeading, rem(24), $fontWeightBold, 1.167);
+  margin-bottom: rem(16);
+
+  small {
+    display: inline;
+    font-weight: $fontWeightNormal;
+  }
+
+  @include respondTo(sm) {
+    font-size: rem(20);
+  }
+}
+
+.H3 {
+  @include text($colorHeading, rem(16), $fontWeightSemiBold, 1.25);
+  margin-bottom: rem(16);
+
+  @include respondTo(xs) {
+    font-size: rem(18);
+  }
+}
+
+.H4 {
+  @include text($colorHeading, rem(14), $fontWeightMedium, 1.2);
+
+  @include respondTo(xs) {
+    font-size: rem(18);
+  }
+}
+
+p,
+.Text {
+  @include text($colorText, $fontSizeNormal, $fontWeightNormal, inherit);
+}
+
+.Text {
+  a {
+    color: var(--color-link);
+
+    &:focus {
+      outline-color: currentColor;
+      outline-offset: 2px;
+    }
+
+    &:visited {
+      color: inherit;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.Meta {
+  p,
+  strong {
+    @include text($colorText, $fontSizeSmall, $fontWeightNormal, 1.286);
+  }
+
+  .fi {
+    flex-shrink: 0;
+    width: 1rem !important;
+  }
+}
+
+b,
+strong {
+  font-weight: $fontWeightSemiBold;
+}

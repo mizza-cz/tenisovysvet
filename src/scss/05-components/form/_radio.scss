@@ -1,0 +1,65 @@
+@use "sass:math";
+
+.Radio {
+  display: flex;
+  position: relative;
+
+  &-label {
+    display: flex;
+    align-items: center;
+    @include text(var(--color-text-dark), $fontSizeExtraSmall, $fontWeightSemiBold, math.div(20, 12));
+    white-space: nowrap;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: rem(20);
+      height: rem(20);
+      flex-shrink: 0;
+      background-color: var(--color-form-input-background);
+      border: $formInputBorder;
+      border-radius: 50%;
+      margin-right: 0.375rem;
+      transition: border-color 0.25s ease;
+    }
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 0.75rem;
+      height: 0.75rem;
+      flex-shrink: 0;
+      position: absolute;
+      top: 50%;
+      left: 0.25rem;
+      border-radius: 50%;
+      transform: translateY(-50%);
+      transition: background-color 0.25s ease;
+    }
+  }
+
+  &-button {
+    @include srOnly();
+
+    &:focus-visible + .Radio-label {
+      &::before {
+        border-color: var(--color-form-input-border-active-color);
+        box-shadow: 0 0 0 4px rgba($colorGrey, 25%);
+      }
+    }
+
+    &:checked + .Radio-label {
+      &::after {
+        background-color: $colorSecondary;
+      }
+    }
+  }
+
+  & + & {
+    margin-top: rem(8);
+  }
+}

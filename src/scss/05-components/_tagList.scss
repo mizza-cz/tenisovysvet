@@ -1,0 +1,13 @@
+.TagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  &--large {
+    gap: 1rem;
+
+    @include respondTo(sm) {
+      gap: 0.5rem;
+    }
+  }
+}

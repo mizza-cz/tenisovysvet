@@ -1,0 +1,15 @@
+.PlayerSocials {
+  display: flex;
+  column-gap: rem(16);
+
+  &-item {
+    width: rem(32);
+    height: rem(32);
+    border-radius: 50%;
+    background-color: #1B90D0;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

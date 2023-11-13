@@ -1,0 +1,86 @@
+.ArticleBoxSmall {
+  display: flex;
+  column-gap: rem(24);
+  position: relative;
+  z-index: 0;
+
+  &-imgContainerWrapper {
+    width: 100%;
+    max-width: rem(72);
+
+    @include respondTo(sm) {
+      order: 1;
+      margin-top: rem(28);
+    }
+
+    @include respondFrom(sm) {
+      max-width: rem(136);
+    }
+  }
+
+  &-imgContainer {
+    @include responsiveMediumContainer(1, 1);
+    background-color: $colorGrey--80;
+    border-radius: $borderRadiusSecondary;
+  }
+
+  &-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &-textContainer {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+  }
+
+  &-info {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: rem(12);
+    margin-top: rem(8);
+    z-index: 2;
+
+    @include respondTo(xs) {
+      margin-top: 0;
+    }
+  }
+
+  &-title {
+    margin-top: rem(8);
+
+    a {
+      @include text(
+        var(--color-text-dark),
+        rem(20),
+        $fontWeightMedium,
+        math.div(22, 18)
+      );
+
+      @include respondTo(xs) {
+        font-size: rem(18);
+        line-height: 1.22;
+      }
+
+      &:focus-visible,
+      &:hover {
+        text-decoration: underline;
+        text-decoration-thickness: 0.125rem;
+      }
+    }
+  }
+
+  &--full &-title a {
+    @include respondFrom(md) {
+      font-size: rem(28);
+      line-height: math.div(32, 28);
+    }
+  }
+}

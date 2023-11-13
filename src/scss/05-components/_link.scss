@@ -1,0 +1,53 @@
+.Link {
+  @include text(var(--color-text-dark), inherit, inherit, inherit);
+  text-decoration: underline;
+  cursor: pointer;
+  outline: 2px solid transparent;
+  outline-offset: 4px;
+  transition: outline-offset 0.25s linear;
+
+  &:focus {
+    outline-color: currentColor;
+    outline-offset: 2px;
+  }
+
+  &--inverted {
+    text-decoration: none;
+    text-decoration-color: transparent;
+    transition:
+      color 0.25s linear,
+      outline-offset 0.25s linear,
+      text-decoration-color 0.25s linear;
+
+    &:focus,
+    &:hover {
+      text-decoration: underline;
+      text-decoration-color: currentColor;
+    }
+  }
+
+  &--stretched {
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+      pointer-events: auto;
+    }
+  }
+
+  &--overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-size: 0;
+    text-indent: -9999px;
+    z-index: 1;
+  }
+}

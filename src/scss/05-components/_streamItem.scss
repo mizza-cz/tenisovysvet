@@ -1,0 +1,44 @@
+.streamItem {
+  display: flex;
+  border-bottom: 1px solid rgba(230, 233, 236, 1);
+  padding-bottom: 24px;
+  margin-bottom: 32px;
+  @include respondTo(md) {
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  &__date {
+    text-align: right;
+    line-height: 32px;
+    padding: 0 12px;
+    max-width: 160px;
+    width: 100%;
+    @include text($colorText, 28px, $fontWeightBold, 1);
+    @include respondTo(md) {
+      text-align-last: left;
+      max-width: 100%;
+      padding: 0;
+      margin-bottom: 12px;
+    }
+  }
+  &__info {
+    padding: 0 12px;
+    @include respondTo(md) {
+      padding: 0;
+    }
+  }
+  &__title {
+    margin-bottom: 16px;
+    @include text($colorText, 28px, $fontWeightMedium, 1);
+    line-height: 32px;
+    @include respondTo(md) {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+  }
+}
+.streamBottom {
+  .OnlineHeader-dateSelector {
+    justify-content: center;
+  }
+}

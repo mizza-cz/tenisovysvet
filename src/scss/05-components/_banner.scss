@@ -1,0 +1,29 @@
+.Banner {
+  &--desktop {
+    display: none;
+
+    @include respondFrom(sm) {
+      display: block;
+    }
+  }
+
+  &--mobile {
+    display: block;
+
+    @include respondFrom(sm) {
+      display: none;
+    }
+  }
+
+  a {
+    display: block;
+    border-radius: $borderRadiusSecondary;
+    overflow: hidden;
+  }
+
+  img {
+    @include imgResponsive();
+    border-radius: $borderRadiusSecondary;
+    margin: auto;
+  }
+}

@@ -1,0 +1,20 @@
+.Main {
+  background-color: var(--color-surface);
+  max-width: rem($page-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 rem($page-spacingMobile) rem(32);
+
+  @include respondTo(sm) {
+    padding-top: rem(16);
+  }
+
+  @include respondFrom(sm) {
+    padding-left: rem($page-spacing);
+    padding-right: rem($page-spacing);
+  }
+
+  @include respondFrom(lg) {
+    padding-bottom: rem(64);
+  }
+}

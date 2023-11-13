@@ -1,0 +1,116 @@
+{% from "../../macros/icon.njk" import icon %}
+<!-- Žebříčky -->
+<section id="sidebar-rankings">
+	<div class="u-display-flex u-align-items-center u-column-gap-24 u-mb-16">
+		<h2 class="H2 u-mb-0">Žebříčky</h2>
+		<div class="Checkbox">
+			<input id="js-rankings-czechs-only" type="checkbox" class="Checkbox-originalCheck"/>
+			<label for="js-rankings-czechs-only" class="Checkbox-label">
+				Pouze Češi
+			</label>
+		</div>
+	</div>
+
+	<div
+		class="Tabs js-tabs">
+		<!-- Tabs nav -->
+		<div class="ButtonGroup ButtonGroup--small ButtonGroup--scrolling u-mb-12" role="tablist">
+			<button class="ToggleButton is-active js-tabs-button" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-rankings-1" id="tab-rankings-1">
+				<span>ATP dvouhra</span>
+			</button>
+			<button class="ToggleButton js-tabs-button" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-rankings-2" id="tab-rankings-2">
+				<span>ATP čtyřhra</span>
+			</button>
+			<button class="ToggleButton js-tabs-button" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-rankings-3" id="tab-rankings-3">
+				<span>WTA dvouhra</span>
+			</button>
+			<button class="ToggleButton js-tabs-button" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-rankings-4" id="tab-rankings-4">
+				<span>WTA čtyřhra</span>
+			</button>
+		</div>
+
+		<!-- Tabs content -->
+		<div
+			class="Tabs-contentContainer">
+			<!-- Tabs content - "Turnaj #1" -->
+			<section class="Tabs-panel is-active js-tabs-panel" id="tabpanel-rankings-1" role="tabpanel" aria-labelledby="tab-rankings-1">
+				<table class="Table ScoreboardTable u-mt-8 js-rankings-table">
+					<thead>
+						<tr>
+							<th class="u-ta-left">#</th>
+							<th class="ScoreboardTable-cleaner"></th>
+							<th class="ScoreboardTable-name ScoreboardTable-name--th">Hráč (věk)</th>
+							<th class="u-ta-right">Body</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for i in range(1, 11) %}
+							<tr>
+								<td class="u-ta-left">
+									<strong>{{ i }}.</strong>
+									<a href="#todo" class="Link Link--overlay" title="{player name}" aria-label="{player name}">
+										{player name}
+									</a>
+								</td>
+								{% if i % 2 === 0 %}
+									<td class="ScoreboardTable-up">
+										{{ icon("chevron-up", "", 20, 20) }}
+									</td>
+								{% else %}
+									<td class="ScoreboardTable-down">
+										{{ icon("chevron-down", "", 20, 20) }}
+									</td>
+								{% endif %}
+								<td class="ScoreboardTable-name">
+									<div class="PlayerItem">
+										<span class="fi fi-gr"></span>
+										<a href="#todo" class="Link Link--inverted">{player name}</a>
+									</div>
+								</td>
+								<td class="u-ta-right">
+									<strong>7 160</strong>
+								</td>
+							</tr>
+						{% endfor %}
+						<tr data-czech>
+							<td class="u-ta-left">
+								<strong>11.</strong>
+								<a href="#todo" class="Link Link--overlay" title="{czech player name}" aria-label="{czech player name}">
+									{czech player name}
+								</a>
+							</td>
+							<td class="ScoreboardTable-down">
+								<svg class="" width="20" height="20" focusable="false" aria-hidden="true">
+									<use xlink:href="#chevron-down"></use>
+								</svg>
+							</td>
+							<td class="ScoreboardTable-name">
+								<div class="PlayerItem">
+									<span class="fi fi-cz"></span>
+									<a href="#todo" class="Link Link--inverted">{czech player name}</a>
+								</div>
+							</td>
+							<td class="u-ta-right">
+								<strong>5 000</strong>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<a href="#todo" class="Button Button--primary Button--full u-mt-24">Kompletní žebříčky</a>
+			</section>
+			<!-- Tabs content - "Turnaj #2" -->
+			<section class="Tabs-panel js-tabs-panel" id="tabpanel-rankings-2" role="tabpanel" aria-labelledby="tab-rankings-2">
+				<p>Tab "Turnaj #2 žebříček" content</p>
+			</section>
+			<!-- Tabs content - "Turnaj #3" -->
+			<section class="Tabs-panel js-tabs-panel" id="tabpanel-rankings-3" role="tabpanel" aria-labelledby="tab-rankings-3">
+				<p>Tab "Turnaj #3 žebříček" content</p>
+			</section>
+			<!-- Tabs content - "Turnaj #4" -->
+			<section class="Tabs-panel js-tabs-panel" id="tabpanel-rankings-4" role="tabpanel" aria-labelledby="tab-rankings-4">
+				<p>Tab "Turnaj #4 žebříček" content</p>
+			</section>
+		</div>
+	</div>
+</section>

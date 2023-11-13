@@ -1,0 +1,25 @@
+@use 'sass:math';
+
+%AbstractInput {
+  @include text(
+    var(--color-text-dark),
+    rem(14),
+    $fontWeightNormal,
+    math.div(20, 14)
+  );
+  background-color: var(--color-form-input-background);
+  border: $formInputBorder;
+  border-radius: $formInputRadius;
+  display: block;
+  width: 100%;
+  transition:
+    border-color 0.25s ease-in-out,
+    box-shadow 0.25s ease;
+  min-height: rem(48);
+
+  &:focus {
+    border-color: var(--color-form-input-border-active-color);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba($colorGrey, 16%);
+  }
+}

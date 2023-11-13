@@ -1,0 +1,16 @@
+.PageImageHeader {
+  display: flex;
+  flex-direction: column;
+
+  &-photo {
+    @include respondTo(sm) {
+      margin-left: rem(-$page-spacingMobile);
+      margin-right: rem(-$page-spacingMobile);
+    }
+
+    @include respondFrom(md) {
+      order: 2;
+      max-width: 100%;
+    }
+  }
+}

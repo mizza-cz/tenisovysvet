@@ -1,0 +1,36 @@
+.ArticleGrid {
+  display: grid;
+  gap: rem(16);
+
+  @include respondFrom(sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respondFrom(md) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: rem(24);
+  }
+
+  @include respondFrom(lg) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .ArticleCard--large {
+    @include respondFrom(md) {
+      grid-column: 1 / 3;
+      grid-row: 1 / 3;
+    }
+  }
+
+  &--scrollable {
+    @include respondTo(xs) {
+      grid-auto-flow: column;
+      overflow-x: auto;
+      margin-left: -1.25rem;
+      padding-left: 1.25rem;
+      margin-right: -1.25rem;
+      grid-auto-columns: minmax(320px, 1fr);
+      gap: 0.5rem;
+    }
+  }
+}

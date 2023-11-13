@@ -1,0 +1,51 @@
+{% from "../macros/icon.njk" import icon %}
+
+<!-- Footer -->
+<footer class="Footer">
+  <div class="Footer-content">
+    <!-- Logo -->
+    <a href="/" class="Footer-logo" aria-label="Tenisový svět - domovská stránka" title="Tenisový svět - domovská stránka">
+      {% include "./_logo.njk" %}
+    </a>
+
+    <nav aria-label="Spodní sekundární navigace">
+      <ul class="Footer-menu">
+        <li>
+          <a href="#todo">Denní menu</a>
+        </li>
+        <li>
+          <a href="#todo">Zprávy</a>
+        </li>
+        <li>
+          <a href="#todo">Žebříčky</a>
+        </li>
+        <li>
+          <a href="#todo">Turnaje</a>
+        </li>
+        <li>
+          <a href="#todo">Online přenosy</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="Footer-side">
+      <button class="IconButton IconButton--darkTheme js-themeSwitcher" aria-label="Změnit barevný mód" title="Změnit barevný mód">
+        {{ icon("dark-mode", "", 32, 32) }}
+      </button>
+
+      <a href="./vyhledavani.html" class="IconButton" aria-label="Přejít na stránku vyhledávání" title="Přejít na stránku vyhledávání">
+        {{ icon("search", "", 32, 32) }}
+      </a>
+    </div>
+  </div>
+
+  <hr class="Footer-separator"/>
+
+  {% include "./_socialLinks.njk" %}
+
+  <div class="Footer-copyright">
+    © Český tenisový svaz & 2016-2023 |
+    <a href="https://esportsmedia.cz/" target="_blank" rel="noopener noreferrer">eSportsmedia.cz</a>
+    <a href="mailto:redakce@tenisovysvet.cz">redakce@tenisovysvet.cz</a>&nbsp;|&nbsp;<a href="javascript:void(0);" data-cc="c-settings" aria-haspopup="dialog">Nastavení cookies</a>
+  </div>
+</footer>

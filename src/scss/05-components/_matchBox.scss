@@ -1,0 +1,183 @@
+@use 'sass:math';
+
+.MatchBox {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  text-decoration: none;
+  background-color: var(--color-surface-2);
+  padding: rem(16) rem(20) rem(20);
+  border: 1px solid $colorBorderPrimary;
+  color: var(--color-text-dark);
+  transition: background-color 0.25s ease;
+  position: relative;
+
+  @media (hover: hover) {
+    &:hover {
+      background-color: darken(#fafbfb, 3%);
+
+      @include inDarkMode {
+        background-color: var(--dark-140);
+      }
+    }
+  }
+
+  .TagList {
+    margin-bottom: rem(12);
+  }
+
+  &.is-live .TagList > .Tag:last-child {
+    margin-left: auto;
+    text-transform: uppercase;
+  }
+
+  &.is-live {
+    .MatchBox-meta {
+      position: relative;
+      color: $colorRed;
+      padding-left: 1rem;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 0.75rem;
+        height: 0.75rem;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        background-color: $colorRed;
+        background-clip: content-box;
+        border: 2px solid rgba(233, 71, 71, 0.2);
+        border-radius: 50%;
+        transform: translateY(-50%);
+        animation-name: pulseLiveIndicator;
+        animation-duration: 0.5s;
+        animation-timing-function: ease-in-out;
+        animation-direction: alternate;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+      }
+
+      svg {
+        stroke: $colorRed;
+      }
+    }
+
+    .MatchBox-teamGoals {
+      color: $colorRed;
+    }
+  }
+
+  &-body {
+    display: flex;
+    align-items: flex-start;
+    column-gap: rem(10);
+    font-size: rem(14);
+    line-height: math.div(18, 14);
+  }
+
+  &-players {
+    display: flex;
+    column-gap: rem(8);
+  }
+
+  &-currentGame {
+    color: var(--color-text-light);
+    white-space: nowrap;
+  }
+
+  &-col {
+    display: grid;
+    align-items: center;
+
+    &--date {
+      color: #67788d;
+    }
+
+    &--button {
+      @include respondTo(sm) {
+        margin-top: rem(12);
+      }
+    }
+  }
+
+  &-colGameCols {
+    margin-left: auto;
+    display: flex;
+    column-gap: rem(10);
+    justify-content: flex-end;
+  }
+
+  &-logo {
+    width: rem(22px);
+    height: rem(22px);
+    object-fit: contain;
+    margin-right: 0.5rem;
+  }
+
+  &-liveInfo {
+    font-weight: $fontWeightSemiBold;
+    color: #d21717;
+  }
+
+  &--detailed {
+    @include inLightMode {
+      box-shadow: 0 2px 4px #f2f4f5;
+    }
+
+    .MatchBox-col {
+      row-gap: rem(8);
+    }
+
+    .MatchBox-col--player {
+      min-width: rem(212);
+
+      @include respondTo(sm) {
+        min-width: 0;
+      }
+
+      @include respondTo(xxs) {
+        max-width: rem(140);
+      }
+    }
+
+    .MatchBox-colGameCols {
+      margin-left: initial;
+      min-width: rem(112);
+      margin-right: rem(72);
+
+      @include respondTo(sm) {
+        margin-left: auto;
+        margin-right: 0;
+      }
+
+      @include respondTo(xxs) {
+        min-width: 0;
+      }
+    }
+
+    .MatchBox-body {
+      @include respondTo(sm) {
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  &-description {
+    max-width: rem(404);
+
+    &--trimmed {
+      @include textOverflowEllipsis();
+    }
+  }
+}
+
+@keyframes pulseLiveIndicator {
+  from {
+    transform: translateY(-50%) scale(1);
+  }
+
+  to {
+    transform: translateY(-50%) scale(1.2);
+  }
+}

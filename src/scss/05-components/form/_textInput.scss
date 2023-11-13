@@ -1,0 +1,22 @@
+@import "./abstractInput";
+
+.TextInput {
+  @extend %AbstractInput;
+  padding: rem(10) rem(12);
+  @include placeholder($colorPlaceholder);
+
+  &--small {
+    font-size: rem(12);
+    padding: rem(12) rem(16);
+  }
+
+  &--withIcon {
+    padding-left: rem(48);
+  }
+
+  &[type="date"]::-webkit-inner-spin-button,
+  &[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+    appearance: none;
+  }
+}

@@ -1,0 +1,47 @@
+@use "sass:math";
+
+.ToggleButton {
+  display: inline-flex;
+  align-items: center;
+  background-color: $colorTertiary;
+  @include text(#21280B, rem(12), $fontWeightSemiBold, math.div(20, 12));
+  padding-left: rem(16);
+  padding-right: rem(16);
+  min-height: rem(32);
+  border-radius: $borderRadiusPrimary;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.25s ease;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    background-color: darken(#EDF4D7, 16%);
+  }
+
+  &:hover {
+    background-color: darken(#EDF4D7, 16%);
+
+    @include inDarkMode {
+      background-color: var(--green-160);
+    }
+  }
+
+  &.is-active {
+    background-color: $colorSecondary;
+  }
+
+  &:not(&.is-active) {
+    @include inDarkMode {
+      color: #fff;
+    }
+  }
+
+  &--large {
+    font-size: rem(14);
+    line-height: math.div(20, 14);
+    min-height: rem(48);
+  }
+}

@@ -1,0 +1,26 @@
+.IconButton {
+  display: inline-flex;
+  color: inherit;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.25s ease-in-out;
+
+  &:hover {
+    color: $colorSecondary;
+  }
+
+  &.is-active {
+    color: $colorSecondary;
+  }
+
+  &--darkTheme {
+    @include inDarkMode {
+      color: $colorSecondary;
+    }
+  }
+
+  &--48 {
+    width: rem(48);
+    height: rem(48);
+  }
+}

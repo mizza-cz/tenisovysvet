@@ -1,0 +1,19 @@
+.MatchBoxList {
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .MatchBox:first-child {
+    border-top-left-radius: $borderRadiusPrimary;
+    border-top-right-radius: $borderRadiusPrimary;
+  }
+
+  .MatchBox:last-child {
+    border-bottom-left-radius: $borderRadiusPrimary;
+    border-bottom-right-radius: $borderRadiusPrimary;
+  }
+
+  .MatchBox + .MatchBox {
+    border-top: 0;
+  }
+}

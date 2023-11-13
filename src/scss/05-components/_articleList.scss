@@ -1,0 +1,12 @@
+.ArticleList {
+  max-width: rem(940);
+
+  li:not(:last-child) {
+    margin-bottom: 1.5rem;
+
+    @include respondTo(xs) {
+      border-bottom: 1px solid $colorBorderPrimary;
+      padding-bottom: 1.5rem;
+    }
+  }
+}

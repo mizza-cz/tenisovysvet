@@ -1,0 +1,193 @@
+@use 'sass:math';
+
+.Header {
+  $headerLogoWidth: $logoWidth;
+
+  background-color: #00060d;
+  display: flex;
+  align-items: center;
+  column-gap: rem(24);
+  justify-content: space-between;
+  max-width: rem($page-width);
+  padding: rem(16) rem(20);
+  margin-left: auto;
+  margin-right: auto;
+  min-height: rem(62);
+
+  @include respondTo(xs) {
+    column-gap: 0.5rem;
+  }
+
+  @include respondFrom(md) {
+    background-color: var(--color-surface);
+    padding: rem($page-spacing);
+    min-height: rem(96);
+  }
+
+  &-logo {
+    display: block;
+    width: rem($headerLogoWidth);
+    color: #fff;
+    flex: 0 0 auto;
+
+    @include respondTo(sm) {
+      width: rem(210);
+    }
+
+    @include respondTo(xxs) {
+      width: rem(160);
+    }
+
+    @include respondFrom(md) {
+      color: $colorText;
+    }
+
+    img,
+    svg {
+      @include imgResponsive();
+    }
+  }
+
+  &-side {
+    display: flex;
+    justify-content: flex-end;
+    column-gap: rem(16);
+    position: relative;
+
+    @include respondTo(sm) {
+      display: none;
+    }
+
+    @include respondFrom(lg) {
+      min-width: rem($headerLogoWidth);
+    }
+
+    .SearchForm {
+      visibility: hidden;
+      position: absolute;
+      min-width: 240px;
+      opacity: 0;
+      transition: 0.25s ease;
+      right: rem(48);
+      top: rem(-8);
+    }
+
+    &.has-search {
+      .SearchForm {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .Header-openSearch {
+        display: none;
+      }
+    }
+
+    &:not(.has-search) .Header-closeSearch {
+      display: none;
+    }
+  }
+
+  &-search {
+    padding-bottom: rem(36);
+
+    @include respondFrom(md) {
+      display: none;
+    }
+
+    //input {
+    //  height: rem(48);
+    //  line-height: rem(48);
+    //  border: 1px solid #33383D;
+    //  background-color: transparent;
+    //  color: #fff;
+    //  padding-left: rem(8);
+    //  padding-right: rem(8);
+    //  width: 100%;
+    //
+    //  &::placeholder {
+    //    color: #67788D;
+    //  }
+    //}
+  }
+
+  &-nav {
+    @include respondTo(sm) {
+      position: absolute;
+      left: 0;
+      top: rem(64);
+      margin-top: var(--branding-top-height);
+      right: 0;
+      bottom: 0;
+      background-color: #00060d;
+      padding: 1.5rem;
+      visibility: hidden;
+      opacity: 0;
+      transform: scale(0.85);
+      transform-origin: center top;
+      overflow: auto;
+      z-index: z(mobileMenu);
+      // @include customScrollbar(thin);
+      display: flex;
+      flex-direction: column;
+
+      &.is-active {
+        position: fixed; // Top position calculate via JS
+        visibility: visible;
+        opacity: 1;
+        transform: scale(1);
+        transition:
+          opacity 0.25s $easeOutQuad,
+          transform 0.25s $easeOutQuad,
+          visibility 0.25s $easeOutQuad;
+      }
+    }
+  }
+
+  &-socialLinks {
+    border-top: 1px solid rgba(#ffffff, 20%);
+    border-bottom: 1px solid rgba(#ffffff, 20%);
+    padding-top: rem(48);
+    padding-bottom: rem(48);
+    margin-bottom: rem(24);
+
+    @include respondFrom(md) {
+      display: none;
+    }
+  }
+
+  &-navThemeSwitcher {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: rem(12);
+    color: #fff;
+    @include text(
+      #fff,
+      $fontSizeExtraSmall,
+      $fontWeightSemiBold,
+      math.div(14, 12)
+    );
+
+    @include respondFrom(md) {
+      display: none;
+    }
+
+    &::after {
+      @include inLightMode {
+        content: attr(data-text-dark);
+      }
+
+      @include inDarkMode {
+        content: attr(data-text-light);
+      }
+    }
+  }
+
+  .MenuButton {
+    @include respondFrom(md) {
+      display: none;
+    }
+  }
+}

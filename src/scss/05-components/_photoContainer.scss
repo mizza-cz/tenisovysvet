@@ -1,0 +1,9 @@
+.PhotoContainer {
+  position: relative;
+
+  .TagList {
+    position: absolute;
+    left: rem(20);
+    bottom: rem(16);
+  }
+}

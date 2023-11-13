@@ -1,0 +1,27 @@
+.PlayerInfo {
+  display: flex;
+  align-items: center;
+  column-gap: rem(12);
+  font-size: rem(14);
+
+  &--airier {
+    column-gap: rem(16);
+  }
+
+  &-country {
+    display: flex;
+    column-gap: rem(8);
+    font-weight: $fontWeightSemiBold;
+
+    .fi {
+      width: 1rem !important;
+    }
+  }
+
+  &-rankings {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 0.25rem;
+    column-gap: 0.5rem;
+  }
+}

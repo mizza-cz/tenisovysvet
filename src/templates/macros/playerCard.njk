@@ -1,0 +1,28 @@
+{% macro playerCard(name, country) %}
+    <article class="PlayerCard">
+        <div class="PlayerCard-photo">
+            <picture class="PlayerCard-imgContainer">
+                <!-- 1152 x 717 -->
+                <source media="(max-width: 800px)" srcset="./img/placeholder-player-1152x717.jpg"/>
+                <!-- 296 x 184, 444 x 276, 592 x 368 -->
+                <source srcset="./img/placeholder-player-296x184.jpg 1x, ./img/placeholder-player-444x276.jpg 1.5x, ./img/placeholder-player-592x368.jpg 2x"/>
+                <!-- 296 x 184 -->
+                <img class="PlayerCard-img" src="./img/placeholder-player-296x184.jpg" width="296" height="184" loading="lazy">
+            </picture>
+        </div>
+        <div class="PlayerCard-body">
+            <h3 class="PlayerCard-name">
+                <a href="#todo" class="Link--stretched">
+                    {{ name }}
+                </a>
+            </h3>
+            <div class="PlayerInfo">
+                <div class="PlayerInfo-country">
+                    <span class="fi fi-cz"></span>
+                    {{ country }}
+                </div>
+                <div class="PlayerInfo-item">22.05.1987 (35 let)</div>
+            </div>
+        </div>
+    </article>
+{% endmacro %}

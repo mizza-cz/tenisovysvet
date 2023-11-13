@@ -1,0 +1,19 @@
+.fi {
+  flex-shrink: 0 !important;
+}
+
+.LeaderboardTable,
+.ScoreboardTable,
+.TournamentTable {
+  tr {
+    transform: scale(1);
+
+    @media (hover: hover) {
+      &:hover {
+        .Link--inverted {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.PlayerDetail {
+  .PhotoContainer {
+    margin-bottom: rem(66);
+  }
+
+  &-imgContainer {
+    @include responsiveMediumContainer(777, 483);
+    overflow: hidden;
+
+    @include respondFrom(sm) {
+      border-radius: $borderRadiusSecondary;
+    }
+  }
+
+  &-img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    object-position: center;
+  }
+}

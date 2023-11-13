@@ -1,0 +1,50 @@
+{% extends "../templates/layout-sidebar.njk" %}
+{% from "../templates/macros/articleList.njk" import articleList %}
+{% from "../templates/macros/breadcrumbs.njk" import breadcrumbs %}
+
+{% set pageTitle = 'Turnaj | Tenisový svět' %}
+{% set bodyClass = 'Page--tournamentDetailWithoutImage Page--visibleBreadcrumbs' %}
+
+{% block mainContent %}
+  <div class="Container Container--slim">
+    <div class="PageImageHeader">
+      {{ breadcrumbs(['Tenisovýsvět.cz', 'Turnaje', 'Credit One Charleston Open 2023']) }}
+
+      <div class="TagList">
+        <div class="Tag Tag--pink Tag--subtle">WTA Charlston</div>
+        <div class="Tag Tag--pink Tag--subtle">WTA 500</div>
+        <div class="Tag Tag--gray Tag--subtle">Tvrdý povrch venku</div>
+      </div>
+
+      <h1 class="H1">Credit One Charleston Open 2023</h1>
+
+      <div class="Meta u-display-flex u-flex-wrap u-column-gap-16 u-mt-16 u-mb-32">
+        <div class="u-display-flex u-column-gap-8">
+          <span class="fi fi-cz"></span>
+          <strong>Charlston</strong>
+        </div>
+
+        <p>
+          27.02. - 05.03.2023
+        </p>
+
+        <p>
+          $&nbsp;780&nbsp;637
+        </p>
+      </div>
+    </div>
+
+    <h2 class="H2">Články z turnaje</h2>
+    {{ articleList(8) }}
+    <div class="ButtonGroup u-mt-32">
+      <a href="#todo" class="Button Button--primary Button--min-168 Button--disabled">Novější</a>
+      <a href="#todo" class="Button Button--primary Button--min-168">Starší</a>
+    </div>
+  </div>
+{% endblock %}
+
+{% block mainSidebar %}
+  {% include "../templates/partials/sidebar/_praveSeStalo.njk" %}
+  {% include "../templates/partials/sidebar/_cesiNaTurnajich.njk" %}
+  {% include "../templates/partials/sidebar/_banner.njk" %}
+{% endblock %}

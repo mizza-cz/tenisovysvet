@@ -1,0 +1,27 @@
+.LeaderboardFilter {
+  display: flex;
+  align-items: center;
+  gap: rem(6);
+  flex-wrap: wrap;
+
+  .Checkbox {
+    margin-right: 2rem;
+
+    @include respondTo(sm) {
+      width: 100%;
+    }
+  }
+
+  .InputContainer {
+    @include respondTo(sm) {
+      flex: 1;
+    }
+
+    @include respondTo(xxs) {
+      select {
+        // width: auto !important;
+        min-width: 0 !important;
+      }
+    }
+  }
+}

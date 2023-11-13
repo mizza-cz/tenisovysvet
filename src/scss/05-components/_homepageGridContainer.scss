@@ -1,0 +1,25 @@
+.HomepageGridContainer {
+  @include respondFrom(md) {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    gap: 1.5rem;
+
+    &-main {
+      grid-column: 1/11;
+    }
+
+    &-sidebar {
+      grid-column: 11/17;
+    }
+  }
+
+  @include respondFrom(lg) {
+    &-main {
+      grid-column: 1/13;
+    }
+
+    &-sidebar {
+      grid-column: 13/17;
+    }
+  }
+}

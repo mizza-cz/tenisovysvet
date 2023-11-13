@@ -1,0 +1,147 @@
+:root {
+  --green-2: #FDFEFB;
+  --green-5: #FAFCF5;
+  --green-10: #F6FAEB;
+  --green-20: #EDF4D7;
+  --green-30: #E4EFC3;
+  --green-40: #DBE9AF;
+  --green-50: #D2E49C;
+  --green-60: #C9DF88;
+  --green-70: #C0D974;
+  --green-80: #B7D460;
+  --green-90: #AECF4C;
+  --green-100: #A5C938;
+  --green-120: #84A12D;
+  --green-140: #637922;
+  --green-160: #425016;
+  --green-180: #21280B;
+
+  --dark-2: #FAFBFB;
+  --dark-5: #F2F4F5;
+  --dark-10: #E6E9EC;
+  --dark-20: #CCD2D9;
+  --dark-30: #B3BCC6;
+  --dark-40: #99A5B3;
+  --dark-50: #808FA0;
+  --dark-60: #67788D;
+  --dark-70: #4E627A;
+  --dark-80: #344B67;
+  --dark-90: #1B3554;
+  --dark-100: #011E41;
+  --dark-120: #011834;
+  --dark-140: #011227;
+  --dark-160: #000C1A;
+  --dark-180: #00060D;
+
+  --green-dark-2: #FAFCFB;
+  --green-dark-5: #F2F7F4;
+  --green-dark-10: #E6EFEA;
+  --green-dark-20: #CCDFD5;
+  --green-dark-30: #B3CFC0;
+  --green-dark-40: #9ABFAB;
+  --green-dark-50: #80AF96;
+  --green-dark-60: #67A081;
+  --green-dark-70: #4E906C;
+  --green-dark-80: #358057;
+  --green-dark-90: #1B7042;
+  --green-dark-100: #02602D;
+  --green-dark-120: #024D24;
+  --green-dark-140: #013A1B;
+  --green-dark-160: #012612;
+  --green-dark-180: #001309;
+
+  --orange-2: #FEFCFA;
+  --orange-5: #FDF7F3;
+  --orange-10: #FAEEE8;
+  --orange-20: #F6DED1;
+  --orange-30: #F1CDB9;
+  --orange-40: #EDBCA2;
+  --orange-50: #E8AB8B;
+  --orange-60: #E49B74;
+  --orange-70: #DF8A5D;
+  --orange-80: #DB7945;
+  --orange-90: #D6692E;
+  --orange-100: #D25817;
+  --orange-120: #A84612;
+  --orange-140: #7E350E;
+  --orange-160: #542309;
+  --orange-180: #2A1205;
+
+  --pink-2: #FFFDFD;
+  --pink-5: #FFFAFA;
+  --pink-10: #FFF5F5;
+  --pink-20: #FFEBEB;
+  --pink-30: #FFE1E1;
+  --pink-40: #FFD7D7;
+  --pink-50: #FFCECE;
+  --pink-60: #FFC4C4;
+  --pink-70: #FFBABA;
+  --pink-80: #FFB0B0;
+  --pink-90: #FFA6A6;
+  --pink-100: #FF9C9C;
+  --pink-120: #CC7D7D;
+  --pink-140: #995E5E;
+  --pink-160: #663E3E;
+  --pink-180: #331F1F;
+
+  --blue-2: #FAFDFE;
+  --blue-5: #F4F9FD;
+  --blue-10: #E9F4FA;
+  --blue-20: #D1E9F6;
+  --blue-30: #BBDEF1;
+  --blue-40: #A4D3EC;
+  --blue-50: #8DC7E7;
+  --blue-60: #76BCE3;
+  --blue-70: #5FB1DE;
+  --blue-80: #49A6D9;
+  --blue-90: #329BD5;
+  --blue-100: #1B90D0;
+  --blue-120: #1673A6;
+  --blue-140: #10567D;
+  --blue-160: #0B3A53;
+  --blue-180: #051D2A;
+}
+
+@include inLightMode(true) {
+  --color-body: var(--dark-5);
+  --color-surface: #fff;
+  --color-surface-2: var(--dark-2);
+
+  --color-text: #16171C;
+  --color-text-light: var(--dark-50);
+  --color-text-dark: var(--dark-180);
+  --color-link: var(--green-120);
+
+  --color-border: var(--dark-10);
+  --color-border-2: var(--dark-20);
+
+  --color-green-soft: var(--green-20);
+
+  --color-form-input-background: var(--dark-2);
+  --color-form-input-border-color: var(--dark-20);
+  --color-form-input-border-active-color: var(--dark-30);
+  --color-form-checbox-background-checked: var(--green-80);
+
+  --color-footer: var(--dark-180);
+}
+
+@include inDarkMode(true) {
+  --color-body: var(--dark-5);
+  --color-surface: var(--dark-180);
+  --color-surface-2: var(--dark-180);
+
+  --color-text: #fff;
+  --color-text-dark: #fff;
+  --color-link: var(--green-120);
+
+  --color-border: #{rgba(#fff, 20%)};
+  --color-border-2: #{rgba(#fff, 25%)};
+
+  --color-green-soft: var(--green-180);
+
+  --color-form-input-background: var(--color-surface);
+  --color-form-input-border-color: var(--color-border);
+  --color-form-input-border-active-color: var(--color-border-2);
+
+  --color-footer: var(--dark-180);
+}

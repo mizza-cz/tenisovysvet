@@ -1,0 +1,220 @@
+{% extends "../templates/layout.njk" %}
+{% from "../templates/macros/icon.njk" import icon %}
+
+{% set pageTitle = 'Tenisový svět - Frontend' %}
+
+{% block main %}
+	<section>
+		<h1 class="u-fw-bold">Stránky</h1>
+		<hr>
+		<ul>
+			<li><a href="index.html" target="_blank">Homepage</a></li>
+			<li><a href="clanek.html" target="_blank">Článek</a></li>
+			<li><a href="archiv-clanku.html" target="_blank">Archiv článků</a></li>
+			<li><a href="zebricky.html" target="_blank">Žebříčky</a></li>
+			<li><a href="turnaj.html" target="_blank">Turnaj</a></li>
+			<li><a href="turnaj-bez-obrazku.html" target="_blank">Turnaj (bez obrázku)</a></li>
+			<li><a href="kalendar-turnaju.html" target="_blank">Kalendář turnajů</a></li>
+			<li><a href="hrac.html" target="_blank">Hráč</a></li>
+			<li><a href="online-prenosy.html" target="_blank">Online přenosy</a></li>
+			<li><a href="vyhledavani.html" target="_blank">Vyhledávání</a></li>
+					<li><a href="stream.html" target="_blank">Stream </a></li>
+		</ul>
+	</section>
+
+	<section class="u-mt-40">
+		<h1 class="u-fw-bold">Text</h1>
+		<hr>
+		<h1 class="H1">Heading 1</h1>
+		<h2 class="H2">Heading 2</h2>
+		<h3 class="H3">Heading 3</h3>
+		<h4 class="H4">Heading 4</h4>
+		<div class="Text">
+			<p>Lorem ipsum dolor sit amet. Cum velit aspernatur
+				<strong>Et consequatur</strong>
+				ut itaque error! Et voluptatem optio hic odit adipisci
+				<em>Ab aspernatur</em>. Et amet laboriosam
+				<a href="https://www.loremipzum.com" target="_blank">Hic unde nam molestias animi</a>?
+			</p>
+		</div>
+	</section>
+
+	<section class="u-mt-40">
+		<h1 class="u-fw-bold">Text v článku</h1>
+		<hr>
+		<div class="Article">
+			<div class="Article-body">
+				<h1>Heading 1</h1>
+				<h2>Heading 2</h2>
+				<h3>Heading 3</h3>
+				<h4>Heading 4</h4>
+				<p>Lorem ipsum dolor sit amet. Cum velit aspernatur
+					<strong>Et consequatur</strong>
+					ut itaque error! Et voluptatem optio hic odit adipisci
+					<em>Ab aspernatur</em>. Et amet laboriosam
+					<a href="https://www.loremipzum.com" target="_blank">Hic unde nam molestias animi</a>?
+				</p>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore facilis consequuntur cum eum numquam.</p>
+				<blockquote>
+					„Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore facilis consequuntur cum eum numquam.“
+				</blockquote>
+			</div>
+		</div>
+	</section>
+
+	<section class="u-mt-40">
+		<h1 class="u-fw-bold">Formulářové prvky</h1>
+		<hr>
+
+		<form class="Form">
+			<div class="Form-item">
+				<div class="Checkbox">
+					<input type="checkbox" class="Checkbox-originalCheck" id="form-checkbox">
+					<label class="Checkbox-label" for="form-checkbox">Checkbox</label>
+				</div>
+			</div>
+
+			<div class="Form-item">
+				<div class="Radio">
+					<input type="radio" class="Radio-button" name="radio" value="1" id="form-radio-1">
+					<label class="Radio-label" for="form-radio-1">Radio 1</label>
+				</div>
+
+				<div class="Radio">
+					<input type="radio" class="Radio-button" name="radio" value="2" id="form-radio-2">
+					<label class="Radio-label" for="form-radio-2">Radio 2</label>
+				</div>
+
+				<div class="Radio">
+					<input type="radio" class="Radio-button" name="radio" value="3" id="form-radio-3">
+					<label class="Radio-label" for="form-radio-3">Radio 3</label>
+				</div>
+			</div>
+
+			<div class="Form-item">
+				<input type="text" class="TextInput" placeholder="Textový input">
+			</div>
+
+			<div class="Form-item">
+				<div class="InputContainer">
+					<button type="submit" class="InputContainer-icon" title="Vyhledat">
+						{{ icon("search", "", 32, 32) }}
+					</button>
+					<input type="text" class="TextInput TextInput--withIcon" placeholder="Textový input pro vyhledávání se submit buttonem">
+				</div>
+			</div>
+
+			<div class="Form-item">
+				<div class="InputContainer OnlineHeader-dateInput">
+					<div class="InputContainer-icon">
+						{{ icon("calendar", "", 32, 32) }}
+					</div>
+					<input type="text" name="" data-dateinput-type="date" class="TextInput TextInput--withIcon js-datePicker flatpickr-input" id="" placeholder="Zadejte datum" readonly="readonly">
+				</div>
+			</div>
+
+			<div class="Form-item">
+				<select name="" id="" class="Select">
+					<option>Select option 1</option>
+					<option>Select option 2</option>
+					<option>Select option 3</option>
+				</select>
+			</div>
+
+			<div class="Form-item">
+				<input type="submit" class="Button Button--primary" value="Submit button"/>
+			</div>
+		</form>
+	</section>
+
+	<section class="u-mt-40">
+		<h1 class="u-fw-bold">Tlačítka</h1>
+		<hr>
+		<div class="ButtonGroup">
+			<a href="#" class="Button Button--primary">Primary</a>
+			<a href="#" class="Button Button--secondary">Secondary</a>
+			<a href="#" class="Button Button--tertiary">Tertiary</a>
+			<a href="#" class="Button Button--secondary Button--facebook">Facebook</a>
+			<a href="#" class="Button Button--secondary Button--twitter">Facebook</a>
+		</div>
+		<hr>
+		<div class="ButtonGroup">
+			<button class="ToggleButton">Toggle Button</button>
+			<button class="ToggleButton is-active">Active Toggle Button</button>
+		</div>
+	</section>
+
+	<section class="u-mt-40">
+		<h1 class="u-fw-bold">Taby</h1>
+		<hr>
+		<div class="Tabs js-tabs">
+			<div class="ButtonGroup ButtonGroup--small ButtonGroup--scrolling u-mb-12" role="tablist">
+				<button class="ToggleButton is-active js-tabs-button" type="button" role="tab" aria-selected="true" aria-controls="tabpanel-1" id="tab-1">
+					<span>Tab #1</span>
+				</button>
+				<button class="ToggleButton js-tabs-button" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-2" id="tab-2">
+					<span>Tab #2</span>
+				</button>
+				<button class="ToggleButton js-tabs-button" type="button" role="tab" aria-selected="false" aria-controls="tabpanel-3" id="tab-3">
+					<span>Tab #3</span>
+				</button>
+			</div>
+			<div class="Tabs-contentContainer">
+				<section class="Tabs-panel is-active js-tabs-panel" id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
+					<p>Tab #1 content</p>
+				</section>
+				<section class="Tabs-panel js-tabs-panel" id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2">
+					<p>Tab #2 content</p>
+				</section>
+				<section class="Tabs-panel js-tabs-panel" id="tabpanel-3" role="tabpanel" aria-labelledby="tab-3">
+					<p>Tab #3 content</p>
+				</section>
+			</div>
+		</div>
+	</section>
+
+	<section class="u-mt-40">
+		<h1 class="u-fw-bold">Tagy</h1>
+		<hr>
+		<div class="TagList u-mt-16">
+			<a href="#todo" class="Tag Tag--black">Tag black</a>
+			<a href="#todo" class="Tag Tag--blue">Tag blue</a>
+			<a href="#todo" class="Tag Tag--brown">Tag brown</a>
+			<a href="#todo" class="Tag Tag--gray">Tag gray</a>
+			<a href="#todo" class="Tag Tag--grey">Tag grey</a>
+			<a href="#todo" class="Tag Tag--green">Tag green</a>
+			<a href="#todo" class="Tag Tag--darkgreen">Tag green dark</a>
+			<a href="#todo" class="Tag Tag--lightgreen">Tag green light</a>
+			<a href="#todo" class="Tag Tag--gold">Tag gold</a>
+			<a href="#todo" class="Tag Tag--orange">Tag orange</a>
+			<a href="#todo" class="Tag Tag--pink">Tag pink</a>
+			<a href="#todo" class="Tag Tag--red">Tag red</a>
+			<a href="#todo" class="Tag Tag--turquoise">Tag turquoise</a>
+			<a href="#todo" class="Tag Tag--white">Tag white</a>
+			<a href="#todo" class="Tag Tag--yellow">Tag yellow</a>
+		</div>
+		<hr>
+		<div class="TagList u-mt-16">
+			<a href="#todo" class="Tag Tag--text">Tag text</a>
+			<a href="#todo" class="Tag Tag--black Tag--text">Tag text black</a>
+			<a href="#todo" class="Tag Tag--blue Tag--text">Tag text blue</a>
+			<a href="#todo" class="Tag Tag--brown Tag--text">Tag text brown</a>
+			<a href="#todo" class="Tag Tag--gray Tag--text">Tag text gray</a>
+			<a href="#todo" class="Tag Tag--grey Tag--text">Tag text grey</a>
+			<a href="#todo" class="Tag Tag--green Tag--text">Tag text green</a>
+			<a href="#todo" class="Tag Tag--darkgreen Tag--text">Tag text green dark</a>
+			<a href="#todo" class="Tag Tag--lightgreen Tag--text">Tag text green light</a>
+			<a href="#todo" class="Tag Tag--gold Tag--text">Tag text gold</a>
+			<a href="#todo" class="Tag Tag--orange Tag--text">Tag text orange</a>
+			<a href="#todo" class="Tag Tag--pink Tag--text">Tag text pink</a>
+			<a href="#todo" class="Tag Tag--red Tag--text">Tag text red</a>
+			<a href="#todo" class="Tag Tag--turquoise Tag--text">Tag turquoise</a>
+			<a href="#todo" class="Tag Tag--white Tag--text">Tag text white</a>
+			<a href="#todo" class="Tag Tag--yellow Tag--text">Tag text yellow</a>
+		</div>
+		<p class="u-mt-8">Funguje na každý barevný tag, stačí jen přidat třídní modifikátor
+			<strong>Tag--text</strong>
+		</p>
+
+	</section>
+{% endblock %}

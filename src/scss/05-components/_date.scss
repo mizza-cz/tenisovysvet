@@ -1,0 +1,11 @@
+@use "sass:math";
+
+.Date {
+  display: inline-block;
+  @include text(#99A5B3, $fontSizeExtraSmall, $fontWeightSemiBold, math.div(16, 12));
+
+  &--large {
+    font-size: $fontSizeSmall;
+    line-height: math.div(20, 14);
+  }
+}

@@ -1,0 +1,9 @@
+.ArticleSmallGrid {
+  display: grid;
+  row-gap: rem(24);
+  column-gap: rem(56);
+
+  @include respondFrom(md) {
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  }
+}

@@ -1,0 +1,62 @@
+.Pagination {
+  &-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-item {
+    display: inline-flex;
+    margin: 0.25rem;
+  }
+
+  &-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    @include text($colorText, 0.875rem, $fontWeightBold, 1);
+    text-decoration: none;
+    background-color: $colorWhite;
+    border: 1px solid $colorPrimary;
+    padding: 0.25rem;
+    transition: background-color 0.25s linear;
+
+    &:not(.is-active):not(.is-disabled):focus,
+    &:not(.is-active):not(.is-disabled):hover,
+    &:not(.is-active):not(.is-disabled):active {
+      color: $colorWhite;
+      background-color: $colorPrimary;
+
+      svg {
+        stroke: $colorWhite;
+      }
+    }
+
+    &.is-active {
+      color: $colorWhite;
+      background-color: $colorPrimary;
+      pointer-events: none;
+    }
+
+    &.is-disabled {
+      color: $colorGrey;
+      background-color: $colorGrey--light;
+      border-color: $colorGrey;
+      pointer-events: none;
+      opacity: 0.4;
+
+      svg {
+        stroke: $colorGrey;
+      }
+    }
+
+    svg {
+      stroke: $colorPrimary;
+      transition: fill 0.25s linear;
+    }
+  }
+}

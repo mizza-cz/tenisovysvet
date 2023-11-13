@@ -1,0 +1,6 @@
+.Collapsible {
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  @include transition(all, 0.5s);
+}

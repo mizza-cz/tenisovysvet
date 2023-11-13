@@ -1,0 +1,108 @@
+@use 'sass:math';
+
+.OnlineHeader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: rem(32);
+  row-gap: rem(20);
+  flex-wrap: wrap;
+
+  &-dateSelector {
+    display: flex;
+    column-gap: rem(8);
+    flex: 1;
+    justify-content: flex-end;
+
+    @include respondTo(sm) {
+      order: 3;
+      justify-content: flex-start;
+    }
+
+    @include respondTo(sm) {
+      .IconButton {
+        display: none;
+      }
+    }
+
+    &--scrolling {
+      @include respondTo(md) {
+        @media (hover: none) {
+          flex-wrap: nowrap;
+          overflow: auto;
+          margin-left: rem(-$page-spacingMobile);
+          margin-right: rem(-$page-spacingMobile);
+          padding-left: rem($page-spacingMobile);
+
+          &::after {
+            content: '';
+            display: block;
+            width: rem($page-spacingMobile - 8); // 8 = spacing
+            flex: 0 0 auto;
+          }
+        }
+      }
+    }
+  }
+
+  &-date {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: rem(48);
+    min-width: rem(57);
+    @include text(
+      $colorText,
+      $fontSizeExtraSmall,
+      $fontWeightSemiBold,
+      math.div(14, 12)
+    );
+    background-color: #f2f4f5;
+    border-radius: $borderRadiusPrimary;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.25s ease-in-out;
+
+    @include inDarkMode {
+      background-color: var(--dark-120);
+    }
+
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--dark-10);
+
+        @include inDarkMode {
+          background-color: var(--dark-100);
+        }
+      }
+    }
+
+    &.is-today {
+      color: #fff;
+      background-color: #808fa0;
+
+      @include inDarkMode {
+        background-color: var(--dark-70);
+      }
+    }
+  }
+
+  // &-dateInput {
+  //   @include respondTo(xs) {
+  //     display: none;
+  //   }
+  // }
+
+  .LeaderboardFilter {
+    @include respondTo(xs) {
+      flex: 1;
+    }
+  }
+
+  @include respondTo(sm) {
+    .OnlineFilter {
+      order: 2;
+    }
+  }
+}

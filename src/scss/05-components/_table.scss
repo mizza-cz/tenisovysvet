@@ -1,0 +1,178 @@
+.Table {
+  width: 100%;
+
+  //&--equalWidthCols {
+  //  table-layout: fixed;
+  //
+  //  @include respondTo(sm) {
+  //    table-layout: auto;
+  //  }
+  //}
+
+  thead {
+    tr {
+      border-top: #979797;
+      border-bottom: #979797;
+    }
+
+    th {
+      vertical-align: middle;
+      @include text(
+        var(--color-text-light),
+        $fontSizeExtraSmall,
+        $fontWeightSemiBold,
+        1.5
+      );
+      white-space: nowrap;
+
+      //
+      //abbr {
+      //  text-decoration: none;
+      //}
+      //
+      //&.u-ta-center {
+      //  text-align: center !important;
+      //}
+      //
+      //&.u-ta-right {
+      //  text-align: right !important;
+      //}
+      //
+      //&.u-width-dominate {
+      //  width: 100%;
+      //}
+    }
+  }
+
+  tbody {
+    td {
+      vertical-align: middle;
+      @include text(
+        var(--color-text-dark),
+        $fontSizeSmall,
+        $fontWeightNormal,
+        1.5
+      );
+      white-space: nowrap;
+      border-bottom: 1px solid $colorBorderPrimary;
+
+      &.u-width-dominate {
+        width: 100%;
+      }
+    }
+  }
+
+  &--default {
+    tbody {
+      border-top: 1px solid $colorBorderPrimary;
+    }
+
+    thead th {
+      padding: 0.5rem 1rem;
+
+      &:first-child,
+      &:last-child {
+        padding: 0.5rem;
+      }
+    }
+
+    tbody td {
+      padding: rem(12) rem(16);
+    }
+
+    th:first-child,
+    td:first-child {
+      padding-left: 0;
+    }
+
+    th:last-child,
+    td:last-child {
+      padding-right: 0;
+    }
+  }
+
+  //&--responsive {
+  //  thead {
+  //    @include respondTo(xs) {
+  //      @include srOnly();
+  //    }
+  //  }
+  //
+  //  tbody {
+  //    tr {
+  //      @include respondTo(xs) {
+  //        border-bottom: none;
+  //      }
+  //    }
+  //
+  //    td {
+  //      @include respondTo(xs) {
+  //        display: block;
+  //        border-bottom: 1px solid $colorWhite;
+  //        padding: 0.5rem 0;
+  //
+  //        &:empty {
+  //          display: none;
+  //        }
+  //
+  //        &::before {
+  //          content: attr(data-th);
+  //          display: block;
+  //          @include text($colorSecondary, $fontSizeNormal, $fontWeightBold, inherit);
+  //        }
+  //      }
+  //    }
+  //  }
+  //}
+
+  //&-teamLogo {
+  //  display: inline-block;
+  //  vertical-align: middle;
+  //  width: 1.5rem;
+  //  height: 1.5rem;
+  //  object-fit: contain;
+  //  margin-right: 1rem;
+  //}
+
+  //&-actions {
+  //  a {
+  //    display: inline-block;
+  //    font-size: $fontSizeSmall;
+  //  }
+  //
+  //  a + a {
+  //    position: relative;
+  //    margin-left: rem(18px);
+  //
+  //    &::before {
+  //      content: "";
+  //      display: inline-block;
+  //      width: 0.125rem;
+  //      height: 1rem;
+  //      position: absolute;
+  //      top: 50%;
+  //      left: rem(-10px);
+  //      border-radius: 0.0625rem;
+  //      transform: translateY(-50%);
+  //      z-index: 0;
+  //    }
+  //  }
+  //}
+  //
+  //.u-sticky-cell {
+  //  position: sticky;
+  //  left: 0;
+  //}
+
+  &--highlightRows {
+    tr:hover td {
+      @media (hover: hover) {
+        background-color: var(--dark-2);
+
+        @include inDarkMode {
+          background-color: var(--dark-140);
+        }
+      }
+    }
+  }
+}

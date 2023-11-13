@@ -1,0 +1,25 @@
+.Badge {
+  display: inline-block;
+  @include text($colorWhite, $fontSizeExtraSmall, $fontWeightSemiBold, 1);
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  background-color: $colorTertiary;
+  border-radius: $borderRadiusPrimary;
+  padding: 0.5rem;
+  z-index: z(badge);
+
+  &:focus,
+  &:hover {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  & + & {
+    margin-left: 0.5rem;
+  }
+}
+
+span.Badge {
+  pointer-events: none;
+}

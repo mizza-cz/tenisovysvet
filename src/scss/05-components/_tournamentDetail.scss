@@ -1,0 +1,21 @@
+.TournamentDetail {
+  &-imgContainerWrapper {
+    @include respondTo(sm) {
+      margin-left: rem(-$page-spacingMobile);
+      margin-right: rem(-$page-spacingMobile);
+    }
+
+    @include respondFrom(md) {
+      order: 2;
+      max-width: 100%;
+    }
+  }
+
+  &-img {
+    max-width: 100%;
+
+    @include respondFrom(md) {
+      border-radius: $borderRadiusSecondary;
+    }
+  }
+}

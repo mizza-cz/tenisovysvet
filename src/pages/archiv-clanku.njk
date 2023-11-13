@@ -1,0 +1,38 @@
+{% extends "../templates/layout.njk" %}
+{% from "../templates/macros/articleList.njk" import articleList %}
+{% from "../templates/macros/breadcrumbs.njk" import breadcrumbs %}
+{% from "../templates/macros/icon.njk" import icon %}
+{% set pageTitle = 'Archiv článků | Tenisový svět' %}
+
+{% block main %}
+  <div class="Container Container--large">
+    {{ breadcrumbs(['Tenisovýsvět.cz', 'Zprávy']) }}
+    <div class="ArticleArchiveHeader">
+      <h1 class="H1">Zprávy</h1>
+
+      <form action="#todo" class="ArticleArchiveHeader-form" role="search">
+        <div class="InputContainer ArticleArchiveHeader-query">
+          <button type="submit" class="InputContainer-icon" title="Vyhledat">
+            {{ icon("search", "", 32, 32) }}
+          </button>
+          <input class="TextInput TextInput--withIcon" placeholder="Vyhledávání"/>
+        </div>
+
+        <select class="Select ArticleArchiveHeader-category">
+          <option>Všechny kategorie</option>
+          <option>{název kategorie}</option>
+          <option>{název kategorie}</option>
+          <option>{název kategorie}</option>
+          <option>{název kategorie}</option>
+        </select>
+      </form>
+    </div>
+
+    {{ articleList(8) }}
+
+    <div class="ButtonGroup u-mt-32">
+      <a href="#todo" class="Button Button--primary Button--min-168 Button--disabled">Novější</a>
+      <a href="#todo" class="Button Button--primary Button--min-168">Starší</a>
+    </div>
+  </div>
+{% endblock %}
