@@ -172,4 +172,9 @@
   .OnlineHeader .OnlineHeader-dateSelector {
     justify-content: start;
   }
+  @include respondTo(xs) {
+    .Sidebar {
+      display: none;
+    }
+  }
 }

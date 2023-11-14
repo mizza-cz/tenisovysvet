@@ -1818,6 +1818,9 @@ html[data-theme=dark] .Header-navThemeSwitcher::after {
     margin-top: 1.5rem;
   }
 }
+.Article-body h1 {
+  margin-bottom: 16px;
+}
 .Article-body p:empty {
   display: none;
 }
@@ -2461,6 +2464,23 @@ span.Badge {
   height: auto;
   border-radius: 0.5rem;
   margin: auto;
+}
+
+.Article .BannerHp {
+  display: block;
+}
+@media (max-width: 576px) {
+  .Article .BannerHp {
+    display: none;
+  }
+}
+.Article .BannerMob {
+  display: none;
+}
+@media (max-width: 576px) {
+  .Article .BannerMob {
+    display: block;
+  }
 }
 
 .Breadcrumbs {
@@ -4079,11 +4099,6 @@ html[data-theme=light] .MatchBox--detailed {
     min-width: 0;
   }
 }
-@media (max-width: 414px) {
-  .MatchBox--detailed .MatchBox-col--player {
-    max-width: 8.75rem;
-  }
-}
 .MatchBox--detailed .MatchBox-colGameCols {
   margin-left: initial;
   min-width: 7rem;
@@ -4134,6 +4149,11 @@ html[data-theme=light] .MatchBox--detailed {
   to {
     -webkit-transform: translateY(-50%) scale(1.2);
             transform: translateY(-50%) scale(1.2);
+  }
+}
+@media (max-width: 380px) {
+  .MatchBox--detailed .MatchBox-col--player {
+    max-width: 150px;
   }
 }
 .MatchBoxList:last-of-type {
@@ -5375,6 +5395,11 @@ html[data-theme=dark] .OnlineHeader-date.is-today {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: start;
+}
+@media (max-width: 576px) {
+  .Page--stream .Sidebar {
+    display: none;
+  }
 }
 
 .PageImageHeader {

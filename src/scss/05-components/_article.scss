@@ -59,7 +59,9 @@
     h1:not(.Article-widget h1):not(.Box h1) {
       @extend .H1;
     }
-
+    h1 {
+      margin-bottom: 16px;
+    }
     h2:not(.Article-widget h2):not(.Box h2) {
       @extend .H2;
     }

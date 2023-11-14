@@ -27,3 +27,18 @@
     margin: auto;
   }
 }
+
+.Article {
+  .BannerHp {
+    display: block;
+    @include respondTo(xs) {
+      display: none;
+    }
+  }
+  .BannerMob {
+    display: none;
+    @include respondTo(xs) {
+      display: block;
+    }
+  }
+}
