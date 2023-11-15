@@ -1818,9 +1818,6 @@ html[data-theme=dark] .Header-navThemeSwitcher::after {
     margin-top: 1.5rem;
   }
 }
-.Article-body h1 {
-  margin-bottom: 16px;
-}
 .Article-body p:empty {
   display: none;
 }
@@ -1869,6 +1866,7 @@ html[data-theme=dark] .Header-navThemeSwitcher::after {
 @media (max-width: 576px) {
   .Article-body .EmbedContainer {
     margin-top: 1.25rem !important;
+    margin-bottom: 1.25rem;
   }
 }
 .Article-body .EmbedContainer iframe {
@@ -2877,8 +2875,12 @@ td.Calendar-selected::after {
   text-align: right;
   line-height: 32px;
   padding: 0 12px;
-  max-width: 160px;
+  max-width: 140px;
   width: 100%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 140px;
+          flex: 0 0 140px;
+  margin-top: 2px;
   color: var(--color-text);
   font-size: 28px;
   font-weight: 700;
@@ -2890,7 +2892,17 @@ td.Calendar-selected::after {
          text-align-last: left;
     max-width: 100%;
     padding: 0;
-    margin-bottom: 12px;
+    -webkit-box-flex: 100%;
+        -ms-flex: 100%;
+            flex: 100%;
+    margin-bottom: 8px;
+    font-size: 22px;
+  }
+}
+@media (max-width: 576px) {
+  .streamItem__date {
+    font-size: 18px;
+    margin-bottom: 4px;
   }
 }
 .streamItem__info {
@@ -2912,7 +2924,13 @@ td.Calendar-selected::after {
 @media (max-width: 1024px) {
   .streamItem__title {
     font-size: 22px;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
+  }
+}
+@media (max-width: 576px) {
+  .streamItem__title {
+    font-size: 18px;
+    margin-bottom: 4px;
   }
 }
 
@@ -5400,6 +5418,9 @@ html[data-theme=dark] .OnlineHeader-date.is-today {
   .Page--stream .Sidebar {
     display: none;
   }
+}
+.Page--stream .OnlineHeader .H1, .Page--stream .OnlineHeader .Article-body h1:not(.Article-widget h1):not(.Box h1), .Article-body .Page--stream .OnlineHeader h1:not(.Article-widget h1):not(.Box h1) {
+  width: 100%;
 }
 
 .PageImageHeader {
