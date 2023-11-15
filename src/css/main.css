@@ -5419,8 +5419,14 @@ html[data-theme=dark] .OnlineHeader-date.is-today {
     display: none;
   }
 }
+.Page--stream .OnlineHeader {
+  margin-top: 0;
+}
 .Page--stream .OnlineHeader .H1, .Page--stream .OnlineHeader .Article-body h1:not(.Article-widget h1):not(.Box h1), .Article-body .Page--stream .OnlineHeader h1:not(.Article-widget h1):not(.Box h1) {
   width: 100%;
+}
+.Page--stream .Article {
+  margin-top: 0;
 }
 
 .PageImageHeader {
