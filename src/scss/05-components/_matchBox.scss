@@ -79,6 +79,9 @@
   &-players {
     display: flex;
     column-gap: rem(8);
+    @include respondTo(sm) {
+      flex-wrap: wrap;
+    }
   }
 
   &-currentGame {
@@ -159,6 +162,7 @@
     .MatchBox-body {
       @include respondTo(sm) {
         flex-wrap: wrap;
+        align-items: center;
       }
     }
   }
