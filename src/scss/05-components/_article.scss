@@ -247,6 +247,9 @@
   flex-wrap: wrap;
   margin-left: -10px;
   margin-right: -10px;
+  #lg-download {
+    display: none !important;
+  }
   &__item {
     max-width: 33.333%;
     flex: 0 0 33.333%;
@@ -308,5 +311,10 @@
       height: 100%;
       object-fit: cover;
     }
+  }
+}
+.lg-sub-html {
+  p {
+    color: #fff;
   }
 }

@@ -1988,6 +1988,9 @@ html[data-theme=dark] .Header-navThemeSwitcher::after {
   margin-left: -10px;
   margin-right: -10px;
 }
+.galleryArticle #lg-download {
+  display: none !important;
+}
 .galleryArticle__item {
   max-width: 33.333%;
   -webkit-box-flex: 0;
@@ -2062,6 +2065,10 @@ html[data-theme=dark] .Header-navThemeSwitcher::after {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.lg-sub-html p {
+  color: #fff;
 }
 
 .ArticleBox {
