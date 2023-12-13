@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
         container.classList.add('EmbedContainer', 'js-embedSocialMedia')
         instagram.after(container)
         container.appendChild(instagram)
+        container.insertAdjacentHTML('afterbegin', cookieConsentFrame)
       }
     }
 
@@ -127,6 +128,12 @@ document.addEventListener('DOMContentLoaded', () => {
               item.querySelector('.js-cookieConsent-frame').remove()
           }
 
+          // Instagram - remove cookie consent frame
+          if (i.classList.contains('instagram-media-rendered')) {
+            item.querySelector('.js-cookieConsent-frame') &&
+              item.querySelector('.js-cookieConsent-frame').remove()
+          }
+
           // TikTok - remove cookie consent frame
           if (i.querySelector('iframe')) {
             item.querySelector('.js-cookieConsent-frame') &&
@@ -147,6 +154,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const targetNode = document.querySelector('.Article-body')
     mutationObserver.observe(targetNode, { subtree: true, childList: true })
+  }
+
+  if (document.cookie.indexOf('cc_cookie_cancel=1') !== -1) {
+    document.querySelectorAll('.js-embedSocialMedia').forEach(function (el) {
+      el.style.display = 'none'
+    })
   }
 
   // Handle sidebar Hot news, Czechs at Tournaments on Homepage

@@ -2,7 +2,12 @@
   @include respondFrom(md) {
     margin-top: rem(32);
   }
-
+  iframe {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+  }
   &-header {
     .Date {
       margin-top: rem(24);
@@ -130,14 +135,30 @@
       }
 
       iframe {
-        width: 100%;
+        @include respondTo(sm) {
+          aspect-ratio: 320/520;
+          width: 100% !important;
+          margin-bottom: 0 !important;
+        }
       }
     }
 
-    .twitter-tweet {
+    .twitter-tweet,
+    .instagram-media {
       display: none;
+      margin-bottom: 0 !important;
+      min-width: auto !important;
     }
-
+    .YouTubeContainer iframe {
+      @include respondTo(sm) {
+        height: -webkit-fill-available !important;
+      }
+    }
+    .twitter-tweet iframe {
+      @include respondTo(sm) {
+        aspect-ratio: 1/1.9 !important;
+      }
+    }
     .YouTubeContainer {
       max-width: 100%;
       height: 0;
@@ -153,7 +174,7 @@
 
       iframe {
         width: 100%;
-        height: 100%;
+
         position: absolute;
         top: 0;
         left: 0;
@@ -193,6 +214,99 @@
       img {
         border-radius: 0;
       }
+    }
+  }
+}
+.Article-body .YouTubeContainer iframe {
+  height: 100%;
+}
+.Article-body .EmbedContainer {
+  margin-bottom: 1.5rem !important;
+}
+
+.Article-body .YouTubeContainer {
+  margin-bottom: 0 !important;
+}
+
+.Article-body .YouTubeContainer {
+  margin-bottom: 0 !important;
+}
+.Banner .adsbygoogle {
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+@media (max-width: 410px) {
+  .Banner .adsbygoogle {
+    margin-right: -18.75px !important;
+    margin-left: -18.75px !important;
+  }
+}
+
+.galleryArticle {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -10px;
+  margin-right: -10px;
+  &__item {
+    max-width: 33.333%;
+    flex: 0 0 33.333%;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    @include respondTo(sm) {
+      max-width: 50%;
+      flex: 0 0 50%;
+    }
+  }
+  a {
+    display: block;
+    width: 100%;
+    aspect-ratio: 320/240;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      background: rgba(#02602d, 0.8);
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: all 0.3s;
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      background-image: url('../img/icons/camera.svg');
+      background-size: 80px;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      z-index: 1;
+      opacity: 0;
+      transition: all 0.3s;
+    }
+    &:hover {
+      &::before,
+      &::after {
+        opacity: 1;
+      }
+    }
+    img {
+      transition: all 0.3s;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
   }
 }

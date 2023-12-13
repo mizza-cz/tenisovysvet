@@ -74,11 +74,13 @@
     column-gap: rem(10);
     font-size: rem(14);
     line-height: math.div(18, 14);
+    align-items: center;
   }
 
   &-players {
     display: flex;
     column-gap: rem(8);
+    flex-direction: column;
     @include respondTo(sm) {
       flex-wrap: wrap;
     }

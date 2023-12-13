@@ -21,11 +21,11 @@ Pro správné (ne)zobrazování vložených soc. médií je na nich nutné v HTM
 - Změna atributu `src` za `data-src`
 - Přidání atributů `data-cookiecategory="social" data-placeholder="data-placeholder"`
 
-### Twitter
+### Instagram, Twitter
 
-Do `script` doplnit `type="text/plain" data-cookiecategory="social"`
+Do `script` doplnit `async="async" type="text/plain" data-cookiecategory="social"`
 
-### Instagram, TikTok
+### TikTok
 
 Do `script` doplnit `charset="utf-8" type="text/plain" data-cookiecategory="social"`
 

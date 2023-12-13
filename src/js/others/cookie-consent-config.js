@@ -1,11 +1,10 @@
 window.cookieConsentSettings = {
   current_lang: 'cs',
-  autoclear_cookies: true, // default: false
-  theme_css: './css/cookie-consent.min.css',
+  autoclear_cookies: true,
   theme_css: isLocalhost
     ? './css/cookie-consent.min.css'
     : '/front/dist/css/cookie-consent.min.css',
-  page_scripts: true, // default: false
+  page_scripts: true,
   languages: {
     cs: {
       consent_modal: {
@@ -49,32 +48,15 @@ window.cookieConsentSettings = {
               readonly: true, // cookie categories with readonly=true are all treated as "necessary cookies"
             },
           },
-
           {
             title: 'Statistické cookies',
             description:
-              'Statistické cookies umožŘují majitelům webových stránek sledovat návštěvnost webových stránek. Anonymně sbírají a sdělují informace, které pomáhají k vylepšování obsahu stránek.',
+              'Statistické cookies umožňují majitelům webových stránek sledovat návštěvnost webových stránek. Anonymně sbírají a sdělují informace, které pomáhají k vylepšování obsahu stránek.',
             toggle: {
               value: 'analytics', // your cookie category
               enabled: false,
               readonly: false,
             },
-            /*cookie_table: [
-								// list of all expected cookies
-								{
-									col1: '^_ga', // match all cookies starting with "_ga"
-									col2: 'google.com',
-									col3: '2 years',
-									col4: 'description ...',
-									is_regex: true,
-								},
-								{
-									col1: '_gid',
-									col2: 'google.com',
-									col3: '1 day',
-									col4: 'description ...',
-								},
-							],*/
           },
           {
             title: 'Marketingové cookies',
@@ -89,7 +71,7 @@ window.cookieConsentSettings = {
           {
             title: 'Sociální média',
             description:
-              'Se souhlasem cookies sociálních médií se můžete připojit k vašim sociálním sítím a prostřednictvím nich sdílet obsah z naší webové stránky. Při vypnutí se nebude zobrazovat obsah ze sociálních sítí (Facebook, Twitter, Youtube a další).',
+              'Se souhlasem cookies sociálních médií se můžete připojit k vašim sociálním sítím a prostřednictvím nich sdílet obsah z naší webové stránky. Při vypnutí se nebude zobrazovat obsah ze sociálních sítí (Facebook, Twitter neboli X, YouTube, Instagram a další).',
             toggle: {
               value: 'social',
               enabled: false,
@@ -129,3 +111,93 @@ document.querySelectorAll('[data-cookie-placeholder]').forEach(function (el) {
     }
   })
 })
+
+const current_cookie = document.cookie
+
+function changed() {
+  var ccCookieValue = getCookieValue('cc_cookie')
+
+  try {
+    ccCookieData = JSON.parse(ccCookieValue)
+  } catch (e) {
+    ccCookieData = null
+  }
+
+  var expirationDate = new Date()
+  expirationDate.setDate(expirationDate.getDate() + 14)
+  var isAcceptAll = ccCookieData && ccCookieData.accept_all
+  var isMarketingCookies =
+    ccCookieData && ccCookieData.level.includes('targeting')
+
+  if (isAcceptAll || isMarketingCookies) {
+    document.cookie =
+      'cc_cookie_cancel=0; expires=' + expirationDate.toUTCString() + '; path=/'
+
+    document.querySelectorAll('.adsbygoogle').forEach(function (el) {
+      el.style.display = 'block'
+      el.style.overflow = 'visible'
+    })
+
+    document.querySelectorAll('.adsbygoogle-noablate').forEach(function (el) {
+      el.style.display = 'none'
+    })
+
+    localStorage.setItem('cookieConsentAccepted', 'true')
+  } else {
+    document.querySelectorAll('.adsbygoogle').forEach(function (el) {
+      el.style.display = 'none'
+    })
+
+    localStorage.setItem('cookieConsentAccepted', 'false')
+  }
+}
+document.querySelectorAll(' .adsbygoogle').forEach(function (el) {
+  el.style.display = 'none'
+})
+var initialCookies = document.cookie
+
+setInterval(function () {
+  var currentCookies = document.cookie
+
+  if (currentCookies !== initialCookies) {
+    initialCookies = currentCookies
+    changed()
+  }
+}, 500)
+
+document.addEventListener('DOMContentLoaded', function () {
+  var isCookieConsentAccepted = localStorage.getItem('cookieConsentAccepted')
+
+  if (isCookieConsentAccepted === 'true') {
+    document.querySelectorAll(' .adsbygoogle').forEach(function (el) {
+      el.style.display = 'block'
+    })
+  } else {
+    document.querySelectorAll(' .adsbygoogle').forEach(function (el) {
+      el.style.display = 'none'
+    })
+  }
+})
+
+document.addEventListener('click', function (event) {
+  var target = event.target
+
+  if (target.id === 'c-s-bn' || target.id === 's-rall-bn') {
+    buttonClickHandler()
+  }
+})
+
+function buttonClickHandler() {
+  var expirationDate = new Date()
+  expirationDate.setDate(expirationDate.getDate() + 14)
+  document.cookie =
+    'cc_cookie_cancel=1; expires=' + expirationDate.toUTCString() + '; path=/'
+}
+
+function getCookieValue(cookieName) {
+  var cookieValue = document.cookie.replace(
+    new RegExp('(?:(?:^|.*;\\s*)' + cookieName + '\\s*\\=\\s*([^;]*).*$)|^.*$'),
+    '$1',
+  )
+  return cookieValue ? decodeURIComponent(cookieValue) : null
+}

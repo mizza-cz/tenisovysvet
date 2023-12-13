@@ -6,7 +6,7 @@
   box-shadow: 0 2px 8px rgba(#000000, 5%);
   border-radius: $borderRadiusSecondary $borderRadiusSecondary 0 0;
   position: relative;
-
+  overflow-x: hidden;
   .Branding--top img {
     @include imgResponsive();
   }
@@ -32,3 +32,4 @@
     left: 100%;
   }
 }
+
