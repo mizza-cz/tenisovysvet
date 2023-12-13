@@ -21,7 +21,6 @@
       gap: 1rem;
     }
   }
-
   &-query,
   &-category {
     @include respondTo(sm) {
@@ -29,13 +28,11 @@
       min-width: 200px;
     }
   }
-
   &-query {
     @include respondFrom(md) {
       width: rem(335);
     }
   }
-
   &-category {
     @include respondFrom(md) {
       width: rem(232);
