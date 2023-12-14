@@ -2071,6 +2071,25 @@ html[data-theme=dark] .Header-navThemeSwitcher::after {
   color: #fff;
 }
 
+.lg-sub-html ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 14px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 12px;
+}
+
+.galleryArticle__img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+      user-select: none;
+  pointer-events: none;
+}
+
 .ArticleBox {
   position: relative;
 }

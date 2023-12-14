@@ -318,3 +318,18 @@
     color: #fff;
   }
 }
+.lg-sub-html {
+  ul {
+    display: flex;
+    font-size: 14px;
+    justify-content: center;
+    gap: 12px;
+  }
+}
+
+.galleryArticle__img {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  pointer-events: none;
+}
