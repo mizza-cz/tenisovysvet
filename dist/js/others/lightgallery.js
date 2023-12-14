@@ -20,11 +20,3 @@ var scroll = 'yes',
       $(document).scrollTop() > s && $(this).addClass('anime');
     });
   }));
-
-
-
-
-
-
-
-  
